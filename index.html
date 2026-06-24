@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katia E. Pérez · Hospitality & Luxury Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --burgundy:     #5C1A1A;
+      --burgundy-mid: #8B3A3A;
+      --burgundy-soft:#B06060;
+      --cream:        #F2E8DC;
+      --cream-dark:   #E8D9C8;
+      --ink:          #1A0A0A;
+      --ink-muted:    #4A3030;
+      --glass-bg:     rgba(242, 232, 220, 0.55);
+      --glass-border: rgba(92, 26, 26, 0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(242, 232, 220, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--burgundy);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--burgundy); }
+
+    .nav-cta {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--burgundy);
+      padding: 0.55rem 1.3rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--burgundy-mid); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 3rem;
+      padding-top: 5rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-accent {
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
+      background: radial-gradient(ellipse at 70% 30%, rgba(92,26,26,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy-mid);
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--burgundy);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      max-width: 44ch;
+      line-height: 1.8;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--burgundy);
+      padding: 0.8rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--burgundy-mid); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 0.8rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--burgundy-mid);
+      background: rgba(92,26,26,0.06);
+    }
+
+    .hero-langs {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 2.4rem;
+    }
+
+    .lang-chip {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy-mid);
+      background: rgba(92,26,26,0.07);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    /* Hero right: stats glass card */
+    .hero-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 2.4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 1.4rem;
+    }
+
+    .stat-item {}
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .stat-sub {
+      font-size: 0.72rem;
+      color: var(--burgundy-soft);
+      margin-top: 0.15rem;
+    }
+
+    .stat-divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: var(--glass-border);
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 6rem 3rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--burgundy-mid);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--burgundy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      max-width: 58ch;
+      line-height: 1.85;
+    }
+
+    /* ── EXPERTISE ── */
+    #expertise {
+      background: var(--burgundy);
+    }
+
+    #expertise .section-eyebrow { color: var(--burgundy-soft); }
+    #expertise .section-heading { color: var(--cream); }
+    #expertise .section-intro { color: rgba(242,232,220,0.6); }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 3.5rem;
+      background: rgba(242,232,220,0.1);
+      border: 1px solid rgba(242,232,220,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .exp-card {
+      background: rgba(242,232,220,0.04);
+      padding: 2.2rem 1.8rem;
+      transition: background 0.25s;
+      cursor: default;
+    }
+
+    .exp-card:hover { background: rgba(242,232,220,0.09); }
+
+    .exp-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+    }
+
+    .exp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.7rem;
+    }
+
+    .exp-body {
+      font-size: 0.78rem;
+      color: rgba(242,232,220,0.55);
+      line-height: 1.8;
+    }
+
+    /* ── TIMELINE / DESTINATIONS ── */
+    #destinations {
+      background: var(--cream-dark);
+    }
+
+    .timeline {
+      margin-top: 3.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--burgundy), rgba(92,26,26,0.15));
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 2rem;
+      padding: 0 0 3rem 0;
+      position: relative;
+    }
+
+    .tl-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .tl-dot {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      border: 2px solid var(--burgundy);
+      background: var(--cream-dark);
+      transition: background 0.2s;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .tl-item:hover .tl-dot {
+      background: var(--burgundy);
+    }
+
+    .tl-year {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--burgundy-soft);
+      margin-top: 0.45rem;
+      text-transform: uppercase;
+    }
+
+    .tl-content {
+      padding-top: 0;
+    }
+
+    .tl-property {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-role {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .tl-body {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      max-width: 56ch;
+    }
+
+    .tl-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .tl-tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--burgundy-mid);
+      border: 1px solid rgba(92,26,26,0.2);
+      background: rgba(242,232,220,0.7);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-left {}
+
+    .about-right {
+      padding-top: 3.5rem;
+    }
+
+    .about-body {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.9;
+      margin-top: 1.6rem;
+    }
+
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .about-list {
+      margin-top: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .about-list-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .about-list-item::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 1px;
+      background: var(--burgundy-soft);
+      margin-top: 0.7em;
+    }
+
+    /* About right: glass card */
+    .profile-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 2.4rem;
+    }
+
+    .profile-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 0.3rem;
+    }
+
+    .profile-card-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.78rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .meta-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .meta-key {
+      font-weight: 500;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .meta-val {
+      color: var(--burgundy);
+      font-weight: 400;
+      text-align: right;
+    }
+
+    /* ── EXIF / PROJECTS ── */
+    #projects {
+      background: var(--cream-dark);
+    }
+
+    .project-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 2.6rem;
+      margin-top: 2.8rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .project-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--burgundy);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-tagline {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-body {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 62ch;
+    }
+
+    .project-pillars {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .pillar {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .pillar::before {
+      content: '';
+      flex-shrink: 0;
+      width: 12px;
+      height: 1px;
+      background: var(--burgundy-soft);
+      margin-top: 0.6em;
+    }
+
+    .project-link {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      border: 1px solid var(--glass-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover {
+      background: rgba(92,26,26,0.06);
+      border-color: var(--burgundy-mid);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--burgundy);
+      text-align: center;
+      padding: 7rem 3rem;
+    }
+
+    #contact .section-eyebrow { color: var(--burgundy-soft); }
+
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      max-width: 18ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-sub {
+      font-size: 0.88rem;
+      color: rgba(242,232,220,0.55);
+      max-width: 44ch;
+      margin: 0 auto 2.4rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.85rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .contact-btn-light {
+      background: var(--cream);
+      color: var(--burgundy);
+    }
+
+    .contact-btn-light:hover { background: var(--cream-dark); }
+
+    .contact-btn-outline {
+      border: 1px solid rgba(242,232,220,0.3);
+      color: var(--cream);
+    }
+
+    .contact-btn-outline:hover { border-color: rgba(242,232,220,0.7); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A0505;
+      padding: 1.8rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: rgba(242,232,220,0.4);
+    }
+
+    .footer-right {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(242,232,220,0.25);
+    }
+
+    /* ── AVAILABILITY BADGE ── */
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2D6A4F;
+      background: rgba(45,106,79,0.1);
+      border: 1px solid rgba(45,106,79,0.25);
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.2rem;
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #52b788;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* ── SCROLL FADE ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.4rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 1.4rem 3rem; gap: 2.4rem; }
+      .hero-card { grid-template-columns: 1fr 1fr; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 4rem 1.4rem; }
+      #about { grid-template-columns: 1fr; gap: 2.4rem; }
+      .about-right { padding-top: 0; }
+      .project-card { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+
+    @media (max-width: 580px) {
+      .expertise-grid { grid-template-columns: 1fr; }
+      .hero-card { grid-template-columns: 1fr 1fr; }
+      .project-pillars { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      .avail-dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Katia E. Pérez</a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#destinations">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-accent"></div>
+
+    <div class="hero-left fade-in">
+      <div class="avail-badge">
+        <span class="avail-dot"></span>
+        Open to opportunities
+      </div>
+      <div class="hero-tag">Hospitality &amp; Luxury Travel</div>
+      <h1 class="hero-name">Katia<br /><em>E. Pérez</em></h1>
+      <p class="hero-title">Business Development &amp; Operations · Caribbean</p>
+      <p class="hero-desc">
+        Three years building sales operations, leading teams and delivering high-value guest experiences across six resort properties in the Caribbean. I work where hospitality meets strategy.
+      </p>
+      <div class="hero-actions">
+        <a href="#destinations" class="btn-primary">View Experience</a>
+        <a href="#contact" class="btn-ghost">Let's connect</a>
+      </div>
+      <div class="hero-langs">
+        <span class="lang-chip">Español · Native</span>
+        <span class="lang-chip">English · C1</span>
+        <span class="lang-chip">Français · B2</span>
+      </div>
+    </div>
+
+    <div class="hero-card fade-in" style="transition-delay: 0.15s;">
+      <div class="stat-item">
+        <div class="stat-value">$60K</div>
+        <div class="stat-label">Monthly Revenue</div>
+        <div class="stat-sub">Managed at peak</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Properties</div>
+        <div class="stat-sub">MX · LC · GD · JM</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-value">5+</div>
+        <div class="stat-label">Team Size</div>
+        <div class="stat-sub">Led &amp; trained</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">2.5</div>
+        <div class="stat-label">Years to Senior</div>
+        <div class="stat-sub">Photographer to Mgr</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" style="grid-column: 1 / -1;">
+        <div class="stat-value" style="font-size: 1.5rem;">$200 – $2K+</div>
+        <div class="stat-label">Transaction Range</div>
+        <div class="stat-sub">Direct consultative sales per guest interaction</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <p class="section-eyebrow fade-in">What I bring</p>
+    <h2 class="section-heading fade-in">Six pillars,<br /><em>one direction.</em></h2>
+    <p class="section-intro fade-in">I've built my career at the intersection of guest experience and commercial performance. Here's where those things live.</p>
+
+    <div class="expertise-grid">
+      <div class="exp-card fade-in">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Sales &amp; Revenue Generation</div>
+        <p class="exp-body">Direct consultative sales to international guests. Closing high-ticket packages, upselling in-experience, and building the daily habits that compound into $40–60K months.</p>
+      </div>
+      <div class="exp-card fade-in" style="transition-delay:0.05s;">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Guest Experience &amp; Luxury Service</div>
+        <p class="exp-body">Years of daily contact with high-net-worth travelers across honeymoon, leisure and wedding segments. I know what makes a luxury guest feel seen, and what makes them spend.</p>
+      </div>
+      <div class="exp-card fade-in" style="transition-delay:0.1s;">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Team Leadership &amp; Training</div>
+        <p class="exp-body">Managed multicultural teams of 5+, designed a 4-level progression framework with performance logbooks, and ran full recruitment cycles from interview to onboarding to evaluation.</p>
+      </div>
+      <div class="exp-card fade-in" style="transition-delay:0.15s;">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Destination &amp; Market Knowledge</div>
+        <p class="exp-body">On-the-ground experience across Mexico, Saint Lucia, Grenada and Jamaica. I understand how different Caribbean markets position themselves, who their guests are and what drives their decisions.</p>
+      </div>
+      <div class="exp-card fade-in" style="transition-delay:0.2s;">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Business Development</div>
+        <p class="exp-body">Built a commercial proposition from scratch with EXIF Studio: market research, pricing strategy, outreach pipelines and prospecting across boutique hotels and luxury villas.</p>
+      </div>
+      <div class="exp-card fade-in" style="transition-delay:0.25s;">
+        <span class="exp-icon">◈</span>
+        <div class="exp-title">Cross-Cultural Communication</div>
+        <p class="exp-body">Trilingual in Spanish, English and French. Routinely manage high-stakes guest situations across North American, European and Latin American clientele in fast-paced, high-expectation environments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS / TIMELINE -->
+  <section id="destinations">
+    <p class="section-eyebrow fade-in">Caribbean footprint</p>
+    <h2 class="section-heading fade-in">Six properties.<br /><em>Four markets.</em></h2>
+    <p class="section-intro fade-in">Every role has added a new market, a new guest profile and a new set of commercial challenges. Here's the full picture.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-property">Royalton Saint Lucia</div>
+          <div class="tl-role">Senior Operations &amp; Sales Manager · Nov 2025 – Present</div>
+          <p class="tl-body">Overseeing daily sales operations and a team of 5+ in one of Saint Lucia's flagship all-inclusive properties. Managing direct revenue, KPI tracking, full-cycle recruitment and wedding coordination in collaboration with hotel departments. Designed a 4-level career progression framework with bilateral performance logbooks that has changed how the team is evaluated and developed.</p>
+          <div class="tl-tags">
+            <span class="tl-tag">Sales Leadership</span>
+            <span class="tl-tag">Team Management</span>
+            <span class="tl-tag">Revenue Ops</span>
+            <span class="tl-tag">Wedding Coordination</span>
+            <span class="tl-tag">Recruitment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-property">Catalonia Costa Mujeres</div>
+          <div class="tl-role">Operations &amp; Sales Manager · Sep 2025 – Oct 2025</div>
+          <p class="tl-body">Short-term operational deployment at Catalonia's flagship Mexican property. Maintained sales performance and team operations during a transitional period, bringing the same frameworks and service standards developed across the Caribbean.</p>
+          <div class="tl-tags">
+            <span class="tl-tag">Operations</span>
+            <span class="tl-tag">Sales Management</span>
+            <span class="tl-tag">Mexico Market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-property">Royalton Negril &amp; RIU Palace Aquarelle</div>
+          <div class="tl-role">Operations &amp; Sales Manager · Dec 2024 – Aug 2025 · Jamaica</div>
+          <p class="tl-body">Dual-property experience in Jamaica's competitive luxury all-inclusive market. Managed guest sales, team performance and daily operations across two distinct properties, adapting to different brand standards and guest profiles within the same market.</p>
+          <div class="tl-tags">
+            <span class="tl-tag">Jamaica Market</span>
+            <span class="tl-tag">Multi-property</span>
+            <span class="tl-tag">Guest Sales</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-property">Royalton Grenada</div>
+          <div class="tl-role">Operations Manager · Jun 2024 – Nov 2024 · Grenada</div>
+          <p class="tl-body">Managed operations at Royalton's Grenada property, one of the Eastern Caribbean's more boutique luxury markets. Developed a refined understanding of destination positioning, the difference between a destination-driven guest and a resort-driven guest, and how that changes the sales conversation entirely.</p>
+          <div class="tl-tags">
+            <span class="tl-tag">Grenada Market</span>
+            <span class="tl-tag">Boutique Luxury</span>
+            <span class="tl-tag">Ops Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-property">Royalton Saint Lucia · Catalonia Playa Maroma</div>
+          <div class="tl-role">Team Lead &amp; Resort Photographer · May 2023 – May 2024</div>
+          <p class="tl-body">Where it started. First exposure to luxury resort operations in Saint Lucia and Mexico, moving quickly from photographer to Team Lead. Learning what it means to sell a premium experience to a guest who has already spent thousands to be there, and finding that the thing that closes is trust, not pitch.</p>
+          <div class="tl-tags">
+            <span class="tl-tag">First Leadership Role</span>
+            <span class="tl-tag">Saint Lucia</span>
+            <span class="tl-tag">Mexico</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-left fade-in">
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-heading">The person<br /><em>behind the track record.</em></h2>
+      <div class="about-body">
+        <p>I'm a 25-year-old Mexican professional with three years of on-the-ground experience across the Caribbean luxury market. My background is in sales, operations and team leadership, and I've built most of what I know inside fast-moving, high-expectation resort environments where the margin for error is low and the standard for service is non-negotiable.</p>
+        <p>I think commercially. I care about guest experience not because it's a nice thing to say, but because I've seen directly how it translates into revenue, retention and reputation. I've managed teams, designed systems, run recruitment cycles and closed high-value sales, often on the same day.</p>
+        <p>I'm building toward roles in luxury travel consulting, hotel technology, destination management and commercial partnerships. I'm particularly drawn to companies that take their product seriously and need someone who understands the hospitality world from the inside, not just from a spreadsheet.</p>
+        <p>Trilingual, adaptable, and genuinely energized by the complexity of working across cultures and markets. That part has never felt like work.</p>
+      </div>
+      <ul class="about-list" style="margin-top: 1.8rem;">
+        <li class="about-list-item">Currently based in Saint Lucia · Relocating late 2026</li>
+        <li class="about-list-item">Background in Film &amp; TV Studies · CENTRO, Mexico City</li>
+        <li class="about-list-item">International academic experience · France, Switzerland, Italy</li>
+        <li class="about-list-item">Founder, EXIF Studio · hospitality-focused visual and commercial studio</li>
+      </ul>
+    </div>
+
+    <div class="about-right fade-in" style="transition-delay:0.1s;">
+      <div class="profile-card">
+        <div class="profile-card-name">Katia E. Pérez</div>
+        <div class="profile-card-title">Business Development &amp; Hospitality Sales</div>
+        <div class="profile-meta">
+          <div class="meta-row">
+            <span class="meta-key">Location</span>
+            <span class="meta-val">Caribbean · Mexico</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Markets</span>
+            <span class="meta-val">MX · LC · GD · JM</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Languages</span>
+            <span class="meta-val">ES · EN · FR</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Experience</span>
+            <span class="meta-val">3+ years luxury hospitality</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Segment</span>
+            <span class="meta-val">Luxury all-inclusive &amp; boutique</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Guest profile</span>
+            <span class="meta-val">HNW, honeymoon, international leisure</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Interests</span>
+            <span class="meta-val">Luxury travel · Hotel tech · Destinations</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Status</span>
+            <span class="meta-val" style="color: #2D6A4F;">Open to opportunities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-eyebrow fade-in">Projects</p>
+    <h2 class="section-heading fade-in">Beyond the<br /><em>day job.</em></h2>
+    <p class="section-intro fade-in">The things I've built outside of formal employment, because I wanted to understand more of the picture.</p>
+
+    <div class="project-card fade-in">
+      <div>
+        <div class="project-label">Founder · 2025 – Present</div>
+        <div class="project-name">EXIF Studio</div>
+        <div class="project-tagline">A hospitality-focused visual content and commercial studio for hotels, villas and tourism brands across the Caribbean.</div>
+        <p class="project-body">
+          EXIF started as a question: what would it look like to bring editorial-quality visual content to the kinds of properties I've been working in, built specifically around how those properties sell themselves to guests who expect more than a catalog photo? Answering that question meant building a commercial proposition from zero: defining the market, writing the pricing architecture, running outreach, managing early-stage client conversations and developing a brand identity that could stand next to the properties it serves.
+        </p>
+        <p class="project-body" style="margin-top: 0.9rem;">
+          The result is a studio built for boutique luxury. More importantly, it gave me a full-cycle look at B2B sales in the hospitality space, which turns out to be a completely different conversation from selling to a guest standing in front of you at a resort.
+        </p>
+        <div class="project-pillars">
+          <div class="pillar">Commercial proposition design</div>
+          <div class="pillar">Pricing strategy</div>
+          <div class="pillar">B2B outreach &amp; prospecting</div>
+          <div class="pillar">Brand &amp; positioning</div>
+          <div class="pillar">Market research</div>
+          <div class="pillar">Client relationship management</div>
+        </div>
+      </div>
+      <div>
+        <a href="https://exif.studio" target="_blank" rel="noopener" class="project-link">View Studio ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-eyebrow fade-in">Contact</p>
+    <h2 class="contact-heading fade-in">Let's find<br /><em>the right fit.</em></h2>
+    <p class="contact-sub fade-in">Open to conversations about luxury travel, hotel technology, destination management and commercial development. If you're building something ambitious in this space, I'd like to hear about it.</p>
+    <div class="contact-links fade-in">
+      <a href="mailto:pmtzk@icloud.com" class="contact-btn contact-btn-light">Email me</a>
+      <a href="https://linkedin.com/in/pmtzk" target="_blank" rel="noopener" class="contact-btn contact-btn-outline">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Katia E. Pérez</div>
+    <div class="footer-right">Hospitality · Travel · Caribbean · 2026</div>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    faders.forEach(f => observer.observe(f));
+  </script>
+
+</body>
+</html>
