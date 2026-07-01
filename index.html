@@ -3,527 +3,309 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Katia E. Pérez works across hospitality commercial operations, consultative sales, visual strategy and creative production.">
-  <title>Katia E. Pérez | Commercial and creative thinking for hospitality</title>
+  <meta name="description" content="Katia E. Pérez — hospitality commercial leadership, visual communication and brand thinking.">
+  <title>Katia E. Pérez — Hospitality commercial and creative work</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:#f3f1eb;
-      --paper:#fbfaf6;
-      --ink:#181816;
-      --muted:#66635d;
-      --line:#d5d1c8;
-      --soft:#e9e5dc;
-      --serif:"Source Serif 4",Georgia,serif;
-      --sans:"Manrope",Arial,sans-serif;
-      --max:1240px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
-    body.locked{overflow:hidden}
-    img{display:block;width:100%;height:auto}
-    a{color:inherit}
-    button{font:inherit;color:inherit}
-    .skip{position:fixed;left:12px;top:12px;z-index:1000;transform:translateY(-160%);background:var(--ink);color:#fff;padding:.7rem 1rem}
-    .skip:focus{transform:none}
-    .header{position:sticky;top:0;z-index:30;background:rgba(243,241,235,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(24,24,22,.12)}
-    .nav{max-width:var(--max);margin:auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;gap:24px}
-    .brand{text-decoration:none;font-weight:700;letter-spacing:-.03em}
-    .navlinks{display:flex;gap:22px;align-items:center}
-    .navlinks a{text-decoration:none;font-size:.82rem;font-weight:600;color:var(--muted)}
-    .navlinks a:hover,.navlinks a:focus-visible{color:var(--ink)}
-    .section{max-width:var(--max);margin:auto;padding:108px 28px}
-    .kicker{margin:0 0 24px;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-    .hero{min-height:78vh;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:end;padding-top:130px;padding-bottom:92px}
-    .hero h1{margin:0;font-family:var(--serif);font-size:clamp(4rem,8vw,8.2rem);line-height:.9;letter-spacing:-.055em;font-weight:600}
-    .hero-copy{max-width:540px;padding-bottom:8px}
-    .hero-copy p{margin:0;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.65}
-    .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:32px}
-    .tag{border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:.75rem;font-weight:600;background:rgba(255,255,255,.22)}
-
-    .pathways{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .pathway{border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:transparent;padding:0;text-align:left;cursor:pointer;min-height:520px;display:flex;flex-direction:column}
-    .pathway-media{height:300px;overflow:hidden;background:var(--soft)}
-    .pathway-media img{height:100%;object-fit:cover;transition:transform .5s ease}
-    .pathway:hover img{transform:scale(1.025)}
-    .pathway-body{padding:24px;display:flex;flex:1;flex-direction:column}
-    .pathway-number{font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-    .pathway h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,3vw,3.4rem);letter-spacing:-.035em;line-height:1;margin:48px 0 14px}
-    .pathway p{margin:0;color:var(--muted);max-width:34ch}
-    .pathway .arrow{margin-top:auto;padding-top:28px;font-weight:700}
-
-    .commercial-visual{
-      padding:24px;
-      background:var(--ink);
-      color:#f2efe7;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:18px;
-    }
-    .commercial-stat{
-      display:grid;
-      gap:2px;
-      padding-bottom:16px;
-      border-bottom:1px solid rgba(255,255,255,.16);
-    }
-    .commercial-stat:last-child{border-bottom:0;padding-bottom:0}
-    .commercial-stat strong{
-      font-family:var(--serif);
-      font-size:clamp(1.35rem,2vw,2.1rem);
-      line-height:1;
-      font-weight:600;
-    }
-    .commercial-stat small{
-      color:#bdb8ae;
-      font-size:.7rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-
-    .about-grid{display:grid;grid-template-columns:.66fr 1.34fr;gap:80px;align-items:start}
-    .facts{display:grid;gap:42px;position:sticky;top:110px}
-    .fact h3{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
-    .fact p{margin:0;max-width:32ch}
-    .about-copy{font-family:var(--serif);font-size:clamp(1.65rem,2.6vw,2.65rem);line-height:1.25;letter-spacing:-.025em}
-    .about-copy p{margin:0 0 1.2em}
-    .experience{margin-top:78px;border-top:1px solid var(--line)}
-    .role{display:grid;grid-template-columns:180px 1fr 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
-    .date,.org{color:var(--muted)}
-    .title{font-weight:700}
-
-    .cv-panel{background:var(--ink);color:#f2efe7;padding:58px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
-    .cv-panel h2{font-family:var(--serif);font-size:clamp(2.8rem,5vw,5.8rem);letter-spacing:-.045em;line-height:.95;margin:0 0 16px}
-    .cv-panel p{max-width:58ch;color:#c9c4ba}
-    .cv-btn{border:1px solid #f2efe7;text-decoration:none;padding:14px 18px;font-weight:700;white-space:nowrap}
-
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
-    .contact h2{font-family:var(--serif);font-size:clamp(3.8rem,8vw,8rem);line-height:.9;letter-spacing:-.05em;margin:0}
-    .contact-list{border-top:1px solid var(--line)}
-    .contact-row{display:flex;justify-content:space-between;gap:28px;padding:18px 0;border-bottom:1px solid var(--line)}
-    .contact-row span:first-child{color:var(--muted)}
-    .available{display:inline-flex;align-items:center;gap:9px;font-weight:700}
-    .dot{width:9px;height:9px;border-radius:50%;background:#547a53;box-shadow:0 0 0 4px rgba(84,122,83,.14)}
-    footer{max-width:var(--max);margin:auto;padding:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:.78rem}
-
-    .overlay{position:fixed;inset:0;z-index:100;display:none;background:rgba(15,15,13,.48);padding:20px}
-    .overlay.open{display:grid;place-items:center}
-    .panel{width:min(1200px,100%);max-height:calc(100vh - 40px);overflow:auto;background:var(--paper);box-shadow:0 30px 90px rgba(0,0,0,.28)}
-    .bar{position:sticky;top:0;z-index:5;background:rgba(251,250,246,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:17px 24px;display:flex;justify-content:space-between;align-items:center}
-    .bar span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-    .close{border:0;background:none;cursor:pointer;font-weight:700}
-    .overlay-hero{padding:68px 40px 38px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:end}
-    .overlay-hero h2{font-family:var(--serif);font-size:clamp(4rem,8vw,8rem);line-height:.88;letter-spacing:-.055em;margin:0}
-    .overlay-hero p{margin:0;color:var(--muted)}
-    .cover{margin:0 40px;aspect-ratio:16/8;overflow:hidden;background:var(--soft)}
-    .cover img{height:100%;object-fit:cover}
-    .content{padding:68px 40px 90px;display:grid;gap:76px}
-    .split{display:grid;grid-template-columns:.62fr 1.38fr;gap:56px}
-    .split h3{margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-    .lead{font-family:var(--serif);font-size:clamp(1.45rem,2.3vw,2.35rem);line-height:1.3;letter-spacing:-.02em}
-    .lead p{margin-top:0}
-    .case-gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .case-gallery figure{margin:0;overflow:hidden;background:var(--soft)}
-    .case-gallery img{height:100%;object-fit:cover}
-    .cg1{grid-column:span 7;aspect-ratio:7/5}.cg2{grid-column:span 5;aspect-ratio:5/6}
-    .cg3{grid-column:span 4;aspect-ratio:4/5}.cg4{grid-column:span 8;aspect-ratio:8/5}
-    .pillars{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .pillar{padding:24px;min-height:180px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .pillar span{display:block;color:var(--muted);font-size:.72rem;margin-bottom:42px}
-    .pillar strong{font-family:var(--serif);font-size:1.7rem;font-weight:600}
-    .deliverables{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .deliverable{background:var(--soft);padding:26px;min-height:145px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-    .deliverable strong{font-family:var(--serif);font-size:1.65rem}
-    .deliverable small{color:var(--muted)}
-    .deliverable.feature{grid-column:span 2;min-height:310px;background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.12)),url("case-restaurant-table.jpg") center/cover;color:white}
-    .disclaimer{padding-top:28px;border-top:1px solid var(--line);color:var(--muted);font-size:.87rem}
-
-    .exif-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .exif-card{background:var(--soft);padding:30px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
-    .exif-card h3{font-family:var(--serif);font-size:2rem;line-height:1.05;margin:0}
-    .exif-card p{margin:30px 0 0;color:var(--muted)}
-    .exif-brand-board{background:var(--soft);overflow:hidden}
-    .exif-brand-board img{width:100%;height:auto;display:block}
-
-    
-    .commercial-summary{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      border-top:1px solid var(--line);
-      border-left:1px solid var(--line);
-    }
-    .commercial-summary div{
-      min-height:170px;
-      padding:24px;
-      border-right:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:24px;
-    }
-    .commercial-summary strong{
-      font-family:var(--serif);
-      font-size:clamp(1.7rem,3vw,3.1rem);
-      line-height:1;
-      font-weight:600;
-    }
-    .commercial-summary span{
-      color:var(--muted);
-      font-size:.74rem;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-    }
-
-    .tabs{display:flex;gap:12px;border-bottom:1px solid var(--line);padding:0 40px}
-    .tab{border:0;background:none;padding:18px 0;margin-right:24px;cursor:pointer;font-weight:700;color:var(--muted);border-bottom:2px solid transparent}
-    .tab.active{color:var(--ink);border-bottom-color:var(--ink)}
-    .tab-panel{display:none}
-    .tab-panel.active{display:block}
-    .photo-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .photo-grid figure{margin:0;overflow:hidden;background:var(--soft)}
-    .photo-grid img{height:100%;object-fit:cover}
-    .ph1{grid-column:span 7;aspect-ratio:7/5}.ph2{grid-column:span 5;aspect-ratio:5/6}
-    .ph3{grid-column:span 4;aspect-ratio:4/5}.ph4{grid-column:span 8;aspect-ratio:8/5}
-    .ph5{grid-column:span 6;aspect-ratio:1/1}.ph6{grid-column:span 6;aspect-ratio:1/1}
-    .ph7{grid-column:span 5;aspect-ratio:5/6}.ph8{grid-column:span 7;aspect-ratio:7/5}
-    .ph9{grid-column:span 12;aspect-ratio:16/8}
-    .design-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .design-card{min-height:330px;padding:28px;background:var(--soft);display:flex;flex-direction:column;justify-content:space-between}
-    .design-card.dark{background:#1b1b19;color:#f4f0e8}
-    .design-card.cream{background:#e8ddcf}
-    .design-card.green{background:#193a36;color:#ede4d7}
-    .design-card h3{font-family:var(--serif);font-size:clamp(2.2rem,4vw,4.5rem);line-height:.95;letter-spacing:-.04em;margin:0}
-    .design-card p{max-width:40ch;margin:28px 0 0;color:inherit;opacity:.72}
-    .design-card .meta{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
-    .design-card.wide{grid-column:span 2;min-height:420px}
-
-    @media(max-width:900px){
-      .navlinks a:not(:last-child){display:none}
-      .section{padding:84px 20px}
-      .hero,.about-grid,.contact,.overlay-hero,.split{grid-template-columns:1fr}
-      .hero{min-height:auto;gap:44px;padding-top:100px}
-      .pathways{grid-template-columns:repeat(2,1fr)}
-      .pathway{min-height:auto}
-      .pathway-media{height:320px}
-      .facts{position:static;grid-template-columns:repeat(2,1fr)}
-      .role{grid-template-columns:120px 1fr}.role .org{grid-column:2}
-      .cv-panel{grid-template-columns:1fr;padding:36px 24px}
-      .cover{margin:0 20px}
-      .overlay-hero,.content{padding-left:20px;padding-right:20px}
-      .pillars{grid-template-columns:repeat(2,1fr)}
-      .commercial-summary{grid-template-columns:repeat(2,1fr)}
-      .exif-brand-board{grid-template-columns:1fr}
-    }
-    @media(max-width:640px){
-      .nav{padding:16px 18px}
-      .hero h1{font-size:clamp(3.6rem,18vw,5.4rem)}
-      .facts,.exif-grid,.design-grid,.pathways,.commercial-summary{grid-template-columns:1fr}
-      .role{grid-template-columns:1fr;gap:6px}.role .org{grid-column:auto}
-      .contact-row{flex-direction:column;gap:6px}
-      .overlay{padding:0}.panel{max-height:100vh}
-      .case-gallery,.photo-grid{gap:10px}
-      .cg1,.cg2,.cg3,.cg4,.ph1,.ph2,.ph3,.ph4,.ph5,.ph6,.ph7,.ph8,.ph9{grid-column:span 12;aspect-ratio:4/5}
-      .pillars,.deliverables{grid-template-columns:1fr}
-      .deliverable.feature,.design-card.wide{grid-column:auto}
-      .tabs{padding:0 20px}
-      footer{padding:24px 20px;flex-direction:column}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="header">
-  <nav class="nav" aria-label="Primary">
-    <a class="brand" href="#home">pmtzk.co • Katia E. Perez</a>
-    <div class="navlinks">
-      <a href="#selected">Work</a>
-      <a href="#about">About</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
-    </div>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<div class="progress-rail" aria-hidden="true">
+  <span class="progress-line"></span>
+  <span class="progress-label">01 / 05</span>
+</div>
+
+<header class="site-header">
+  <a class="brand" href="#home">pmtzk.co</a>
+  <nav class="top-nav" aria-label="Primary">
+    <a href="#work" data-i18n="navWork">Work</a>
+    <a href="#profile" data-i18n="navProfile">Profile</a>
+    <a href="#value" data-i18n="navValue">Value</a>
+    <a href="#contact" data-i18n="navContact">Contact</a>
   </nav>
+  <div class="language" aria-label="Language">
+    <button class="active" type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="es" aria-pressed="false">ES</button>
+  </div>
 </header>
 
 <main id="main">
-  <section class="section hero" id="home">
-    <div>
-      <p class="kicker">Commercial operations · Creative strategy · Hospitality</p>
-      <h1>Hospitality, understood from the inside</h1>
-    </div>
+  <section class="scene hero" id="home" data-scene="01">
+    <div class="hero-index">01</div>
     <div class="hero-copy">
-      <p>My experience spans consultative sales, commercial operations, team leadership and visual strategy across six resort properties in Mexico and the Caribbean. I understand both how hospitality is sold and how it is communicated.</p>
-      <div class="tags">
-        <span class="tag">Commercial Operations</span><span class="tag">Consultative Sales</span><span class="tag">Team Leadership</span><span class="tag">Content Strategy</span><span class="tag">Visual Direction</span>
+      <p class="eyebrow" data-i18n="heroEyebrow">Hospitality · Commercial systems · Visual communication</p>
+      <h1 data-i18n="heroTitle">Hospitality commercial leader turning guest insight into sales, systems and visual communication.</h1>
+    </div>
+
+    <div class="hero-aside">
+      <p class="hero-thesis" data-i18n="heroThesis">Interested in how places are seen, understood and sold.</p>
+
+      <div class="hero-sequence">
+        <p data-i18n="hero1">Across six resort properties in Mexico and the Caribbean, I progressed from photographer to Regional Manager.</p>
+        <p data-i18n="hero2">I built the sales systems, pricing structures, training and performance tools that helped local teams turn guest interest into revenue.</p>
+        <p data-i18n="hero3">Now I bring that commercial and visual understanding to marketing, partnerships, client services and account growth.</p>
+      </div>
+
+      <a class="next-link" href="#work">
+        <span data-i18n="enterWork">Enter selected work</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="scene work-scene" id="work" data-scene="02">
+    <div class="section-number">02</div>
+    <header class="section-heading">
+      <p class="eyebrow" data-i18n="workEyebrow">Selected work</p>
+      <h2 data-i18n="workTitle">Commercial systems, hospitality positioning and visual execution.</h2>
+      <p data-i18n="workIntro">Each project answers a different question about how I work.</p>
+    </header>
+
+    <div class="work-list">
+      <button class="work-row" data-open="commercial">
+        <span class="work-meta">01 · <span data-i18n="work1Meta">Commercial systems</span></span>
+        <span class="work-title" data-i18n="work1Title">Making resort sales repeatable.</span>
+        <span class="work-proof">
+          <strong>+200k usd</strong>
+          <small data-i18n="work1Proof">team sales over seven months</small>
+        </span>
+        <span class="work-action" data-i18n="openCase">Open case</span>
+      </button>
+
+      <button class="work-row image-row" data-open="visual">
+        <span class="work-meta">02 · <span data-i18n="work2Meta">Brand marketing</span></span>
+        <span class="work-title" data-i18n="work2Title">The property had a story. Its images were not telling it.</span>
+        <span class="work-thumb"><img src="case-restaurant-table.jpg" alt=""></span>
+        <span class="work-action" data-i18n="openCase">Open case</span>
+      </button>
+
+      <button class="work-row image-row" data-open="exif">
+        <span class="work-meta">03 · <span data-i18n="work3Meta">Brand strategy & website</span></span>
+        <span class="work-title" data-i18n="work3Title">Building EXIF from positioning to live website.</span>
+        <span class="work-thumb"><img src="exif-brand-system.jpg" alt=""></span>
+        <span class="work-action" data-i18n="openCase">Open case</span>
+      </button>
+
+      <button class="work-row image-row" data-open="portfolio">
+        <span class="work-meta">04 · <span data-i18n="work4Meta">Photography & design</span></span>
+        <span class="work-title" data-i18n="work4Title">Building visual judgment through hospitality.</span>
+        <span class="work-thumb"><img src="photo-street-portrait.jpg" alt=""></span>
+        <span class="work-action" data-i18n="openCase">Open case</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="scene profile-scene" id="profile" data-scene="03">
+    <div class="section-number">03</div>
+
+    <div class="profile-statement">
+      <p class="eyebrow" data-i18n="profileEyebrow">What the work taught me</p>
+      <h2 data-i18n="profileTitle">The image, the interaction and the sale were never separate.</h2>
+    </div>
+
+    <div class="profile-grid">
+      <div class="profile-copy">
+        <p data-i18n="profile1">A stronger photograph changed the conversation.</p>
+        <p data-i18n="profile2">A clearer approach made guests more willing to participate.</p>
+        <p data-i18n="profile3">A better-trained team created more consistent results.</p>
+        <p class="profile-close" data-i18n="profile4">I understand hospitality through the way places are presented, experienced and sold.</p>
+      </div>
+
+      <div class="profile-facts">
+        <article>
+          <span data-i18n="factProfile">Profile</span>
+          <p data-i18n="factProfileCopy">Hospitality commercial and creative professional with 3+ years across resort properties in Mexico and the Caribbean.</p>
+        </article>
+        <article>
+          <span data-i18n="factLanguages">Languages</span>
+          <p data-i18n="factLanguagesCopy">Spanish native · English C1 · French B2</p>
+        </article>
+        <article>
+          <span data-i18n="factMarkets">Markets</span>
+          <p data-i18n="factMarketsCopy">Mexico · Saint Lucia · Grenada · Jamaica</p>
+        </article>
+        <article>
+          <span data-i18n="factSkills">Core skills</span>
+          <p data-i18n="factSkillsCopy">Consultative sales · Commercial systems · Team training · Client experience · Visual communication</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="selected">
-    <p class="kicker">Selected work</p>
-    <div class="pathways">
-      <button class="pathway" data-open="commercial">
-        <span class="pathway-media commercial-visual" aria-hidden="true">
-          <span class="commercial-stat"><strong>40000 to 60000 usd</strong><small>monthly team revenue supported</small></span>
-          <span class="commercial-stat"><strong>250+</strong><small>monthly transactions</small></span>
-          <span class="commercial-stat"><strong>6 properties</strong><small>Mexico and Caribbean</small></span>
-        </span>
-        <span class="pathway-body">
-          <span class="pathway-number">01 · Commercial case</span>
-          <h2>Building a Commercial Operating System</h2>
-          <p>Sales structure, KPI tracking, team development and operational coordination inside a resort environment.</p>
-          <span class="arrow">View full study →</span>
-        </span>
-      </button>
-      <button class="pathway" data-open="case">
-        <span class="pathway-media"><img src="case-restaurant-table.jpg" alt="Restaurant table in warm afternoon light"></span>
-        <span class="pathway-body">
-          <span class="pathway-number">02 · Creative case</span>
-          <h2>Hotel Visual Reset</h2>
-          <p>A strategy exercise that turns a property’s strongest commercial differentiator into a usable content system.</p>
-          <span class="arrow">View full study →</span>
-        </span>
-      </button>
-      <button class="pathway" data-open="exif">
-        <span class="pathway-media"><img src="case-tropical-garden.jpg" alt="Dense tropical garden"></span>
-        <span class="pathway-body">
-          <span class="pathway-number">03 · Brand &amp; Web</span>
-          <h2>EXIF Studio</h2>
-          <p>Brand strategy, identity design, website architecture and interface direction for a hospitality practice.</p>
-          <span class="arrow">View project →</span>
-        </span>
-      </button>
-      <button class="pathway" data-open="portfolio">
-        <span class="pathway-media"><img src="photo-street-portrait.jpg" alt="Street photograph of a man walking"></span>
-        <span class="pathway-body">
-          <span class="pathway-number">04 · Portfolio</span>
-          <h2>Photography &amp; Design</h2>
-          <p>Selected work across hospitality, people, events, environments and self-directed visual systems.</p>
-          <span class="arrow">View portfolio →</span>
-        </span>
-      </button>
-    </div>
-  </section>
+  <section class="scene value-scene" id="value" data-scene="04">
+    <div class="section-number">04</div>
+    <div class="value-layout">
+      <header>
+        <p class="eyebrow" data-i18n="valueEyebrow">How I add value</p>
+        <h2 data-i18n="valueTitle">One direction. Five applications.</h2>
+        <p data-i18n="valueIntro">My direction is clear: helping hospitality brands grow through stronger marketing, partnerships and client relationships.</p>
+      </header>
 
-  <section class="section" id="about">
-    <p class="kicker">About</p>
-    <div class="about-grid">
-      <aside class="facts">
-        <div class="fact"><h3>Profile</h3><p>Mexican creative professional, 25. Based in Mexico and open to relocation.</p></div>
-        <div class="fact"><h3>Languages</h3><p>Spanish native<br>English C1<br>French B2</p></div>
-        <div class="fact"><h3>Roles</h3><p>Content strategy, social media management, visual content production, creative marketing coordination and hotel marketing.</p></div>
-      </aside>
-      <div class="about-copy">
-        <p>My career started in resort photography and grew into sales and operations leadership across six properties in Mexico, Saint Lucia, Grenada and Jamaica. I moved from direct guest-facing work into team management, recruitment, onboarding, performance coaching and property-level commercial responsibility.</p>
-        <p>That progression gives me a practical view of hospitality content. I understand the image-making side, but I also understand revenue targets, guest behavior, service delivery and the coordination required between Events, F&amp;B, Guest Services and hotel management. I have worked with transactions from 200 to 2000+ usd, supported teams generating 40000 to 60000 usd in monthly revenue and built KPI tools, upsell structures and employee development systems.</p>
-        <p>I now bring that operational judgment into creative work. I can evaluate what a property needs to communicate, organize the production behind it and connect the final output to a commercial objective. I work in Spanish and English, with French at B2 level, and I am comfortable in environments where priorities shift quickly and execution still has to stay clear.</p>
+      <div class="value-interface">
+        <div class="value-tabs" role="tablist">
+          <button class="value-tab active" data-value="field" role="tab" aria-selected="true" data-i18n="tabField">Field Marketing</button>
+          <button class="value-tab" data-value="partnerships" role="tab" aria-selected="false" data-i18n="tabPartnerships">Brand Partnerships</button>
+          <button class="value-tab" data-value="creative" role="tab" aria-selected="false" data-i18n="tabCreative">Creative Accounts</button>
+          <button class="value-tab" data-value="growth" role="tab" aria-selected="false" data-i18n="tabGrowth">Account Growth</button>
+          <button class="value-tab" data-value="enablement" role="tab" aria-selected="false" data-i18n="tabEnablement">Sales Enablement</button>
+        </div>
+
+        <article class="value-panel" aria-live="polite">
+          <span class="value-counter">01 / 05</span>
+          <h3 id="value-title">I connect guest insight with visual and commercial execution.</h3>
+          <p id="value-copy">Hospitality experience, original photography and brand-building work help me understand how a property should be presented across campaigns, content and local marketing.</p>
+        </article>
       </div>
     </div>
-    <div class="experience">
-      <div class="role"><div class="date">2025 to present</div><div class="title">Senior Operations &amp; Sales Manager</div><div class="org">Royalton Saint Lucia, PhotoPro / IL Gruppo Digitale</div></div>
-      <div class="role"><div class="date">2023 to 2025</div><div class="title">Photographer, Team Lead and Operations Manager</div><div class="org">Six resort properties across Mexico and the Caribbean</div></div>
-      <div class="role"><div class="date">2025 to present</div><div class="title">Founder</div><div class="org">EXIF Studio, visual strategy for hospitality</div></div>
-    </div>
   </section>
 
-  <section class="section" id="cv">
-    <div class="cv-panel">
-      <div>
-        <p class="kicker" style="color:#aaa59b;margin-bottom:15px">CV</p>
-        <h2>Commercial judgment, operational range and visual experience.</h2>
-        <p>Three years of progressive responsibility across six resort properties, from direct guest photography and consultative sales to team leadership, recruitment, KPI systems and full property-level operations.</p>
-      </div>
-      <a class="cv-btn" href="katia-pmtzk-cv.pdf" download>Download CV</a>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="contact">
-      <h2>Let’s talk.</h2>
-      <div class="contact-list">
-        <div class="contact-row"><span>Email</span><a href="mailto:pmtzk@icloud.com">pmtzk@icloud.com</a></div>
-        <div class="contact-row"><span>LinkedIn</span><a href="https://linkedin.com/in/pmtzk" target="_blank" rel="noreferrer">linkedin.com/in/pmtzk</a></div>
-        <div class="contact-row"><span>Availability</span><span class="available"><span class="dot"></span>Open to new roles</span></div>
-        <div class="contact-row"><span>Location</span><span>Mexico, open to relocation</span></div>
+  <section class="scene contact-scene" id="contact" data-scene="05">
+    <div class="section-number">05</div>
+    <div class="contact-grid">
+      <h2 data-i18n="contactTitle">Let’s talk.</h2>
+      <div class="contact-panel">
+        <a href="mailto:pmtzk@icloud.com">
+          <span data-i18n="emailLabel">Email</span>
+          <strong>pmtzk@icloud.com</strong>
+        </a>
+        <a href="https://linkedin.com/in/pmtzk" target="_blank" rel="noreferrer">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/pmtzk</strong>
+        </a>
+        <div>
+          <span data-i18n="availabilityLabel">Availability</span>
+          <strong data-i18n="availabilityCopy">Open to on-site, hybrid and remote roles.</strong>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer><span>pmtzk.co • Katia E. Pérez</span><span>Commercial operations • Creative strategy • Hospitality</span></footer>
+<footer>
+  <span>Katia E. Pérez · Mexico</span>
+  <span data-i18n="footer">Hospitality · Commercial systems · Visual communication</span>
+</footer>
 
+<div class="modal" id="commercial" role="dialog" aria-modal="true" aria-labelledby="commercial-title">
+  <article class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-kicker" data-i18n="commercialKicker">Commercial systems · Hospitality sales</div>
+    <h2 id="commercial-title" data-i18n="commercialTitle">Making resort sales repeatable.</h2>
 
-<div class="overlay" id="commercial" role="dialog" aria-modal="true" aria-labelledby="commercial-title">
-  <article class="panel">
-    <div class="bar"><span>Commercial Case · Resort Sales &amp; Operations</span><button class="close" data-close>Close</button></div>
-    <header class="overlay-hero">
-      <h2 id="commercial-title">Building a Commercial Operating System.</h2>
-      <p>A practical case drawn from progressive responsibility across resort properties in Mexico and the Caribbean. The work combined direct consultative sales, KPI management, team development, recruitment and cross-functional coordination.</p>
-    </header>
-    <div class="content">
-      <section class="commercial-summary">
-        <div><strong>200 to 2000+ usd</strong><span>direct transaction range</span></div>
-        <div><strong>40000 to 60000 usd</strong><span>monthly team revenue supported</span></div>
-        <div><strong>250+</strong><span>monthly team transactions</span></div>
-        <div><strong>6</strong><span>resort properties</span></div>
-      </section>
+    <div class="editorial-flow">
+      <p class="big-line" data-i18n="commercialBig">The sale began outside the store.</p>
+      <p data-i18n="commercial1">A photographer had to approach a guest, lower the resistance to an unsolicited photo and create a reason to continue the interaction.</p>
+      <p data-i18n="commercial2">That first contact could become a store visit, a scheduled session and, eventually, a purchase.</p>
+      <p data-i18n="commercial3">As a photographer, my personal sales consistently represented more than 40% of the team’s monthly total.</p>
+      <p class="big-line" data-i18n="commercial4">When I moved into leadership, the job changed: make that process teachable.</p>
+    </div>
 
-      <section class="split">
-        <h3>Context</h3>
-        <div class="lead"><p>I progressed from resort photographer to team lead, operations manager and senior operations and sales manager within one continuous hospitality program. That progression required more than selling. It required building repeatable systems around people, performance and service delivery.</p></div>
-      </section>
+    <div class="metric-band">
+      <div><strong>+200k usd</strong><span data-i18n="metric1">completed team sales over seven months</span></div>
+      <div><strong>36%</strong><span data-i18n="metric2">personally generated while managing</span></div>
+      <div><strong>4</strong><span data-i18n="metric3">career levels</span></div>
+    </div>
 
-      <section class="split">
-        <h3>Commercial challenge</h3>
-        <div class="lead"><p>The operation depended on consistent guest capture, strong consultative selling, disciplined follow-up and reliable daily execution. Results were affected by team capability, guest volume, operational timing, hotel coordination and the ability to identify where performance was breaking down.</p></div>
-      </section>
+    <p class="modal-close-copy" data-i18n="commercialClose">I developed the scripts, training routines, pricing logic and performance tools local teams used to move from first contact to purchase.</p>
+  </article>
+</div>
 
-      <section>
-        <p class="kicker">What I built</p>
-        <div class="exif-grid">
-          <div class="exif-card"><h3>Upsell structure</h3><p>A tiered framework that connected transaction value, package logic and daily production goals.</p></div>
-          <div class="exif-card"><h3>KPI system</h3><p>Weekly tracking around revenue, average ticket, guest capture, booked sessions and individual performance.</p></div>
-          <div class="exif-card"><h3>Performance tool</h3><p>A custom Google Sheets analysis system for weekly reviews, monthly planning and leadership reporting.</p></div>
-          <div class="exif-card"><h3>Team progression</h3><p>A four-level development framework with onboarding benchmarks, bilateral performance logs and clearer evaluation cadence.</p></div>
-        </div>
-      </section>
+<div class="modal" id="visual" role="dialog" aria-modal="true" aria-labelledby="visual-title">
+  <article class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-kicker" data-i18n="visualKicker">Brand marketing · Hospitality positioning</div>
+    <h2 id="visual-title" data-i18n="visualTitle">The property had a story. Its images were not telling it.</h2>
+    <p class="modal-intro" data-i18n="visualIntro">A self-initiated content direction for a boutique hotel in Saint Lucia, created entirely from photographs I took on property.</p>
 
-      <section class="split">
-        <h3>Operational scope</h3>
-        <div class="lead"><p>I recruited and onboarded new hires, coached performance, handled formal warnings and separations, and coordinated with Events, F&amp;B, Guest Services, hotel management and legal contacts. The goal was to protect both revenue and service quality while keeping the operation usable for the team on the ground.</p></div>
-      </section>
+    <div class="image-stage">
+      <img src="case-resort-view.jpg" alt="Saint Lucia property and coastline" data-lightbox>
+    </div>
 
-      <section class="split">
-        <h3>Why it matters</h3>
-        <div class="lead"><p>This experience translates directly to hospitality SaaS, account management, customer success, partnerships and commercial operations. I understand hotel teams as users, the pressure behind revenue goals and the difference between a process that looks good in a presentation and one that people can actually follow during a busy shift.</p></div>
-      </section>
+    <div class="two-col-copy">
+      <div>
+        <span data-i18n="opportunity">Opportunity</span>
+        <p data-i18n="visualOpportunity">The property had a distinct identity, but its visual communication did not give prospective guests one clear reason to remember it.</p>
+      </div>
+      <div>
+        <span data-i18n="concept">Concept</span>
+        <p data-i18n="visualConcept">I developed Table First, a direction built around the rituals, details and atmosphere surrounding the table.</p>
+      </div>
+    </div>
 
-      <p class="disclaimer">Figures are presented as ranges from direct operating experience. No confidential property data, internal documents or proprietary company materials are shown.</p>
+    <div class="image-wall">
+      <img src="case-property-exterior.jpg" alt="Boutique hotel exterior" data-lightbox>
+      <img src="case-tropical-garden.jpg" alt="Tropical garden detail" data-lightbox>
+      <img src="case-cliff-bar.jpg" alt="Hotel bar interior" data-lightbox>
+      <img src="case-banana-leaves.jpg" alt="Banana leaves in direct light" data-lightbox>
     </div>
   </article>
 </div>
 
-<div class="overlay" id="case" role="dialog" aria-modal="true" aria-labelledby="case-title">
-  <article class="panel">
-    <div class="bar"><span>Case 01 · Hotel Visual Reset</span><button class="close" data-close>Close</button></div>
-    <header class="overlay-hero">
-      <h2 id="case-title">Table First.</h2>
-      <p>Self-initiated visual strategy exercise for a boutique Relais &amp; Châteaux property in Saint Lucia. 49 rooms, two restaurants, private beach, Relais &amp; Châteaux member, Forbes Best Boutique Hotel Saint Lucia 2025 and Condé Nast Top 40 Caribbean Resorts 2025. Property identity withheld by request. Original photography taken on location.</p>
-    </header>
-    <div class="cover"><img src="case-resort-view.jpg" alt="Saint Lucia property and coastline"></div>
-    <div class="content">
-      <section class="split"><h3>Problem</h3><div class="lead"><p>The property has a genuinely distinct identity in its architecture, gastronomy and scale, but its visual communication does not yet give a prospective guest a reason to feel something before they book. The imagery documents the place without revealing the experience of being in it.</p></div></section>
-      <section class="case-gallery">
-        <figure class="cg1"><img src="case-property-exterior.jpg" alt="Boutique hotel exterior"></figure>
-        <figure class="cg2"><img src="case-tropical-garden.jpg" alt="Tropical garden detail"></figure>
-        <figure class="cg3"><img src="case-cliff-bar.jpg" alt="Hotel bar interior"></figure>
-        <figure class="cg4"><img src="case-banana-leaves.jpg" alt="Banana leaves in direct light"></figure>
-      </section>
-      <section class="split"><h3>Creative concept</h3><div class="lead"><p><strong>Table First.</strong> The visual system builds outward from the gastronomic experience, which is the property’s clearest differentiator. Three restaurants, three distinct atmospheres. The territory is anticipation: the moment before the plate arrives, the light changing, the glass already poured.</p></div></section>
-      <section><p class="kicker">Four content pillars</p><div class="pillars">
-        <div class="pillar"><span>01</span><strong>The Table</strong></div><div class="pillar"><span>02</span><strong>The Setting</strong></div><div class="pillar"><span>03</span><strong>The Detail</strong></div><div class="pillar"><span>04</span><strong>The Ritual</strong></div>
-      </div></section>
-      <section><p class="kicker">Five deliverables</p><div class="deliverables">
-        <div class="deliverable feature"><strong>Key visual</strong><small>01</small></div>
-        <div class="deliverable"><strong>Carousel “Before 6:30”</strong><small>02</small></div>
-        <div class="deliverable"><strong>Moodboard</strong><small>03</small></div>
-        <div class="deliverable"><strong>Reel storyboard</strong><small>04</small></div>
-        <div class="deliverable"><strong>Two-week content calendar</strong><small>05</small></div>
-      </div></section>
-      <p class="disclaimer">Self-initiated concept developed using original photography taken on location and publicly available brand materials. Not commissioned by or affiliated with the property. Property identity withheld by request.</p>
+<div class="modal" id="exif" role="dialog" aria-modal="true" aria-labelledby="exif-title">
+  <article class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-kicker" data-i18n="exifKicker">Brand strategy · Website design & development</div>
+    <h2 id="exif-title" data-i18n="exifTitle">Building EXIF from positioning to live website.</h2>
+    <p class="modal-intro" data-i18n="exifIntro">EXIF Studio brings together hospitality positioning and visual direction.</p>
+
+    <div class="image-stage">
+      <img src="exif-brand-system.jpg" alt="EXIF Studio visual identity system" data-lightbox>
+    </div>
+
+    <div class="exif-steps">
+      <article><span>01</span><h3 data-i18n="exif1">Positioning</h3><p data-i18n="exif1Copy">Defined the market space, audience and core idea.</p></article>
+      <article><span>02</span><h3 data-i18n="exif2">Offer</h3><p data-i18n="exif2Copy">Turned the position into a clear service architecture.</p></article>
+      <article><span>03</span><h3 data-i18n="exif3">Website</h3><p data-i18n="exif3Copy">Wrote, designed and developed the responsive live experience.</p></article>
+    </div>
+
+    <a class="visit-link" href="https://exif.studio" target="_blank" rel="noreferrer" data-i18n="visitExif">Visit EXIF Studio ↗</a>
+  </article>
+</div>
+
+<div class="modal" id="portfolio" role="dialog" aria-modal="true" aria-labelledby="portfolio-title">
+  <article class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-kicker" data-i18n="portfolioKicker">Photography · Visual design</div>
+    <h2 id="portfolio-title" data-i18n="portfolioTitle">Building visual judgment through hospitality.</h2>
+    <p class="modal-intro" data-i18n="portfolioIntro">Original photography and design work developed across resort operations, guest-facing production and independent brand projects.</p>
+
+    <div class="portfolio-tabs">
+      <button class="portfolio-tab active" data-portfolio="photos" data-i18n="photos">Photography</button>
+      <button class="portfolio-tab" data-portfolio="design" data-i18n="design">Design</button>
+    </div>
+
+    <div class="portfolio-panel active" id="photos">
+      <div class="portfolio-grid">
+        <img src="photo-street-portrait.jpg" alt="Street portrait" data-lightbox>
+        <img src="photo-maternity-portrait.jpg" alt="Maternity portrait" data-lightbox>
+        <img src="photo-wedding-bouquet.jpg" alt="Wedding bouquet" data-lightbox>
+        <img src="photo-event-table.jpg" alt="Event table" data-lightbox>
+        <img src="photo-driver-detail.jpg" alt="Driver detail" data-lightbox>
+        <img src="photo-restaurant-light.jpg" alt="Restaurant light" data-lightbox>
+        <img src="photo-resort-couple.jpg" alt="Resort couple" data-lightbox>
+        <img src="photo-caribbean-palms.jpg" alt="Caribbean palms" data-lightbox>
+        <img src="photo-resort-leisure.jpg" alt="Resort leisure" data-lightbox>
+      </div>
+    </div>
+
+    <div class="portfolio-panel" id="design">
+      <div class="design-stack">
+        <article><span>Brand direction · Web</span><h3>EXIF Studio</h3></article>
+        <article><span>Content direction · Hospitality</span><h3>Table First</h3></article>
+        <article><span>Editorial product · Digital</span><h3>The Digital Society</h3></article>
+      </div>
     </div>
   </article>
 </div>
 
-<div class="overlay" id="exif" role="dialog" aria-modal="true" aria-labelledby="exif-title">
-  <article class="panel">
-    <div class="bar"><span>EXIF Studio · Independent practice</span><button class="close" data-close>Close</button></div>
-    <header class="overlay-hero">
-      <h2 id="exif-title">Brand and website design for a hospitality practice.</h2>
-      <p>EXIF Studio is a self-directed brand and website project built to translate a hospitality point of view into a clear visual identity. The work covers positioning, naming, brand language, identity development, website structure, interaction decisions and the design system behind the final site.</p>
-    </header>
-    <div class="content">
-      <section class="exif-brand-board">
-        <img src="exif-brand-system.jpg" alt="EXIF Studio identity system showing the EXIF eye symbol, variations and usage">
-      </section>
-      <section class="split"><h3>Design approach</h3><div class="lead"><p>The project began with positioning, then moved into a restrained identity system built around observation, detail and visual judgment. From there, I defined the website architecture, page hierarchy, editorial rhythm, image behavior, typography, color system and concise brand voice. The goal was not to make the site look like a hotel. It was to make the thinking behind the practice visible.</p></div></section>
-      <section class="exif-grid">
-        <div class="exif-card"><h3>Brand strategy</h3><p>Positioning, audience, naming logic, verbal direction and a clear distinction from generic hospitality marketing language.</p></div>
-        <div class="exif-card"><h3>Identity system</h3><p>The EXIF eye, mark variations, usage rules, restrained color palette and a visual language built around observation.</p></div>
-        <div class="exif-card"><h3>Website architecture</h3><p>Page hierarchy, navigation, case-study structure and an editorial system designed to keep the work concise and legible.</p></div>
-        <div class="exif-card"><h3>Interface direction</h3><p>Typography, spacing, image sequencing, transitions and responsive behavior developed as one consistent digital experience.</p></div>
-      </section>
-      <p class="disclaimer">Independent project. Visit <a href="https://exif.studio" target="_blank" rel="noreferrer">exif.studio</a>.</p>
-    </div>
-  </article>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button id="lightbox-close" aria-label="Close">×</button>
+  <img src="" alt="">
 </div>
 
-<div class="overlay" id="portfolio" role="dialog" aria-modal="true" aria-labelledby="portfolio-title">
-  <article class="panel">
-    <div class="bar"><span>Portfolio · Photography &amp; Design</span><button class="close" data-close>Close</button></div>
-    <header class="overlay-hero">
-      <h2 id="portfolio-title">Selected visual work.</h2>
-      <p>The photography selection shows range across documentary observation, hospitality environments, events and people. The design section shows how I organize ideas into visual systems, interfaces and content structures.</p>
-    </header>
-    <div class="tabs" role="tablist">
-      <button class="tab active" data-tab="photos" role="tab" aria-selected="true">Photography</button>
-      <button class="tab" data-tab="design" role="tab" aria-selected="false">Design</button>
-    </div>
-    <div class="content">
-      <section class="tab-panel active" id="photos">
-        <div class="photo-grid">
-          <figure class="ph1"><img src="photo-street-portrait.jpg" alt="Man walking through a Caribbean street"></figure>
-          <figure class="ph2"><img src="photo-maternity-portrait.jpg" alt="Maternity portrait in warm outdoor light"></figure>
-          <figure class="ph3"><img src="photo-wedding-bouquet.jpg" alt="Wedding bouquet and couple detail"></figure>
-          <figure class="ph4"><img src="photo-event-table.jpg" alt="Event table prepared beside the sea"></figure>
-          <figure class="ph5"><img src="photo-driver-detail.jpg" alt="Driver's hand and watch in morning light"></figure>
-          <figure class="ph6"><img src="photo-restaurant-light.jpg" alt="Restaurant interior with reflected evening light"></figure>
-          <figure class="ph7"><img src="photo-resort-couple.jpg" alt="Couple walking through a resort garden"></figure>
-          <figure class="ph8"><img src="photo-caribbean-palms.jpg" alt="Palm trees and a small house"></figure>
-          <figure class="ph9"><img src="photo-resort-leisure.jpg" alt="Ping pong table in a resort garden"></figure>
-        </div>
-      </section>
-      <section class="tab-panel" id="design">
-        <div class="design-grid">
-          <article class="design-card green"><span class="meta">Brand direction · Web</span><div><h3>EXIF Studio</h3><p>Positioning, visual system, site architecture and editorial copy for a hospitality-focused visual strategy practice.</p></div></article>
-          <article class="design-card cream"><span class="meta">Content system · Strategy</span><div><h3>Hotel Visual Reset</h3><p>A concept translated into pillars, key visual direction, social formats and a two-week publishing structure.</p></div></article>
-          <article class="design-card dark wide"><span class="meta">Editorial product · Digital</span><div><h3>The Digital Society</h3><p>A self-directed digital publication concept exploring visual atmospheres through editorial writing, design systems and downloadable artifacts.</p></div></article>
-        </div>
-      </section>
-    </div>
-  </article>
-</div>
-
-<script>
-  const overlays = document.querySelectorAll('.overlay');
-  let lastFocus = null;
-  document.querySelectorAll('[data-open]').forEach(btn => btn.addEventListener('click', () => {
-    lastFocus = document.activeElement;
-    const overlay = document.getElementById(btn.dataset.open);
-    overlay.classList.add('open');
-    document.body.classList.add('locked');
-    overlay.querySelector('[data-close]').focus();
-  }));
-  function closeOverlay(overlay){
-    overlay.classList.remove('open');
-    document.body.classList.remove('locked');
-    if(lastFocus) lastFocus.focus();
-  }
-  document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeOverlay(btn.closest('.overlay'))));
-  overlays.forEach(overlay => overlay.addEventListener('click', e => { if(e.target === overlay) closeOverlay(overlay); }));
-  document.addEventListener('keydown', e => { if(e.key === 'Escape'){ const open = document.querySelector('.overlay.open'); if(open) closeOverlay(open); }});
-  document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
-    const overlay = tab.closest('.overlay');
-    overlay.querySelectorAll('.tab').forEach(t => {t.classList.remove('active');t.setAttribute('aria-selected','false')});
-    overlay.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-    overlay.querySelector('#'+tab.dataset.tab).classList.add('active');
-  }));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
