@@ -54,47 +54,47 @@ const translations = {
   },
   es: {
     skip:"Saltar al contenido", navWork:"Trabajo", navProfile:"Perfil", navValue:"Valor", navContact:"Contacto",
-    heroEyebrow:"Hospitality · Sistemas comerciales · Comunicación visual",
+    heroEyebrow:"Hospitality · Estrategia comercial · Comunicación visual",
     heroTitleA:"Convirtiendo el entendimiento del huésped en",
     heroTitleB:"crecimiento comercial.", heroSupport:"Liderazgo en hospitality a través de ventas, sistemas y comunicación visual.",
     heroImageLabel:"Imagen, interacción, venta.",
-    heroThesis:"Interesada en cómo los lugares se ven, se entienden y se venden.",
+    heroThesis:"Me interesa cómo un lugar se presenta, se entiende y se vende.",
     hero1:"A lo largo de seis resorts en México y el Caribe, avancé de fotógrafa a Regional Manager.",
-    hero2:"Construí sistemas de venta, estructuras de pricing, capacitación y herramientas de desempeño que ayudaron a equipos locales a convertir el interés del huésped en ingresos.",
-    hero3:"Ahora llevo esa comprensión comercial y visual a marketing, partnerships, client services y account growth.",
-    enterWork:"Entrar al trabajo seleccionado",
-    workEyebrow:"Trabajo seleccionado", workTitle:"Sistemas comerciales, posicionamiento hotelero y ejecución visual.",
-    workIntro:"Cada proyecto responde una pregunta distinta sobre cómo trabajo.",
-    work1Meta:"Sistemas comerciales", work1Title:"Hacer replicables las ventas de resort.", work1Desc:"Cómo el desempeño individual en ventas se convirtió en un sistema comercial enseñable para equipos de resort.", work1Proof:"ventas del equipo en siete meses",
-    work2Meta:"Brand marketing", work2Title:"La propiedad tenía una historia. Sus imágenes no la estaban contando.", work2Desc:"Una dirección de contenido autoiniciada construida desde la atmósfera y los rituales propios de la propiedad.",
-    work3Meta:"Estrategia de marca y website", work3Title:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.", work3Desc:"Cómo definí la posición, escribí la oferta, diseñé la experiencia y construí el website en vivo.",
-    work4Meta:"Fotografía", work4Title:"Construir criterio visual desde hospitality.", work4Desc:"Un archivo fotográfico mixto construido entre personas, propiedades, eventos y entornos de resort.", viewCase:"Ver caso", viewPortfolio:"Ver portafolio",
-    preview1:"Del desempeño individual a un sistema que los equipos locales podían utilizar.",
-    profileEyebrow:"Lo que me enseñó el trabajo", profileTitle:"La imagen, la interacción y la venta nunca estuvieron separadas.",
+    hero2:"Desarrollé sistemas de venta, estructuras de precios, capacitación y herramientas de desempeño para ayudar a los equipos locales a convertir el interés del huésped en ingresos.",
+    hero3:"Ahora aplico esa comprensión comercial y visual en marketing, alianzas, atención a clientes y crecimiento de cuentas.",
+    enterWork:"Ver trabajo seleccionado",
+    workEyebrow:"Trabajo seleccionado", workTitle:"Sistemas comerciales, posicionamiento para hospitality y ejecución visual.",
+    workIntro:"Cada proyecto muestra una forma distinta de convertir observación en resultados.",
+    work1Meta:"Sistemas comerciales", work1Title:"Convertir las ventas de resort en un sistema replicable.", work1Desc:"Cómo transformé un proceso individual de venta en un sistema que los equipos podían aprender y repetir.", work1Proof:"ventas del equipo en siete meses",
+    work2Meta:"Brand marketing", work2Title:"La propiedad tenía una historia. Sus imágenes no la estaban contando.", work2Desc:"Una dirección de contenido creada a partir de la atmósfera, los rituales y el carácter real de la propiedad.",
+    work3Meta:"Estrategia de marca y website", work3Title:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.", work3Desc:"Cómo definí la posición, estructuré la oferta, escribí el contenido y construí el sitio web.",
+    work4Meta:"Fotografía", work4Title:"Construir criterio visual desde la experiencia en hospitality.", work4Desc:"Un archivo fotográfico formado entre personas, propiedades, eventos y entornos de resort.", viewCase:"Ver proyecto", viewPortfolio:"Ver portafolio",
+    preview1:"Del desempeño individual a un sistema que los equipos locales podían aplicar.",
+    profileEyebrow:"Lo que aprendí en el trabajo", profileTitle:"La imagen, la interacción y la venta nunca funcionaron por separado.",
     profilePhotoLabel:"Criterio visual",
-    profile1:"Una mejor fotografía cambiaba la conversación.", profile2:"Un acercamiento más claro hacía que el huésped participara.",
-    profile3:"Un equipo mejor capacitado producía resultados más consistentes.", profile4:"Entiendo hospitality a través de cómo los lugares se presentan, se viven y se venden.",
-    factProfile:"Perfil", factProfileCopy:"Profesional comercial y creativa de hospitality con más de 3 años en resorts de México y el Caribe.",
+    profile1:"Una mejor fotografía cambiaba la conversación.", profile2:"Un acercamiento más claro hacía que el huésped quisiera participar.",
+    profile3:"Un equipo mejor capacitado generaba resultados más consistentes.", profile4:"Entiendo hospitality a través de cómo un lugar se presenta, se vive y se vende.",
+    factProfile:"Perfil", factProfileCopy:"Profesional comercial y creativa con más de 3 años de experiencia en resorts de México y el Caribe.",
     factLanguages:"Idiomas", factLanguagesCopy:"Español nativo · Inglés C1 · Francés B2",
     factMarkets:"Mercados", factMarketsCopy:"México · Saint Lucia · Grenada · Jamaica",
     factSkills:"Habilidades clave", factSkillsCopy:"Venta consultiva · Sistemas comerciales · Capacitación de equipos · Experiencia del cliente · Comunicación visual",
-    valueEyebrow:"Cómo aporto valor", valueTitle:"Una dirección. Cinco aplicaciones.",
-    valueIntro:"Mi dirección es clara: ayudar a marcas de hospitality a crecer mediante mejor marketing, partnerships y relaciones con clientes.",
+    valueEyebrow:"Cómo aporto valor", valueTitle:"Una dirección. Cinco formas de aportar valor.",
+    valueIntro:"Mi dirección es clara: ayudar a marcas de hospitality a crecer mediante mejor marketing, alianzas y relaciones con clientes.",
     tabField:"Field Marketing", tabPartnerships:"Brand Partnerships", tabCreative:"Creative Accounts", tabGrowth:"Account Growth", tabEnablement:"Sales Enablement",
-    contactEyebrow:"Contacto", contactTitle:"Hablemos.", emailLabel:"Email", availabilityLabel:"Disponibilidad", availabilityCopy:"Abierta a roles presenciales, híbridos y remotos.",
+    contactEyebrow:"Contacto", contactTitle:"Hablemos.", emailLabel:"Email", availabilityLabel:"Disponibilidad", availabilityCopy:"Disponible para oportunidades presenciales, híbridas y remotas.",
     footer:"Hospitality · Sistemas comerciales · Comunicación visual",
-    commercialKicker:"Sistemas comerciales · Ventas en hospitality", commercialTitle:"Hacer replicables las ventas de resort.",
-    commercialBig:"La venta empezaba fuera de la tienda.",
-    commercial1:"Una fotógrafa tenía que acercarse a un huésped, reducir la resistencia a una foto no solicitada y crear una razón para continuar la interacción.",
-    commercial2:"Ese primer contacto podía convertirse en una visita a tienda, una sesión agendada y, eventualmente, una compra.",
-    commercial3:"Como fotógrafa, mis ventas personales representaban consistentemente más de 40% del total mensual del equipo.",
-    commercial4:"Cuando pasé a liderazgo, el trabajo cambió: hacer que ese proceso pudiera enseñarse.",
+    commercialKicker:"Sistemas comerciales · Ventas en hospitality", commercialTitle:"Convertir las ventas de resort en un sistema replicable.",
+    commercialBig:"La venta comenzaba fuera de la tienda.",
+    commercial1:"El primer reto era acercarse al huésped, reducir su resistencia a una fotografía no solicitada y darle una razón para continuar la interacción.",
+    commercial2:"Ese primer contacto podía convertirse en una visita a la tienda, una sesión programada y, finalmente, una compra.",
+    commercial3:"Como fotógrafa, mis ventas personales representaban de forma constante más de 40% de las ventas mensuales del equipo.",
+    commercial4:"Cuando pasé a liderazgo, el objetivo cambió: convertir ese proceso en algo que pudiera enseñarse.",
     metric1:"ventas completadas del equipo en siete meses", metric2:"generado personalmente mientras dirigía", metric3:"niveles de carrera",
-    commercialClose:"Desarrollé los scripts, rutinas de capacitación, lógica de pricing y herramientas de desempeño que los equipos locales usaban para avanzar del primer contacto a la compra.",
+    commercialClose:"Desarrollé guiones, rutinas de capacitación, lógica de precios y herramientas de desempeño para ayudar a los equipos a avanzar con mayor consistencia desde el primer contacto hasta la compra.",
     visualKicker:"Brand marketing · Posicionamiento hotelero", visualTitle:"La propiedad tenía una historia. Sus imágenes no la estaban contando.",
-    visualIntro:"Una dirección de contenido autoiniciada para un hotel boutique en Saint Lucia, creada enteramente con fotografías que tomé en la propiedad.",
-    opportunity:"Oportunidad", visualOpportunity:"La propiedad tenía una identidad distintiva, pero su comunicación visual no daba al huésped potencial una razón clara para recordarla.",
-    concept:"Concepto", visualConcept:"Desarrollé Table First, una dirección construida alrededor de los rituales, detalles y atmósfera de la mesa.",
+    visualIntro:"Una dirección de contenido creada por iniciativa propia para un hotel boutique en Saint Lucia, utilizando únicamente fotografías que tomé en la propiedad.",
+    opportunity:"Oportunidad", visualOpportunity:"La propiedad tenía una identidad clara, pero su comunicación visual no daba al huésped potencial una razón concreta para recordarla.",
+    concept:"Concepto", visualConcept:"Desarrollé Table First, una dirección construida alrededor de los rituales, detalles y atmósfera que rodeaban la mesa.",
     exifKicker:"Estrategia de marca · Diseño y desarrollo web", exifTitle:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.",
     exifSummary:"EXIF comenzó como una idea para un estudio de hospitality. La convertí en una posición definida, una oferta vendible y una experiencia digital funcional.", exifWhyLabel:"Por qué es relevante", exifWhy:"Demuestra que puedo tomar una idea de negocio ambigua, aclarar su lógica comercial y llevar el mismo pensamiento al copy, la dirección visual y la ejecución.",
     exif1:"Aclaré la posición", exif1Copy:"Definí a quién sirve el estudio, qué problema resuelve y qué idea debía hacer memorable a la marca.",
@@ -102,7 +102,7 @@ const translations = {
     exif3:"Construí el website", exif3Copy:"Mapeé la arquitectura de información, diseñé la interfaz responsive y desarrollé el sitio en HTML, CSS y JavaScript.", exifResultLabel:"Resultado", exifResult:"Un website en vivo que comunica la posición con claridad y le da al estudio una presencia comercial creíble.",
     visitExif:"Visitar EXIF Studio ↗",
     portfolioKicker:"Fotografía · Diseño visual", portfolioTitle:"Construir criterio visual desde hospitality.",
-    portfolioIntro:"Fotografía original desarrollada entre operaciones de resort, producción frente al huésped, eventos y trabajo visual independiente.",
+    portfolioIntro:"Fotografía original desarrollada entre operaciones de resort, producción con huéspedes, eventos y proyectos visuales independientes.",
     photos:"Fotografía", design:"Diseño"
   }
 };
@@ -116,11 +116,11 @@ const valueCopy = {
     enablement:["05 / 05","I turn strong individual performance into systems others can use.","I built scripts, training routines and performance tools that helped teams move more consistently from first contact to purchase."]
   },
   es: {
-    field:["01 / 05","Conecto el entendimiento del huésped con la ejecución visual y comercial.","Mi experiencia en hospitality, fotografía original y construcción de marca me ayuda a entender cómo debe presentarse una propiedad en campañas, contenido y marketing local."],
-    partnerships:["02 / 05","Identifico valor compartido y lo convierto en una conversación comercial clara.","Ventas, coordinación con stakeholders y experiencia en hospitality respaldan colaboraciones, activaciones y desarrollo de partners."],
-    creative:["03 / 05","Traduzco necesidades comerciales en dirección y entregables claros.","Mi experiencia abarca conversaciones con clientes, ejecución visual, service recovery y construcción independiente de marcas."],
-    growth:["04 / 05","Encuentro dónde puede crearse más valor dentro de una relación existente.","Venta consultiva, lógica de pricing, upselling y gestión de desempeño definieron mi trabajo en operaciones de resort."],
-    enablement:["05 / 05","Convierto un desempeño individual fuerte en sistemas que otros pueden utilizar.","Construí scripts, rutinas de capacitación y herramientas de desempeño que ayudaron a los equipos a avanzar con mayor consistencia del primer contacto a la compra."]
+    field:["01 / 05","Conecto el conocimiento del huésped con la ejecución visual y comercial.","Mi experiencia en hospitality, fotografía y construcción de marca me permite entender cómo debe presentarse una propiedad en campañas, contenido y marketing local."],
+    partnerships:["02 / 05","Identifico valor compartido y lo convierto en una oportunidad comercial clara.","Mi experiencia en ventas, coordinación y operación hotelera me permite apoyar colaboraciones, activaciones y desarrollo de alianzas."],
+    creative:["03 / 05","Traduzco necesidades comerciales en dirección, comunicación y entregables claros.","He trabajado entre conversaciones con clientes, ejecución visual, recuperación de servicio y construcción de marcas independientes."],
+    growth:["04 / 05","Detecto dónde puede generarse más valor dentro de una relación existente.","La venta consultiva, la lógica de precios, el upselling y la gestión del desempeño formaron parte central de mi trabajo en resorts."],
+    enablement:["05 / 05","Convierto un buen desempeño individual en sistemas que otros pueden aplicar.","Desarrollé guiones, rutinas de capacitación y herramientas de seguimiento para ayudar a los equipos a avanzar con mayor consistencia desde el primer contacto hasta la compra."]
   }
 };
 
@@ -196,10 +196,6 @@ function closeModal(modal){
 document.querySelectorAll("[data-close]").forEach(btn=>btn.addEventListener("click",()=>closeModal(btn.closest(".modal"))));
 document.querySelectorAll(".modal").forEach(modal=>modal.addEventListener("click",e=>{if(e.target===modal)closeModal(modal)}));
 
-
-document.querySelectorAll(".image-wall img,.portfolio-grid img").forEach(img=>{
-  img.addEventListener("click",()=>img.classList.toggle("color-lock"));
-});
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox.querySelector("img");
@@ -294,3 +290,30 @@ if(matchMedia("(pointer:fine)").matches){
 
 setLang(lang);
 renderValue(activeValue);
+
+
+function bindTemporaryColorReveal(selector){
+  document.querySelectorAll(selector).forEach(el=>{
+    const on = ()=>el.classList.add("touch-reveal");
+    const off = ()=>el.classList.remove("touch-reveal");
+    el.addEventListener("pointerdown", on, {passive:true});
+    el.addEventListener("pointerup", off, {passive:true});
+    el.addEventListener("pointercancel", off, {passive:true});
+    el.addEventListener("pointerleave", off, {passive:true});
+  });
+}
+bindTemporaryColorReveal(".photo-reveal");
+bindTemporaryColorReveal(".image-wall img");
+bindTemporaryColorReveal(".portfolio-grid img");
+
+
+
+function updateIridescentScroll(){
+  const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const position = (window.scrollY / max) * 260;
+  document.documentElement.style.setProperty("--iridescent-position", `${position}%`);
+}
+window.addEventListener("scroll", updateIridescentScroll, {passive:true});
+window.addEventListener("resize", updateIridescentScroll);
+updateIridescentScroll();
+

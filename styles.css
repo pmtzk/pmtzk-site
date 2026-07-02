@@ -506,3 +506,145 @@ main,.scene,.site-header,footer,.modal,.modal-card{
   .exif-build article{min-height:225px}
   .exif-result p{font-size:clamp(2rem,10vw,3.4rem)}
 }
+
+
+/* V6 — IRIDESCENT INTERACTION SYSTEM */
+:root{
+  --petrol:#4a4c50;
+}
+
+.photo-reveal.touch-reveal img,
+.image-wall img.touch-reveal,
+.portfolio-grid img.touch-reveal{
+  filter:grayscale(0) contrast(1) brightness(1);
+  transform:scale(1.012);
+}
+
+.photo-reveal.touch-reveal::after{
+  transform:translateX(120%);
+}
+
+/* Iridescent text that shifts with the scroll position */
+.iridescent-scroll,
+.profile-close,
+.editorial-flow .big-line,
+.value-tab.active,
+.work-row.active .work-name{
+  background:
+    linear-gradient(
+      110deg,
+      #7f8797 0%,
+      #b2a4c8 20%,
+      #94b5ac 42%,
+      #d3aeb7 63%,
+      #94a9c4 82%,
+      #7f8797 100%
+    );
+  background-size:300% 100%;
+  background-position:var(--iridescent-position, 0%) 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+  transition:background-position .12s linear;
+}
+
+/* Clickable words and links receive a restrained iridescent flash */
+.text-link,
+.top-nav a,
+.visit-link,
+.contact-panel a,
+.work-cta{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.text-link::before,
+.top-nav a::before,
+.visit-link::before,
+.contact-panel a::before,
+.work-cta::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:-1;
+  background:linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(199,214,232,.72) 34%,
+    rgba(216,209,234,.78) 45%,
+    rgba(207,225,215,.72) 56%,
+    rgba(241,215,221,.68) 67%,
+    transparent 80%
+  );
+  background-size:240% 100%;
+  background-position:180% 0;
+  opacity:0;
+  transition:opacity .25s ease,background-position .8s ease;
+}
+
+.text-link:hover::before,
+.text-link:focus-visible::before,
+.top-nav a:hover::before,
+.top-nav a:focus-visible::before,
+.visit-link:hover::before,
+.visit-link:focus-visible::before,
+.contact-panel a:hover::before,
+.contact-panel a:focus-visible::before,
+.work-cta:hover::before,
+.work-cta:focus-visible::before,
+.work-row:hover .work-cta::before,
+.work-row:focus-visible .work-cta::before{
+  opacity:1;
+  background-position:-40% 0;
+}
+
+/* Replace the plain line CTA in selected work with an iridescent pill */
+.work-cta{
+  border:1px solid rgba(255,255,255,.72);
+  background:
+    linear-gradient(rgba(236,233,226,.7),rgba(236,233,226,.7)) padding-box,
+    linear-gradient(110deg,#c7d6e8,#d8d1ea,#cfe1d7,#f1d7dd,#c7d6e8) border-box;
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.45),
+    0 8px 28px rgba(82,99,106,.08);
+  color:var(--ink);
+  backdrop-filter:blur(14px);
+}
+
+.work-row:hover .work-cta,
+.work-row.active .work-cta{
+  color:var(--ink);
+  background:
+    linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)) padding-box,
+    linear-gradient(110deg,#c7d6e8,#d8d1ea,#cfe1d7,#f1d7dd,#c7d6e8) border-box;
+  box-shadow:
+    inset 0 0 22px rgba(255,255,255,.52),
+    0 10px 34px rgba(144,153,179,.18);
+}
+
+/* Remove the old plain underline treatment */
+.text-link,
+.visit-link{
+  border-bottom:0;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.62);
+  backdrop-filter:blur(12px);
+}
+
+@media (hover:none){
+  .photo-reveal:hover img,
+  .image-wall img:hover,
+  .portfolio-grid img:hover{
+    filter:grayscale(1) contrast(.92) brightness(1.04);
+    transform:none;
+  }
+  .photo-reveal.touch-reveal img,
+  .image-wall img.touch-reveal,
+  .portfolio-grid img.touch-reveal{
+    filter:grayscale(0) contrast(1) brightness(1);
+    transform:scale(1.012);
+  }
+}
