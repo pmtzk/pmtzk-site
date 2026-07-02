@@ -485,7 +485,7 @@ main,.scene,.site-header,footer,.modal,.modal-card{
 
 /* Touch devices: tap gives the same reveal as desktop hover */
 @media(hover:none){
-  .photo-reveal::before{content:"Tap to reveal color";position:absolute;z-index:4;right:12px;top:12px;padding:7px 9px;border:1px solid rgba(255,255,255,.62);background:rgba(236,233,226,.5);backdrop-filter:blur(12px);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em}
+  .photo-reveal::before{content:"";position:absolute;z-index:4;right:12px;top:12px;padding:7px 9px;border:1px solid rgba(255,255,255,.62);background:rgba(236,233,226,.5);backdrop-filter:blur(12px);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em}
   .photo-reveal.color-lock::before{content:"Color revealed"}
   .shimmer-link::before,.shimmer-click::before,.top-nav a::before,.contact-panel a::before{opacity:.72;transform:scaleX(.74)}
 }
