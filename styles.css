@@ -110,7 +110,7 @@ img{display:block;max-width:100%}
   filter:grayscale(1) contrast(.92) brightness(1.04);
   transition:filter .75s ease,transform .75s cubic-bezier(.22,.61,.36,1);
 }
-.photo-reveal:hover img,.photo-reveal.is-color img,.photo-reveal.color-lock img{
+.photo-reveal:hover img,.photo-reveal.is-color img{
   filter:grayscale(0) contrast(1) brightness(1);
   transform:scale(1.012);
 }
@@ -277,7 +277,7 @@ footer{max-width:var(--max);margin:auto;padding:28px;border-top:1px solid var(--
   width:100%;height:auto;object-fit:contain;background:#d4d3cf;cursor:zoom-in;
   filter:grayscale(1) contrast(.93);transition:filter .7s ease,transform .7s ease
 }
-.image-wall img:hover,.portfolio-grid img:hover,.image-wall img.color-lock,.portfolio-grid img.color-lock{filter:grayscale(0);transform:scale(1.006)}
+.image-wall img:hover,.portfolio-grid img:hover{filter:grayscale(0);transform:scale(1.006)}
 .exif-steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:58px}
 .exif-steps article{padding:24px;min-height:240px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .exif-steps span{color:var(--graphite);font-size:.68rem}
@@ -485,7 +485,7 @@ main,.scene,.site-header,footer,.modal,.modal-card{
 
 /* Touch devices: tap gives the same reveal as desktop hover */
 @media(hover:none){
-  .photo-reveal::before{content:"Tap to reveal color";position:absolute;z-index:4;right:12px;top:12px;padding:7px 9px;border:1px solid rgba(255,255,255,.62);background:rgba(236,233,226,.5);backdrop-filter:blur(12px);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em}
+  .photo-reveal::before{content:"";position:absolute;z-index:4;right:12px;top:12px;padding:7px 9px;border:1px solid rgba(255,255,255,.62);background:rgba(236,233,226,.5);backdrop-filter:blur(12px);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em}
   .photo-reveal.color-lock::before{content:"Color revealed"}
   .shimmer-link::before,.shimmer-click::before,.top-nav a::before,.contact-panel a::before{opacity:.72;transform:scaleX(.74)}
 }
@@ -505,4 +505,323 @@ main,.scene,.site-header,footer,.modal,.modal-card{
   .case-lead{font-size:clamp(2rem,10vw,3.6rem)}
   .exif-build article{min-height:225px}
   .exif-result p{font-size:clamp(2rem,10vw,3.4rem)}
+}
+
+
+/* V6 — IRIDESCENT INTERACTION SYSTEM */
+:root{
+  --petrol:#4a4c50;
+}
+
+.photo-reveal.touch-reveal img,
+.image-wall img.touch-reveal,
+.portfolio-grid img.touch-reveal{
+  filter:grayscale(0) contrast(1) brightness(1);
+  transform:scale(1.012);
+}
+
+.photo-reveal.touch-reveal::after{
+  transform:translateX(120%);
+}
+
+/* Iridescent text that shifts with the scroll position */
+.iridescent-scroll,
+.profile-close,
+.editorial-flow .big-line,
+.value-tab.active,
+.work-row.active .work-name{
+  background:
+    linear-gradient(
+      110deg,
+      #7f8797 0%,
+      #b2a4c8 20%,
+      #94b5ac 42%,
+      #d3aeb7 63%,
+      #94a9c4 82%,
+      #7f8797 100%
+    );
+  background-size:300% 100%;
+  background-position:var(--iridescent-position, 0%) 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+  transition:background-position .12s linear;
+}
+
+/* Clickable words and links receive a restrained iridescent flash */
+.text-link,
+.top-nav a,
+.visit-link,
+.contact-panel a,
+.work-cta{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.text-link::before,
+.top-nav a::before,
+.visit-link::before,
+.contact-panel a::before,
+.work-cta::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:-1;
+  background:linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(199,214,232,.72) 34%,
+    rgba(216,209,234,.78) 45%,
+    rgba(207,225,215,.72) 56%,
+    rgba(241,215,221,.68) 67%,
+    transparent 80%
+  );
+  background-size:240% 100%;
+  background-position:180% 0;
+  opacity:0;
+  transition:opacity .25s ease,background-position .8s ease;
+}
+
+.text-link:hover::before,
+.text-link:focus-visible::before,
+.top-nav a:hover::before,
+.top-nav a:focus-visible::before,
+.visit-link:hover::before,
+.visit-link:focus-visible::before,
+.contact-panel a:hover::before,
+.contact-panel a:focus-visible::before,
+.work-cta:hover::before,
+.work-cta:focus-visible::before,
+.work-row:hover .work-cta::before,
+.work-row:focus-visible .work-cta::before{
+  opacity:1;
+  background-position:-40% 0;
+}
+
+/* Replace the plain line CTA in selected work with an iridescent pill */
+.work-cta{
+  border:1px solid rgba(255,255,255,.72);
+  background:
+    linear-gradient(rgba(236,233,226,.7),rgba(236,233,226,.7)) padding-box,
+    linear-gradient(110deg,#c7d6e8,#d8d1ea,#cfe1d7,#f1d7dd,#c7d6e8) border-box;
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.45),
+    0 8px 28px rgba(82,99,106,.08);
+  color:var(--ink);
+  backdrop-filter:blur(14px);
+}
+
+.work-row:hover .work-cta,
+.work-row.active .work-cta{
+  color:var(--ink);
+  background:
+    linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)) padding-box,
+    linear-gradient(110deg,#c7d6e8,#d8d1ea,#cfe1d7,#f1d7dd,#c7d6e8) border-box;
+  box-shadow:
+    inset 0 0 22px rgba(255,255,255,.52),
+    0 10px 34px rgba(144,153,179,.18);
+}
+
+/* Remove the old plain underline treatment */
+.text-link,
+.visit-link{
+  border-bottom:0;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.62);
+  backdrop-filter:blur(12px);
+}
+
+
+
+/* V7 — HERO WITHOUT IMAGE */
+.hero-visual-abstract{
+  min-height:600px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-visual-abstract::before{
+  content:"";
+  position:absolute;
+  inset:8% 8% 12% 10%;
+  border:1px solid rgba(255,255,255,.55);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.28),rgba(199,214,232,.10),rgba(216,209,234,.12),rgba(207,225,215,.08));
+  backdrop-filter:blur(18px);
+  box-shadow:0 28px 90px rgba(82,99,106,.10);
+}
+.hero-visual-abstract .lens-c{
+  width:260px;
+  height:260px;
+  right:8%;
+  bottom:8%;
+}
+.hero-film-card{
+  position:absolute;
+  left:16%;
+  right:10%;
+  top:27%;
+  z-index:2;
+  padding:28px;
+  border:1px solid rgba(255,255,255,.68);
+  background:rgba(255,255,255,.24);
+  backdrop-filter:blur(20px) saturate(130%);
+  box-shadow:0 24px 70px rgba(82,99,106,.10);
+}
+.hero-film-card span{
+  display:block;
+  margin-bottom:70px;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--graphite);
+}
+.hero-film-card p{
+  margin:0;
+  max-width:12ch;
+  font-family:var(--serif);
+  font-size:clamp(2.2rem,4vw,4.8rem);
+  line-height:.98;
+  letter-spacing:-.045em;
+}
+
+/* Reliable desktop hover + temporary mobile press */
+.photo-reveal img,
+.image-wall img,
+.portfolio-grid img{
+  filter:grayscale(1) contrast(.92) brightness(1.04);
+  transition:filter .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+}
+@media (hover:hover) and (pointer:fine){
+  .photo-reveal:hover img,
+  .image-wall img:hover,
+  .portfolio-grid img:hover{
+    filter:grayscale(0) contrast(1) brightness(1);
+    transform:scale(1.012);
+  }
+}
+.photo-reveal.touch-reveal img,
+.image-wall img.touch-reveal,
+.portfolio-grid img.touch-reveal{
+  filter:grayscale(0) contrast(1) brightness(1)!important;
+  transform:scale(1.012)!important;
+}
+
+/* Right-aligned value heading */
+.value-heading-right{
+  grid-template-columns:.55fr 1.45fr;
+  text-align:right;
+}
+.value-heading-right .eyebrow{
+  grid-column:1/-1;
+  justify-self:end;
+}
+.value-heading-right h2{
+  grid-column:2;
+  justify-self:end;
+  max-width:12ch;
+}
+.value-heading-right>p:last-child{
+  grid-column:2;
+  justify-self:end;
+  max-width:42ch;
+}
+
+/* Value options behave like the work rows */
+.value-tab{
+  transition:transform .35s ease,color .35s ease,padding .35s ease;
+  transform-origin:left center;
+}
+.value-tab:hover,
+.value-tab:focus-visible,
+.value-tab.active{
+  transform:scale(1.035);
+  padding-left:12px;
+}
+.value-tab:hover b,
+.value-tab:focus-visible b,
+.value-tab.active b{
+  background:linear-gradient(110deg,#7f8797,#b2a4c8,#94b5ac,#d3aeb7,#94a9c4);
+  background-size:240% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.value-panel.is-switching{
+  animation:valuePulse .45s ease;
+}
+@keyframes valuePulse{
+  0%{transform:scale(.985);opacity:.7}
+  100%{transform:scale(1);opacity:1}
+}
+
+@media(max-width:980px){
+  .value-heading-right{
+    grid-template-columns:1fr;
+    text-align:right;
+  }
+  .value-heading-right h2,
+  .value-heading-right>p:last-child{
+    grid-column:1;
+    justify-self:end;
+  }
+}
+
+
+/* V9 — MORE ROOM FOR THE SPANISH HERO ANIMATION */
+.hero-film-card{
+  left:8%;
+  right:4%;
+  top:22%;
+  padding:32px;
+}
+
+.hero-film-card p{
+  max-width:18ch;
+  font-size:clamp(1.9rem,3.6vw,4.2rem);
+  line-height:1.02;
+  overflow:visible;
+  text-wrap:balance;
+}
+
+@media(max-width:980px){
+  .hero-visual-abstract{
+    min-height:520px;
+  }
+
+  .hero-film-card{
+    left:6%;
+    right:6%;
+    top:20%;
+  }
+
+  .hero-film-card p{
+    max-width:20ch;
+    font-size:clamp(1.8rem,6vw,3.6rem);
+  }
+}
+
+@media(max-width:640px){
+  .hero-visual-abstract{
+    min-height:440px;
+  }
+
+  .hero-film-card{
+    left:4%;
+    right:4%;
+    top:17%;
+    padding:24px;
+  }
+
+  .hero-film-card span{
+    margin-bottom:42px;
+  }
+
+  .hero-film-card p{
+    max-width:none;
+    font-size:clamp(1.7rem,8vw,2.8rem);
+    line-height:1.04;
+  }
 }
