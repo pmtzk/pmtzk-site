@@ -2,8 +2,8 @@ const translations = {
   en: {
     skip:"Skip to content", navWork:"Work", navProfile:"Profile", navValue:"Value", navContact:"Contact",
     heroEyebrow:"Hospitality · Commercial systems · Visual communication",
-    heroTitleA:"Hospitality commercial leader turning guest insight into",
-    heroTitleB:"sales, systems and visual communication.",
+    heroTitleA:"Turning guest insight into",
+    heroTitleB:"commercial growth.", heroSupport:"Hospitality leadership across sales, systems and visual communication.",
     heroImageLabel:"Image, interaction, sale.",
     heroThesis:"Interested in how places are seen, understood and sold.",
     hero1:"Across six resort properties in Mexico and the Caribbean, I progressed from photographer to Regional Manager.",
@@ -43,10 +43,10 @@ const translations = {
     opportunity:"Opportunity", visualOpportunity:"The property had a distinct identity, but its visual communication did not give prospective guests one clear reason to remember it.",
     concept:"Concept", visualConcept:"I developed Table First, a direction built around the rituals, details and atmosphere surrounding the table.",
     exifKicker:"Brand strategy · Website design & development", exifTitle:"Building EXIF from positioning to live website.",
-    exifIntro:"EXIF Studio brings together hospitality positioning and visual direction. I built the website as the clearest expression of that position, from structure and copy to interaction and responsive implementation.",
-    exif1:"Positioning", exif1Copy:"Defined the market space, audience and core idea.",
-    exif2:"Offer", exif2Copy:"Turned the position into a clear service architecture.",
-    exif3:"Website", exif3Copy:"Mapped the information architecture, wrote the copy, designed the visual system and built the responsive live website in HTML, CSS and JavaScript.",
+    exifSummary:"EXIF began as an idea for a hospitality studio. I turned it into a defined position, a sellable offer and a working digital experience.", exifWhyLabel:"Why it matters", exifWhy:"It shows that I can take an ambiguous business idea, make the commercial logic clear and carry the same thinking through copy, visual direction and execution.",
+    exif1:"Clarified the position", exif1Copy:"Defined who the studio serves, the problem it addresses and the idea that should make the brand memorable.",
+    exif2:"Built the offer and voice", exif2Copy:"Structured the services, wrote the messaging and created a consistent editorial language across the experience.",
+    exif3:"Built the website", exif3Copy:"Mapped the information architecture, designed the responsive interface and developed the live site in HTML, CSS and JavaScript.", exifResultLabel:"Result", exifResult:"A live website that communicates the position clearly and gives the studio a credible commercial home.",
     visitExif:"Visit EXIF Studio ↗",
     portfolioKicker:"Photography · Visual design", portfolioTitle:"Building visual judgment through hospitality.",
     portfolioIntro:"Original photography developed across resort operations, guest-facing production, events and independent visual work.",
@@ -55,8 +55,8 @@ const translations = {
   es: {
     skip:"Saltar al contenido", navWork:"Trabajo", navProfile:"Perfil", navValue:"Valor", navContact:"Contacto",
     heroEyebrow:"Hospitality · Sistemas comerciales · Comunicación visual",
-    heroTitleA:"Líder comercial en hospitality que convierte el entendimiento del huésped en",
-    heroTitleB:"ventas, sistemas y comunicación visual.",
+    heroTitleA:"Convirtiendo el entendimiento del huésped en",
+    heroTitleB:"crecimiento comercial.", heroSupport:"Liderazgo en hospitality a través de ventas, sistemas y comunicación visual.",
     heroImageLabel:"Imagen, interacción, venta.",
     heroThesis:"Interesada en cómo los lugares se ven, se entienden y se venden.",
     hero1:"A lo largo de seis resorts en México y el Caribe, avancé de fotógrafa a Regional Manager.",
@@ -96,10 +96,10 @@ const translations = {
     opportunity:"Oportunidad", visualOpportunity:"La propiedad tenía una identidad distintiva, pero su comunicación visual no daba al huésped potencial una razón clara para recordarla.",
     concept:"Concepto", visualConcept:"Desarrollé Table First, una dirección construida alrededor de los rituales, detalles y atmósfera de la mesa.",
     exifKicker:"Estrategia de marca · Diseño y desarrollo web", exifTitle:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.",
-    exifIntro:"EXIF Studio reúne posicionamiento de hospitality y dirección visual. Construí el website como la expresión más clara de esa posición, desde la estructura y el copy hasta la interacción y la implementación responsive.",
-    exif1:"Posicionamiento", exif1Copy:"Definí el espacio de mercado, la audiencia y la idea central.",
-    exif2:"Oferta", exif2Copy:"Convertí la posición en una arquitectura de servicios clara.",
-    exif3:"Website", exif3Copy:"Mapeé la arquitectura de información, escribí el copy, diseñé el sistema visual y construí el website responsive en HTML, CSS y JavaScript.",
+    exifSummary:"EXIF comenzó como una idea para un estudio de hospitality. La convertí en una posición definida, una oferta vendible y una experiencia digital funcional.", exifWhyLabel:"Por qué es relevante", exifWhy:"Demuestra que puedo tomar una idea de negocio ambigua, aclarar su lógica comercial y llevar el mismo pensamiento al copy, la dirección visual y la ejecución.",
+    exif1:"Aclaré la posición", exif1Copy:"Definí a quién sirve el estudio, qué problema resuelve y qué idea debía hacer memorable a la marca.",
+    exif2:"Construí la oferta y la voz", exif2Copy:"Estructuré los servicios, escribí el messaging y creé un lenguaje editorial consistente para toda la experiencia.",
+    exif3:"Construí el website", exif3Copy:"Mapeé la arquitectura de información, diseñé la interfaz responsive y desarrollé el sitio en HTML, CSS y JavaScript.", exifResultLabel:"Resultado", exifResult:"Un website en vivo que comunica la posición con claridad y le da al estudio una presencia comercial creíble.",
     visitExif:"Visitar EXIF Studio ↗",
     portfolioKicker:"Fotografía · Diseño visual", portfolioTitle:"Construir criterio visual desde hospitality.",
     portfolioIntro:"Fotografía original desarrollada entre operaciones de resort, producción frente al huésped, eventos y trabajo visual independiente.",
@@ -169,13 +169,22 @@ document.querySelectorAll(".work-row").forEach(btn=>{
 });
 
 document.querySelectorAll(".photo-reveal").forEach(el=>{
-  el.addEventListener("click",()=>el.classList.toggle("color-lock"));
+  el.setAttribute("tabindex","0");
+  const toggleColor=()=>el.classList.toggle("color-lock");
+  el.addEventListener("click",toggleColor);
+  el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleColor();}});
 });
 
 document.querySelectorAll("[data-open]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     lastFocus = document.activeElement;
-    document.getElementById(btn.dataset.open).classList.add("open");
+    const modal=document.getElementById(btn.dataset.open);
+    modal.classList.add("open");
+    modal.querySelectorAll(".dramatic-group").forEach((el,index)=>{
+      el.classList.remove("visible");
+      el.style.setProperty("--reveal-delay",`${index*130}ms`);
+      setTimeout(()=>el.classList.add("visible"),60);
+    });
     document.body.classList.add("locked");
   });
 });
@@ -242,7 +251,13 @@ const progressLine=document.querySelector(".page-index-line i");
 function updateProgress(){
   const max=document.documentElement.scrollHeight-innerHeight;
   const pct=max>0?scrollY/max:0;
-  progressLine.style.height=`${pct*120}px`;
+  if(innerWidth<=640){
+    progressLine.style.width=`${pct*100}%`;
+    progressLine.style.height="2px";
+  }else{
+    progressLine.style.height=`${pct*120}px`;
+    progressLine.style.width="1px";
+  }
   let current=scenes[0];
   scenes.forEach(scene=>{
     if(scene.getBoundingClientRect().top<innerHeight*.45) current=scene;
@@ -261,8 +276,9 @@ const revealObserver=new IntersectionObserver(entries=>{
     }
   });
 },{threshold:.12});
-document.querySelectorAll(".scene:not(.hero)").forEach(el=>{
+document.querySelectorAll(".scene:not(.hero), .dramatic-group").forEach((el,index)=>{
   el.classList.add("reveal");
+  el.style.setProperty("--reveal-delay",`${Math.min(index%4,3)*90}ms`);
   revealObserver.observe(el);
 });
 
