@@ -51,7 +51,7 @@
 
       <a class="text-link" href="#work">
         <span data-i18n="enterWork">Enter selected work</span>
-        <span aria-hidden="true">↘</span>
+        
       </a>
     </div>
 
@@ -90,45 +90,57 @@
       <div class="work-list">
         <button class="work-row active" data-project="commercial" data-open="commercial">
           <span class="work-index">01</span>
-          <span class="work-name" data-i18n="work1Title">Making resort sales repeatable.</span>
-          <span class="work-category" data-i18n="work1Meta">Commercial systems</span>
-          <span class="work-arrow">↗</span>
+          <span class="work-copy">
+            <strong class="work-name" data-i18n="work1Title">Making resort sales repeatable.</strong>
+            <small data-i18n="work1Desc">How individual sales performance became a teachable commercial system for resort teams.</small>
+          </span>
+          <span class="work-cta" data-i18n="viewCase">View case</span>
         </button>
 
         <button class="work-row" data-project="visual" data-open="visual">
           <span class="work-index">02</span>
-          <span class="work-name" data-i18n="work2Title">The property had a story. Its images were not telling it.</span>
-          <span class="work-category" data-i18n="work2Meta">Brand marketing</span>
-          <span class="work-arrow">↗</span>
+          <span class="work-copy">
+            <strong class="work-name" data-i18n="work2Title">The property had a story. Its images were not telling it.</strong>
+            <small data-i18n="work2Desc">A self-initiated hospitality content direction built from the property’s own atmosphere and rituals.</small>
+          </span>
+          <span class="work-cta" data-i18n="viewCase">View case</span>
         </button>
 
         <button class="work-row" data-project="exif" data-open="exif">
           <span class="work-index">03</span>
-          <span class="work-name" data-i18n="work3Title">Building EXIF from positioning to live website.</span>
-          <span class="work-category" data-i18n="work3Meta">Brand strategy & website</span>
-          <span class="work-arrow">↗</span>
+          <span class="work-copy">
+            <strong class="work-name" data-i18n="work3Title">Building EXIF from positioning to live website.</strong>
+            <small data-i18n="work3Desc">How I defined the position, wrote the offer, designed the experience and built the live website.</small>
+          </span>
+          <span class="work-cta" data-i18n="viewCase">View case</span>
         </button>
 
         <button class="work-row" data-project="portfolio" data-open="portfolio">
           <span class="work-index">04</span>
-          <span class="work-name" data-i18n="work4Title">Building visual judgment through hospitality.</span>
-          <span class="work-category" data-i18n="work4Meta">Photography & design</span>
-          <span class="work-arrow">↗</span>
+          <span class="work-copy">
+            <strong class="work-name" data-i18n="work4Title">Building visual judgment through hospitality.</strong>
+            <small data-i18n="work4Desc">A mixed photographic archive shaped by people, properties, events and resort environments.</small>
+          </span>
+          <span class="work-cta" data-i18n="viewCase">View case</span>
         </button>
       </div>
 
-      <aside class="work-preview">
-        <div class="preview-frame photo-reveal is-color" id="project-preview">
-          <img src="case-resort-view.jpg" alt="">
-          <div class="preview-overlay">
-            <strong>+200k usd</strong>
-            <span data-i18n="work1Proof">team sales over seven months</span>
-          </div>
-        </div>
+      <aside class="work-preview portfolio-slideshow" aria-label="Photography portfolio preview">
+        <div class="slideshow-frame photo-reveal" id="portfolio-slideshow">
+          <img class="slide active" src="photo-street-portrait.jpg" alt="Street portrait">
+          <img class="slide" src="photo-maternity-portrait.jpg" alt="Maternity portrait">
+          <img class="slide" src="photo-wedding-bouquet.jpg" alt="Wedding bouquet detail">
+          <img class="slide" src="photo-event-table.jpg" alt="Event table detail">
+          <img class="slide" src="photo-driver-detail.jpg" alt="Driver detail">
+          <img class="slide" src="photo-restaurant-light.jpg" alt="Restaurant interior light">
+          <img class="slide" src="photo-resort-couple.jpg" alt="Couple at a resort">
+          <img class="slide" src="photo-caribbean-palms.jpg" alt="Caribbean palms">
+          <img class="slide" src="photo-resort-leisure.jpg" alt="Resort leisure scene">
 
-        <div class="preview-note translucent-card">
-          <span id="preview-number">01 / 04</span>
-          <p id="preview-copy" data-i18n="preview1">From individual performance to a system local teams could use.</p>
+          <div class="slideshow-status">
+            <span id="slide-count">01 / 09</span>
+            <button type="button" data-open="portfolio" class="portfolio-link" data-i18n="viewPortfolio">View portfolio</button>
+          </div>
         </div>
       </aside>
     </div>
@@ -140,15 +152,7 @@
       <h2 data-i18n="profileTitle">The image, the interaction and the sale were never separate.</h2>
     </div>
 
-    <div class="profile-body">
-      <div class="profile-photo photo-reveal">
-        <img src="photo-maternity-portrait.jpg" alt="Selected portrait work">
-        <div class="image-caption">
-          <span data-i18n="profilePhotoLabel">Visual judgment</span>
-          <span>03 / 05</span>
-        </div>
-      </div>
-
+    <div class="profile-body profile-body-text-only">
       <div class="profile-copy">
         <p data-i18n="profile1">A stronger photograph changed the conversation.</p>
         <p data-i18n="profile2">A clearer approach made guests more willing to participate.</p>
@@ -302,7 +306,7 @@
     <button class="modal-close" data-close aria-label="Close">×</button>
     <div class="modal-kicker" data-i18n="exifKicker">Brand strategy · Website design & development</div>
     <h2 id="exif-title" data-i18n="exifTitle">Building EXIF from positioning to live website.</h2>
-    <p class="modal-intro" data-i18n="exifIntro">EXIF Studio brings together hospitality positioning and visual direction.</p>
+    <p class="modal-intro" data-i18n="exifIntro">EXIF Studio brings together hospitality positioning and visual direction. I built the website as the clearest expression of that position, from structure and copy to interaction and responsive implementation.</p>
 
     <div class="image-stage photo-reveal">
       <img src="exif-brand-system.jpg" alt="EXIF Studio visual identity system" data-lightbox>
@@ -311,10 +315,10 @@
     <div class="exif-steps">
       <article><span>01</span><h3 data-i18n="exif1">Positioning</h3><p data-i18n="exif1Copy">Defined the market space, audience and core idea.</p></article>
       <article><span>02</span><h3 data-i18n="exif2">Offer</h3><p data-i18n="exif2Copy">Turned the position into a clear service architecture.</p></article>
-      <article><span>03</span><h3 data-i18n="exif3">Website</h3><p data-i18n="exif3Copy">Wrote, designed and developed the responsive live experience.</p></article>
+      <article><span>03</span><h3 data-i18n="exif3">Website</h3><p data-i18n="exif3Copy">Mapped the information architecture, wrote the copy, designed the visual system and built the responsive live website in HTML, CSS and JavaScript.</p></article>
     </div>
 
-    <a class="visit-link" href="https://exif.studio" target="_blank" rel="noreferrer" data-i18n="visitExif">Visit EXIF Studio ↗</a>
+    <a class="visit-link" href="https://exif.studio" target="_blank" rel="noreferrer" data-i18n="visitExif">Visit EXIF Studio</a>
   </article>
 </div>
 
@@ -323,34 +327,19 @@
     <button class="modal-close" data-close aria-label="Close">×</button>
     <div class="modal-kicker" data-i18n="portfolioKicker">Photography · Visual design</div>
     <h2 id="portfolio-title" data-i18n="portfolioTitle">Building visual judgment through hospitality.</h2>
-    <p class="modal-intro" data-i18n="portfolioIntro">Original photography and design work developed across resort operations, guest-facing production and independent brand projects.</p>
+    <p class="modal-intro" data-i18n="portfolioIntro">Original photography developed across resort operations, guest-facing production, events and independent visual work.</p>
 
-    <div class="portfolio-tabs">
-      <button class="portfolio-tab active" data-portfolio="photos" data-i18n="photos">Photography</button>
-      <button class="portfolio-tab" data-portfolio="design" data-i18n="design">Design</button>
-    </div>
-
-    <div class="portfolio-panel active" id="photos">
-      <div class="portfolio-grid">
-        <img src="photo-street-portrait.jpg" alt="Street portrait" data-lightbox>
-        <img src="photo-maternity-portrait.jpg" alt="Maternity portrait" data-lightbox>
-        <img src="photo-wedding-bouquet.jpg" alt="Wedding bouquet" data-lightbox>
-        <img src="photo-event-table.jpg" alt="Event table" data-lightbox>
-        <img src="photo-driver-detail.jpg" alt="Driver detail" data-lightbox>
-        <img src="photo-restaurant-light.jpg" alt="Restaurant light" data-lightbox>
-        <img src="photo-resort-couple.jpg" alt="Resort couple" data-lightbox>
-        <img src="photo-caribbean-palms.jpg" alt="Caribbean palms" data-lightbox>
-        <img src="photo-resort-leisure.jpg" alt="Resort leisure" data-lightbox>
+    <div class="portfolio-grid portfolio-grid-mixed">
+        <img class="portrait" src="photo-street-portrait.jpg" alt="Street portrait" data-lightbox>
+        <img class="landscape wide" src="photo-event-table.jpg" alt="Event table detail" data-lightbox>
+        <img class="portrait tall" src="photo-maternity-portrait.jpg" alt="Maternity portrait" data-lightbox>
+        <img class="square" src="photo-wedding-bouquet.jpg" alt="Wedding bouquet detail" data-lightbox>
+        <img class="landscape" src="photo-driver-detail.jpg" alt="Driver detail" data-lightbox>
+        <img class="portrait" src="photo-restaurant-light.jpg" alt="Restaurant light and interior detail" data-lightbox>
+        <img class="landscape wide" src="photo-resort-couple.jpg" alt="Couple at a resort" data-lightbox>
+        <img class="portrait tall" src="photo-caribbean-palms.jpg" alt="Caribbean palms" data-lightbox>
+        <img class="square" src="photo-resort-leisure.jpg" alt="Resort leisure scene" data-lightbox>
       </div>
-    </div>
-
-    <div class="portfolio-panel" id="design">
-      <div class="design-stack">
-        <article><span>Brand direction · Web</span><h3>EXIF Studio</h3></article>
-        <article><span>Content direction · Hospitality</span><h3>Table First</h3></article>
-        <article><span>Editorial product · Digital</span><h3>The Digital Society</h3></article>
-      </div>
-    </div>
   </article>
 </div>
 

@@ -12,10 +12,10 @@ const translations = {
     enterWork:"Enter selected work",
     workEyebrow:"Selected work", workTitle:"Commercial systems, hospitality positioning and visual execution.",
     workIntro:"Each project answers a different question about how I work.",
-    work1Meta:"Commercial systems", work1Title:"Making resort sales repeatable.", work1Proof:"team sales over seven months",
-    work2Meta:"Brand marketing", work2Title:"The property had a story. Its images were not telling it.",
-    work3Meta:"Brand strategy & website", work3Title:"Building EXIF from positioning to live website.",
-    work4Meta:"Photography & design", work4Title:"Building visual judgment through hospitality.",
+    work1Meta:"Commercial systems", work1Title:"Making resort sales repeatable.", work1Desc:"How individual sales performance became a teachable commercial system for resort teams.", work1Proof:"team sales over seven months",
+    work2Meta:"Brand marketing", work2Title:"The property had a story. Its images were not telling it.", work2Desc:"A self-initiated hospitality content direction built from the property’s own atmosphere and rituals.",
+    work3Meta:"Brand strategy & website", work3Title:"Building EXIF from positioning to live website.", work3Desc:"How I defined the position, wrote the offer, designed the experience and built the live website.",
+    work4Meta:"Photography", work4Title:"Building visual judgment through hospitality.", work4Desc:"A mixed photographic archive shaped by people, properties, events and resort environments.", viewCase:"View case", viewPortfolio:"View portfolio",
     preview1:"From individual performance to a system local teams could use.",
     profileEyebrow:"What the work taught me", profileTitle:"The image, the interaction and the sale were never separate.",
     profilePhotoLabel:"Visual judgment",
@@ -43,13 +43,13 @@ const translations = {
     opportunity:"Opportunity", visualOpportunity:"The property had a distinct identity, but its visual communication did not give prospective guests one clear reason to remember it.",
     concept:"Concept", visualConcept:"I developed Table First, a direction built around the rituals, details and atmosphere surrounding the table.",
     exifKicker:"Brand strategy · Website design & development", exifTitle:"Building EXIF from positioning to live website.",
-    exifIntro:"EXIF Studio brings together hospitality positioning and visual direction.",
+    exifIntro:"EXIF Studio brings together hospitality positioning and visual direction. I built the website as the clearest expression of that position, from structure and copy to interaction and responsive implementation.",
     exif1:"Positioning", exif1Copy:"Defined the market space, audience and core idea.",
     exif2:"Offer", exif2Copy:"Turned the position into a clear service architecture.",
-    exif3:"Website", exif3Copy:"Wrote, designed and developed the responsive live experience.",
+    exif3:"Website", exif3Copy:"Mapped the information architecture, wrote the copy, designed the visual system and built the responsive live website in HTML, CSS and JavaScript.",
     visitExif:"Visit EXIF Studio ↗",
     portfolioKicker:"Photography · Visual design", portfolioTitle:"Building visual judgment through hospitality.",
-    portfolioIntro:"Original photography and design work developed across resort operations, guest-facing production and independent brand projects.",
+    portfolioIntro:"Original photography developed across resort operations, guest-facing production, events and independent visual work.",
     photos:"Photography", design:"Design"
   },
   es: {
@@ -65,10 +65,10 @@ const translations = {
     enterWork:"Entrar al trabajo seleccionado",
     workEyebrow:"Trabajo seleccionado", workTitle:"Sistemas comerciales, posicionamiento hotelero y ejecución visual.",
     workIntro:"Cada proyecto responde una pregunta distinta sobre cómo trabajo.",
-    work1Meta:"Sistemas comerciales", work1Title:"Hacer replicables las ventas de resort.", work1Proof:"ventas del equipo en siete meses",
-    work2Meta:"Brand marketing", work2Title:"La propiedad tenía una historia. Sus imágenes no la estaban contando.",
-    work3Meta:"Estrategia de marca y website", work3Title:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.",
-    work4Meta:"Fotografía y diseño", work4Title:"Construir criterio visual desde hospitality.",
+    work1Meta:"Sistemas comerciales", work1Title:"Hacer replicables las ventas de resort.", work1Desc:"Cómo el desempeño individual en ventas se convirtió en un sistema comercial enseñable para equipos de resort.", work1Proof:"ventas del equipo en siete meses",
+    work2Meta:"Brand marketing", work2Title:"La propiedad tenía una historia. Sus imágenes no la estaban contando.", work2Desc:"Una dirección de contenido autoiniciada construida desde la atmósfera y los rituales propios de la propiedad.",
+    work3Meta:"Estrategia de marca y website", work3Title:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.", work3Desc:"Cómo definí la posición, escribí la oferta, diseñé la experiencia y construí el website en vivo.",
+    work4Meta:"Fotografía", work4Title:"Construir criterio visual desde hospitality.", work4Desc:"Un archivo fotográfico mixto construido entre personas, propiedades, eventos y entornos de resort.", viewCase:"Ver caso", viewPortfolio:"Ver portafolio",
     preview1:"Del desempeño individual a un sistema que los equipos locales podían utilizar.",
     profileEyebrow:"Lo que me enseñó el trabajo", profileTitle:"La imagen, la interacción y la venta nunca estuvieron separadas.",
     profilePhotoLabel:"Criterio visual",
@@ -96,13 +96,13 @@ const translations = {
     opportunity:"Oportunidad", visualOpportunity:"La propiedad tenía una identidad distintiva, pero su comunicación visual no daba al huésped potencial una razón clara para recordarla.",
     concept:"Concepto", visualConcept:"Desarrollé Table First, una dirección construida alrededor de los rituales, detalles y atmósfera de la mesa.",
     exifKicker:"Estrategia de marca · Diseño y desarrollo web", exifTitle:"Construir EXIF desde el posicionamiento hasta el sitio en vivo.",
-    exifIntro:"EXIF Studio reúne posicionamiento de hospitality y dirección visual.",
+    exifIntro:"EXIF Studio reúne posicionamiento de hospitality y dirección visual. Construí el website como la expresión más clara de esa posición, desde la estructura y el copy hasta la interacción y la implementación responsive.",
     exif1:"Posicionamiento", exif1Copy:"Definí el espacio de mercado, la audiencia y la idea central.",
     exif2:"Oferta", exif2Copy:"Convertí la posición en una arquitectura de servicios clara.",
-    exif3:"Website", exif3Copy:"Escribí, diseñé y desarrollé la experiencia responsive en vivo.",
+    exif3:"Website", exif3Copy:"Mapeé la arquitectura de información, escribí el copy, diseñé el sistema visual y construí el website responsive en HTML, CSS y JavaScript.",
     visitExif:"Visitar EXIF Studio ↗",
     portfolioKicker:"Fotografía · Diseño visual", portfolioTitle:"Construir criterio visual desde hospitality.",
-    portfolioIntro:"Fotografía y diseño originales desarrollados en operaciones de resort, producción frente al huésped y proyectos de marca independientes.",
+    portfolioIntro:"Fotografía original desarrollada entre operaciones de resort, producción frente al huésped, eventos y trabajo visual independiente.",
     photos:"Fotografía", design:"Diseño"
   }
 };
@@ -124,40 +124,8 @@ const valueCopy = {
   }
 };
 
-const projectData = {
-  commercial:{
-    image:"case-resort-view.jpg",
-    number:"01 / 04",
-    proof:"+200k usd",
-    proofLabel:{en:"team sales over seven months",es:"ventas del equipo en siete meses"},
-    copy:{en:"From individual performance to a system local teams could use.",es:"Del desempeño individual a un sistema que los equipos locales podían utilizar."}
-  },
-  visual:{
-    image:"case-restaurant-table.jpg",
-    number:"02 / 04",
-    proof:"Table First",
-    proofLabel:{en:"hospitality content direction",es:"dirección de contenido para hospitality"},
-    copy:{en:"A property story translated into a memorable visual territory.",es:"La historia de una propiedad traducida en un territorio visual memorable."}
-  },
-  exif:{
-    image:"exif-brand-system.jpg",
-    number:"03 / 04",
-    proof:"Live",
-    proofLabel:{en:"positioning to website",es:"del posicionamiento al website"},
-    copy:{en:"A hospitality venture built from position, offer and voice to a live digital experience.",es:"Un venture de hospitality construido desde posición, oferta y voz hasta una experiencia digital en vivo."}
-  },
-  portfolio:{
-    image:"photo-street-portrait.jpg",
-    number:"04 / 04",
-    proof:"Visual",
-    proofLabel:{en:"photography and design",es:"fotografía y diseño"},
-    copy:{en:"Original work shaped by resort environments, people and independent brand projects.",es:"Trabajo original moldeado por resorts, personas y proyectos de marca independientes."}
-  }
-};
-
 let lang = localStorage.getItem("pmtzk-lang") || "en";
 let activeValue = "field";
-let activeProject = "commercial";
 let lastFocus = null;
 
 function setLang(next){
@@ -173,7 +141,6 @@ function setLang(next){
     btn.setAttribute("aria-pressed",String(active));
   });
   renderValue(activeValue);
-  renderProject(activeProject);
   localStorage.setItem("pmtzk-lang",next);
 }
 
@@ -190,25 +157,15 @@ function renderValue(key){
   });
 }
 
-function renderProject(key){
-  activeProject = key;
-  const data = projectData[key];
-  const frame = document.getElementById("project-preview");
-  frame.querySelector("img").src = data.image;
-  frame.querySelector("strong").textContent = data.proof;
-  frame.querySelector(".preview-overlay span").textContent = data.proofLabel[lang];
-  document.getElementById("preview-number").textContent = data.number;
-  document.getElementById("preview-copy").textContent = data.copy[lang];
-  frame.classList.add("is-color");
-  setTimeout(()=>frame.classList.remove("is-color"),850);
-  document.querySelectorAll(".work-row").forEach(btn=>btn.classList.toggle("active",btn.dataset.project===key));
-}
-
 document.querySelectorAll("[data-lang]").forEach(btn=>btn.addEventListener("click",()=>setLang(btn.dataset.lang)));
 document.querySelectorAll(".value-tab").forEach(btn=>btn.addEventListener("click",()=>renderValue(btn.dataset.value)));
 document.querySelectorAll(".work-row").forEach(btn=>{
-  btn.addEventListener("mouseenter",()=>renderProject(btn.dataset.project));
-  btn.addEventListener("focus",()=>renderProject(btn.dataset.project));
+  const activate=()=>{
+    document.querySelectorAll(".work-row").forEach(row=>row.classList.remove("active"));
+    btn.classList.add("active");
+  };
+  btn.addEventListener("mouseenter",activate);
+  btn.addEventListener("focus",activate);
 });
 
 document.querySelectorAll(".photo-reveal").forEach(el=>{
@@ -230,14 +187,6 @@ function closeModal(modal){
 document.querySelectorAll("[data-close]").forEach(btn=>btn.addEventListener("click",()=>closeModal(btn.closest(".modal"))));
 document.querySelectorAll(".modal").forEach(modal=>modal.addEventListener("click",e=>{if(e.target===modal)closeModal(modal)}));
 
-document.querySelectorAll(".portfolio-tab").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".portfolio-tab").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".portfolio-panel").forEach(p=>p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.portfolio).classList.add("active");
-  });
-});
 
 document.querySelectorAll(".image-wall img,.portfolio-grid img").forEach(img=>{
   img.addEventListener("click",()=>img.classList.toggle("color-lock"));
@@ -258,6 +207,34 @@ document.addEventListener("keydown",e=>{
     if(open) closeModal(open);
   }
 });
+
+
+const slides=[...document.querySelectorAll("#portfolio-slideshow .slide")];
+const slideCount=document.getElementById("slide-count");
+let slideIndex=0;
+let slideTimer;
+function showSlide(index){
+  if(!slides.length) return;
+  slideIndex=(index+slides.length)%slides.length;
+  slides.forEach((slide,i)=>slide.classList.toggle("active",i===slideIndex));
+  if(slideCount) slideCount.textContent=String(slideIndex+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0");
+}
+function startSlideshow(){
+  clearInterval(slideTimer);
+  slideTimer=setInterval(()=>showSlide(slideIndex+1),3200);
+}
+const slideshow=document.getElementById("portfolio-slideshow");
+if(slideshow){
+  slideshow.addEventListener("click",e=>{
+    if(e.target.closest(".portfolio-link")) return;
+    showSlide(slideIndex+1);
+    startSlideshow();
+  });
+  slideshow.addEventListener("mouseenter",()=>clearInterval(slideTimer));
+  slideshow.addEventListener("mouseleave",startSlideshow);
+  showSlide(0);
+  startSlideshow();
+}
 
 const scenes=[...document.querySelectorAll("[data-scene]")];
 const currentLabel=document.querySelector(".page-index-current");
@@ -301,4 +278,3 @@ if(matchMedia("(pointer:fine)").matches){
 
 setLang(lang);
 renderValue(activeValue);
-renderProject(activeProject);
