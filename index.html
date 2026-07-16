@@ -1,1099 +1,1142 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#101010" />
-  <title>Katia E. Pérez — Professional Record</title>
-  <meta name="description" content="A professional record by Katia E. Pérez, built around operations, leadership, systems, representation and research." />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#111111" name="theme-color"/>
+<title>Katia E. Pérez — Professional Record</title>
+<meta content="A capability-led professional record by Katia E. Pérez." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
-      --black:#101010;
-      --black-soft:#181818;
-      --cream:#f0eadf;
-      --cream-soft:#e7dfd1;
+      --black:#0f0f0f;
+      --black-2:#171717;
+      --cream:#f2eee6;
+      --cream-2:#e8e1d6;
       --ink:#171717;
-      --paper-muted:#6a665f;
-      --dark-muted:rgba(255,255,255,.56);
-      --dark-line:rgba(255,255,255,.16);
-      --paper-line:rgba(23,23,23,.18);
-      --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-      --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      --rail:238px;
-      --ease:cubic-bezier(.22,.61,.36,1);
+      --paper-line:rgba(23,23,23,.22);
+      --dark-line:rgba(255,255,255,.17);
+      --muted-dark:rgba(255,255,255,.52);
+      --muted-paper:#6b6964;
+      --serif:"Instrument Serif", Georgia, serif;
+      --sans:"Manrope", Arial, sans-serif;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
+      min-height:100vh;
       background:var(--black);
-      color:var(--cream);
+      color:#f8f5ee;
       font-family:var(--sans);
       -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
     }
-    button,a{font:inherit}
     a{color:inherit;text-decoration:none}
-    button{color:inherit}
-    ::selection{background:var(--cream);color:var(--ink)}
 
-    .progress{
-      position:fixed;
-      inset:0 auto auto 0;
-      z-index:100;
-      width:100%;
-      height:2px;
-      background:rgba(255,255,255,.08);
-    }
-    .progress span{
-      display:block;
-      width:0;
-      height:100%;
-      background:var(--cream);
-      transform-origin:left;
-    }
-
-    .mobile-top{display:none}
-
-    .layout{
-      display:grid;
-      grid-template-columns:var(--rail) minmax(0,1fr);
+    .mobile-bar{display:none}
+    .shell{
       min-height:100vh;
+      display:grid;
+      grid-template-columns:244px minmax(0,1fr);
     }
 
+    /* Left rail */
     .rail{
       position:sticky;
       top:0;
       height:100vh;
-      z-index:30;
+      padding:28px 22px 22px;
       display:flex;
       flex-direction:column;
-      padding:27px 22px 22px;
-      background:var(--black);
       border-right:1px solid var(--dark-line);
+      background:var(--black);
+      z-index:20;
     }
-
-    .rail-head{
+    .brand{
       display:flex;
-      align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:42px;
+      margin-bottom:44px;
     }
-    .name{
+    .brand strong{
       font-family:var(--serif);
+      font-size:22px;
       font-weight:400;
-      font-size:21px;
-      line-height:1.05;
     }
-    .lang-toggle{
+    .status{
+      margin-top:6px;
       display:flex;
       align-items:center;
-      border:1px solid var(--dark-line);
-    }
-    .lang-toggle button{
-      border:0;
-      background:transparent;
-      padding:7px 8px;
-      cursor:pointer;
-      font-size:8px;
-      letter-spacing:.14em;
-    }
-    .lang-toggle button[aria-pressed="true"]{
-      background:var(--cream);
-      color:var(--ink);
-    }
-
-    .rail-kicker{
-      margin:0 0 9px;
-      color:rgba(255,255,255,.35);
+      gap:7px;
       font-size:8px;
       text-transform:uppercase;
-      letter-spacing:.18em;
+      letter-spacing:.14em;
+      color:var(--muted-dark);
     }
-    .nav{
+    .status::before{
+      content:"";
+      width:5px;height:5px;
+      border-radius:50%;
+      background:var(--cream);
+    }
+    .rail-label{
+      margin:0 0 10px;
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:rgba(255,255,255,.34);
+    }
+    .rail nav{
       display:grid;
       border-bottom:1px solid var(--dark-line);
     }
-    .nav a{
+    .rail nav a{
       display:grid;
-      grid-template-columns:27px 1fr;
-      gap:9px;
-      align-items:baseline;
-      padding:12px 0;
+      grid-template-columns:32px 1fr;
+      gap:8px;
+      padding:13px 0;
       border-top:1px solid var(--dark-line);
-      color:rgba(255,255,255,.54);
-      transition:color .2s ease,padding .2s ease;
+      color:rgba(255,255,255,.56);
+      transition:.2s ease;
     }
-    .nav a:hover,.nav a.is-active{
-      color:#fff;
-      padding-left:4px;
-    }
-    .nav .n{
+    .rail nav a:hover{color:#fff;padding-left:5px}
+    .rail nav .num{
       font-family:var(--serif);
       font-size:15px;
+      line-height:1;
     }
-    .nav .t{
-      font-size:9px;
+    .rail nav .label{
+      font-size:10px;
       line-height:1.35;
     }
-
-    .rail-foot{
+    .rail-footer{
       margin-top:auto;
       padding-top:17px;
       border-top:1px solid var(--dark-line);
     }
-    .rail-foot p{
-      margin:0 0 13px;
-      color:var(--dark-muted);
-      font-size:9px;
-      line-height:1.55;
-    }
-    .rail-foot a{
-      font-size:9px;
-      border-bottom:1px solid rgba(255,255,255,.35);
-    }
-
-    main{min-width:0}
-
-    .hero{
-      min-height:100vh;
-      padding:30px 42px 44px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      border-bottom:1px solid var(--dark-line);
-    }
-    .hero-meta{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      color:rgba(255,255,255,.43);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-    }
-    .hero-copy{
-      max-width:1180px;
-      padding:72px 0 40px;
-    }
-    .hero h1{
-      margin:0;
-      max-width:1040px;
-      font-family:var(--serif);
-      font-size:clamp(68px,9.3vw,148px);
-      font-weight:400;
-      line-height:.84;
-      letter-spacing:-.055em;
-    }
-    .hero h1 em{font-weight:400}
-    .hero-bottom{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(260px,360px);
-      align-items:end;
-      gap:48px;
-    }
-    .hero-intro{
-      margin:0;
-      max-width:700px;
-      font-family:var(--serif);
-      font-size:clamp(20px,2vw,29px);
-      line-height:1.35;
-    }
-    .hero-landmarks{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      border-top:1px solid var(--dark-line);
-      border-left:1px solid var(--dark-line);
-    }
-    .hero-landmarks span{
-      min-height:61px;
-      display:flex;
-      align-items:flex-end;
-      padding:10px;
-      border-right:1px solid var(--dark-line);
-      border-bottom:1px solid var(--dark-line);
-      color:rgba(255,255,255,.63);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.11em;
-      line-height:1.45;
-    }
-
-    .chapter-zone{
-      min-height:112vh;
-      padding:0 20px;
-      position:relative;
-      border-bottom:1px solid var(--dark-line);
-      scroll-margin-top:0;
-    }
-    .chapter-card{
-      position:sticky;
-      top:20px;
-      max-width:1240px;
-      margin:0 auto;
-      padding-top:20px;
-    }
-    .chapter-shell{
-      background:var(--black);
-      border-top:1px solid rgba(255,255,255,.65);
-      border-bottom:1px solid var(--dark-line);
-    }
-
-    .chapter-trigger{
-      width:100%;
-      min-height:142px;
-      padding:22px 4px;
-      display:grid;
-      grid-template-columns:68px minmax(260px,.9fr) minmax(300px,1.1fr) 118px;
-      gap:22px;
-      align-items:center;
-      text-align:left;
-      border:0;
-      background:transparent;
-      cursor:pointer;
-    }
-    .chapter-trigger:hover .chapter-title{font-style:italic}
-    .chapter-index{
-      font-family:var(--serif);
-      font-size:30px;
-    }
-    .chapter-landmark{
-      display:block;
-      margin-bottom:8px;
-      color:rgba(255,255,255,.42);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.17em;
-    }
-    .chapter-title{
+    .rail-footer strong{
       display:block;
       font-family:var(--serif);
-      font-size:clamp(31px,3.2vw,48px);
-      line-height:.96;
       font-weight:400;
-      letter-spacing:-.035em;
-      transition:font-style .2s ease;
-    }
-    .chapter-one-line{
-      margin:0;
-      max-width:530px;
-      color:var(--dark-muted);
-      font-family:var(--serif);
       font-size:18px;
-      line-height:1.35;
+      margin-bottom:5px;
     }
-    .inside{
-      justify-self:end;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:rgba(255,255,255,.68);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-      white-space:nowrap;
-    }
-    .inside::after{
-      content:"";
-      width:22px;
-      height:1px;
-      background:currentColor;
-      transition:width .25s ease;
-    }
-    .chapter-trigger:hover .inside::after{width:34px}
-
-    .chapter-panel{
-      height:0;
-      overflow:hidden;
-      background:var(--cream);
-      color:var(--ink);
-      transition:height .65s var(--ease);
-    }
-    .chapter-zone.is-open .chapter-panel{height:min(68vh,720px)}
-    .chapter-zone.is-open .chapter-title{font-style:italic}
-    .chapter-zone.is-open .inside::after{width:34px}
-    .chapter-zone.is-open .inside .inside-closed{display:none}
-    .inside-open{display:none}
-    .chapter-zone.is-open .inside-open{display:inline}
-
-    .panel-scroll{
-      height:100%;
-      overflow:auto;
-      overscroll-behavior:contain;
-      scrollbar-width:thin;
-      scrollbar-color:rgba(23,23,23,.35) transparent;
-    }
-    .panel-inner{
-      max-width:1240px;
-      margin:0 auto;
-      padding:42px 4px 54px;
-    }
-    .chapter-grid{
-      display:grid;
-      grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
-      gap:60px;
-    }
-    .chapter-intro{
-      position:sticky;
-      top:36px;
-      align-self:start;
-    }
-    .paper-kicker{
-      margin:0 0 18px;
-      color:var(--paper-muted);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.17em;
-    }
-    .chapter-intro h2{
+    .rail-footer p{
       margin:0;
-      max-width:530px;
-      font-family:var(--serif);
-      font-size:clamp(49px,5.2vw,76px);
-      line-height:.91;
-      font-weight:400;
-      letter-spacing:-.045em;
-    }
-    .chapter-intro .lead{
-      margin:28px 0 0;
-      max-width:480px;
-      color:var(--paper-muted);
-      font-family:var(--serif);
-      font-size:19px;
-      line-height:1.45;
-    }
-    .chapter-body{
-      display:grid;
-      gap:0;
-    }
-    .text-block{
-      padding:0 0 28px;
-      font-family:var(--serif);
-      font-size:20px;
-      line-height:1.52;
-    }
-    .text-block p{margin:0 0 17px}
-    .text-block p:last-child{margin-bottom:0}
-
-    .evidence-title{
-      margin:5px 0 0;
-      padding:16px 0 10px;
-      border-top:1px solid var(--ink);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.17em;
-    }
-    .evidence-list{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      border-top:1px solid var(--paper-line);
-      border-left:1px solid var(--paper-line);
-    }
-    .evidence-item{
-      min-height:130px;
-      padding:16px;
-      border-right:1px solid var(--paper-line);
-      border-bottom:1px solid var(--paper-line);
-    }
-    .evidence-item b{
-      display:block;
-      margin-bottom:8px;
-      font-family:var(--serif);
-      font-size:26px;
-      font-weight:400;
-      line-height:1;
-    }
-    .evidence-item span{
-      color:var(--paper-muted);
-      font-size:9px;
-      line-height:1.55;
-    }
-
-    .artifact-stack{
-      display:grid;
-      border-top:1px solid var(--ink);
-    }
-    .artifact{
-      display:grid;
-      grid-template-columns:150px 1fr;
-      gap:20px;
-      padding:19px 0;
-      border-bottom:1px solid var(--paper-line);
-    }
-    .artifact-name{
-      font-family:var(--serif);
-      font-size:23px;
-      line-height:1.05;
-    }
-    .artifact-copy p{
-      margin:0 0 9px;
-      color:var(--paper-muted);
+      color:var(--muted-dark);
       font-size:9px;
       line-height:1.6;
     }
-    .artifact-copy ul{
-      margin:0;
-      padding:0;
-      list-style:none;
+    .rail-links{
       display:flex;
-      flex-wrap:wrap;
-      gap:6px 14px;
-    }
-    .artifact-copy li{
+      gap:14px;
+      margin-top:17px;
       font-size:8px;
       text-transform:uppercase;
-      letter-spacing:.08em;
+      letter-spacing:.13em;
+      color:rgba(255,255,255,.58);
     }
 
-    .closing{
-      min-height:90vh;
-      padding:74px 42px;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:62px;
+    /* Main */
+    .main{
+      min-width:0;
+      padding:18px 20px 72px;
+      background:var(--black);
+    }
+    .topbar{
+      max-width:1240px;
+      min-height:58px;
+      margin:0 auto 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+    }
+    .crumb{
+      color:rgba(255,255,255,.44);
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+    .actions{display:flex;gap:8px}
+    .action{
+      padding:10px 14px;
+      border:1px solid var(--dark-line);
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+    }
+    .action.primary{
       background:var(--cream);
       color:var(--ink);
+      border-color:var(--cream);
     }
-    .closing h2{
-      margin:0;
-      max-width:780px;
+
+    .book{
+      max-width:1240px;
+      margin:0 auto;
+      border-top:1px solid rgba(255,255,255,.72);
+    }
+
+    /* Native accordion */
+    details.chapter{
+      border-bottom:1px solid var(--dark-line);
+      scroll-margin-top:10px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+    }
+    summary::-webkit-details-marker{display:none}
+    .chapter-head{
+      min-height:94px;
+      padding:20px 4px;
+      display:grid;
+      grid-template-columns:72px minmax(235px,.85fr) 1.15fr 34px;
+      gap:18px;
+      align-items:center;
+      color:#f8f5ee;
+    }
+    .chapter-head:hover .chapter-title{font-style:italic}
+    .eyebrow{
+      display:block;
+      font-size:7px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:rgba(255,255,255,.42);
+    }
+    .chapter-number{
       font-family:var(--serif);
-      font-size:clamp(62px,8vw,120px);
-      line-height:.86;
-      font-weight:400;
-      letter-spacing:-.055em;
+      font-size:26px;
+      line-height:1;
     }
-    .closing-right{
+    .chapter-title{
+      font-family:var(--serif);
+      font-weight:400;
+      font-size:28px;
+      line-height:1;
+      letter-spacing:-.025em;
+      transition:.2s ease;
+    }
+    .chapter-summary{
+      max-width:590px;
+      color:var(--muted-dark);
+      font-size:10px;
+      line-height:1.6;
+    }
+    .toggle{
+      width:29px;height:29px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--dark-line);
+      border-radius:50%;
+      font-size:15px;
+      color:rgba(255,255,255,.56);
+      transition:.28s ease;
+    }
+    details[open] .toggle{transform:rotate(45deg)}
+    details[open] .chapter-head{color:var(--cream)}
+    details[open] .chapter-title{font-style:italic}
+
+    .page{
+      margin:0 -20px;
+      padding:44px 20px 56px;
+      background:var(--cream);
+      color:var(--ink);
+      border-top:1px solid rgba(255,255,255,.28);
+    }
+    .page-inner{
+      max-width:1240px;
+      margin:0 auto;
+    }
+    .paper-label{
+      display:block;
+      color:var(--muted-paper);
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      margin-bottom:22px;
+    }
+
+    /* Prologue */
+    .prologue{
+      display:grid;
+      grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);
+      gap:48px;
+      min-height:610px;
+    }
+    .prologue-copy{
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      gap:60px;
     }
-    .closing-copy{
+    .prologue h1{
       margin:0;
-      max-width:500px;
-      color:var(--paper-muted);
+      max-width:800px;
+      font-family:var(--serif);
+      font-size:clamp(62px,7.2vw,114px);
+      font-weight:400;
+      line-height:.86;
+      letter-spacing:-.055em;
+    }
+    .prologue h1 em{font-weight:400}
+    .prologue-bottom{
+      display:grid;
+      grid-template-columns:1fr 245px;
+      gap:38px;
+      align-items:end;
+    }
+    .prologue-bottom p{
+      margin:0;
+      max-width:650px;
       font-family:var(--serif);
       font-size:21px;
-      line-height:1.45;
+      line-height:1.42;
     }
-    .contact-grid{
+    .note{
+      padding-top:12px;
+      border-top:1px solid var(--paper-line);
+      color:var(--muted-paper);
+      font-size:9px;
+      line-height:1.65;
+    }
+    .identity{
+      min-height:610px;
+      padding:28px;
+      background:var(--black);
+      color:var(--cream);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
+    .identity::before{
+      content:"";
+      position:absolute;
+      width:430px;height:430px;
+      border:1px solid rgba(242,238,230,.23);
+      border-radius:50%;
+      right:-120px;
+      top:76px;
+    }
+    .identity::after{
+      content:"";
+      position:absolute;
+      width:280px;height:520px;
+      border:1px solid rgba(242,238,230,.16);
+      right:-30px;
+      bottom:-240px;
+      transform:rotate(28deg);
+    }
+    .identity .micro{
+      position:relative;
+      z-index:2;
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:rgba(242,238,230,.63);
+    }
+    .identity h2{
+      position:relative;
+      z-index:2;
+      margin:auto 0 34px;
+      font-family:var(--serif);
+      font-weight:400;
+      font-size:52px;
+      line-height:.97;
+      letter-spacing:-.035em;
+    }
+    .stats{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      border-top:1px solid rgba(242,238,230,.28);
+      border-left:1px solid rgba(242,238,230,.28);
+    }
+    .stat{
+      min-height:102px;
+      padding:14px;
+      border-right:1px solid rgba(242,238,230,.28);
+      border-bottom:1px solid rgba(242,238,230,.28);
+    }
+    .stat b{
+      display:block;
+      margin-bottom:6px;
+      font-family:var(--serif);
+      font-size:29px;
+      font-weight:400;
+    }
+    .stat span{
+      display:block;
+      max-width:135px;
+      font-size:7px;
+      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:rgba(242,238,230,.66);
+    }
+
+    /* Capability pages */
+    .capability{
+      display:grid;
+      grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);
+      gap:54px;
+      align-items:start;
+    }
+    .cap-intro{
+      position:sticky;
+      top:24px;
+    }
+    .cap-intro h2{
+      margin:0;
+      max-width:530px;
+      font-family:var(--serif);
+      font-size:59px;
+      line-height:.95;
+      letter-spacing:-.04em;
+      font-weight:400;
+    }
+    .cap-intro p{
+      margin:30px 0 0;
+      max-width:460px;
+      color:var(--muted-paper);
+      font-size:11px;
+      line-height:1.75;
+    }
+    .evidence{display:grid}
+    .evidence-row{
+      display:grid;
+      grid-template-columns:118px 1fr;
+      gap:22px;
+      padding:22px 0;
+      border-top:1px solid var(--paper-line);
+    }
+    .evidence-row:last-child{border-bottom:1px solid var(--paper-line)}
+    .evidence-key{
+      color:var(--muted-paper);
+      font-size:7px;
+      line-height:1.55;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+    .evidence-copy h3{
+      margin:0 0 7px;
+      font-family:var(--serif);
+      font-size:28px;
+      font-weight:400;
+      line-height:1.04;
+    }
+    .evidence-copy p{
+      margin:0;
+      max-width:690px;
+      color:var(--muted-paper);
+      font-size:10px;
+      line-height:1.7;
+    }
+    .case-strip{
+      margin-top:46px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--paper-line);
+      border-left:1px solid var(--paper-line);
+    }
+    .case{
+      min-height:190px;
+      padding:18px;
+      border-right:1px solid var(--paper-line);
+      border-bottom:1px solid var(--paper-line);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .case small{
+      color:var(--muted-paper);
+      font-size:7px;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+    }
+    .case h4{
+      margin:38px 0 9px;
+      font-family:var(--serif);
+      font-weight:400;
+      font-size:25px;
+      line-height:1.04;
+    }
+    .case p{
+      margin:0;
+      color:var(--muted-paper);
+      font-size:9px;
+      line-height:1.6;
+    }
+
+    /* Appendix */
+    .appendix{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:54px;
+    }
+    .appendix h2{
+      margin:0 0 34px;
+      font-family:var(--serif);
+      font-size:62px;
+      line-height:.95;
+      font-weight:400;
+    }
+    .timeline{display:grid}
+    .timeline-row{
+      display:grid;
+      grid-template-columns:138px 1fr;
+      gap:20px;
+      padding:17px 0;
+      border-top:1px solid var(--paper-line);
+    }
+    .timeline-row:last-child{border-bottom:1px solid var(--paper-line)}
+    .timeline-date{
+      color:var(--muted-paper);
+      font-size:7px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .timeline-copy strong{
+      display:block;
+      font-family:var(--serif);
+      font-weight:400;
+      font-size:21px;
+    }
+    .timeline-copy span{
+      display:block;
+      margin-top:4px;
+      color:var(--muted-paper);
+      font-size:7px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+    .reference-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       border-top:1px solid var(--ink);
       border-left:1px solid var(--ink);
     }
-    .contact-link{
-      min-height:140px;
-      padding:16px;
+    .reference{
+      min-height:165px;
+      padding:18px;
+      border-right:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      border-right:1px solid var(--ink);
-      border-bottom:1px solid var(--ink);
-      transition:background .2s ease,color .2s ease;
+      transition:.2s ease;
     }
-    .contact-link:hover{
+    .reference:hover{
       background:var(--black);
       color:var(--cream);
     }
-    .contact-link small{
-      font-size:8px;
+    .reference small{
+      font-size:7px;
       text-transform:uppercase;
-      letter-spacing:.14em;
+      letter-spacing:.15em;
+      color:var(--muted-paper);
     }
-    .contact-link strong{
+    .reference strong{
       font-family:var(--serif);
-      font-size:25px;
+      font-size:26px;
       font-weight:400;
     }
+    .reference span{font-size:18px}
 
-    [data-lang]{display:none}
-    html[data-language="en"] [data-lang="en"],
-    html[data-language="es"] [data-lang="es"]{display:initial}
-    html[data-language="en"] .block[data-lang="en"],
-    html[data-language="es"] .block[data-lang="es"]{display:block}
-
-    @media (max-width:1000px){
-      :root{--rail:0px}
-      .layout{grid-template-columns:1fr}
+    @media(max-width:1000px){
+      .shell{grid-template-columns:1fr}
       .rail{display:none}
-      .mobile-top{
+      .mobile-bar{
+        display:flex;
         position:sticky;
         top:0;
-        z-index:90;
-        height:56px;
-        padding:0 14px;
-        display:flex;
+        z-index:30;
+        height:54px;
+        padding:0 16px;
         align-items:center;
         justify-content:space-between;
-        background:rgba(16,16,16,.96);
+        background:rgba(15,15,15,.96);
         border-bottom:1px solid var(--dark-line);
-        backdrop-filter:blur(12px);
       }
-      .mobile-top .name{font-size:19px}
-      .hero{padding:22px 17px 35px;min-height:calc(100vh - 56px)}
-      .hero h1{font-size:clamp(61px,15vw,108px)}
-      .hero-bottom{grid-template-columns:1fr;gap:34px}
-      .chapter-zone{padding:0 12px;min-height:108vh}
-      .chapter-card{top:68px;padding-top:12px}
-      .chapter-trigger{
-        min-height:120px;
-        grid-template-columns:46px 1fr 28px;
-        gap:12px;
+      .mobile-bar strong{
+        font-family:var(--serif);
+        font-size:20px;
+        font-weight:400;
+      }
+      .mobile-bar a{
+        padding:7px 10px;
+        border:1px solid var(--dark-line);
+        font-size:7px;
+        text-transform:uppercase;
+        letter-spacing:.13em;
+      }
+      .main{padding:10px 12px 50px}
+      .topbar{display:none}
+      .chapter-head{
+        grid-template-columns:58px 1fr 31px;
+        gap:10px;
         padding:17px 2px;
       }
-      .chapter-one-line{display:none}
-      .inside{
-        width:28px;
-        overflow:hidden;
-        justify-self:end;
-      }
-      .inside span{display:none!important}
-      .inside::after{width:22px}
-      .chapter-zone.is-open .chapter-panel{height:calc(100vh - 198px)}
-      .panel-inner{padding:31px 4px 44px}
-      .chapter-grid{grid-template-columns:1fr;gap:34px}
-      .chapter-intro{position:static}
-      .evidence-list{grid-template-columns:1fr}
-      .closing{grid-template-columns:1fr;padding:60px 17px;gap:55px}
+      .chapter-summary{display:none}
+      .chapter-title{font-size:23px}
+      .page{margin:0 -12px;padding:32px 12px 44px}
+      .prologue,.capability,.appendix{grid-template-columns:1fr}
+      .prologue-copy{min-height:530px}
+      .identity{min-height:500px}
+      .cap-intro{position:static}
+      .case-strip{grid-template-columns:1fr}
     }
 
-    @media (max-width:600px){
-      .hero-meta{font-size:7px}
-      .hero h1{font-size:59px}
-      .hero-intro{font-size:19px}
-      .chapter-title{font-size:30px}
-      .chapter-index{font-size:24px}
-      .chapter-intro h2{font-size:47px}
-      .chapter-intro .lead,.text-block{font-size:18px}
-      .artifact{grid-template-columns:1fr;gap:10px}
-      .contact-grid{grid-template-columns:1fr}
+    @media(max-width:620px){
+      .prologue h1{font-size:60px}
+      .prologue-bottom{grid-template-columns:1fr}
+      .prologue-bottom p{font-size:18px}
+      .identity h2{font-size:42px}
+      .cap-intro h2{font-size:47px}
+      .evidence-row{grid-template-columns:1fr;gap:9px}
+      .reference-grid{grid-template-columns:1fr}
+      .timeline-row{grid-template-columns:102px 1fr}
     }
 
-    @media (prefers-reduced-motion:reduce){
+    @media(prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important}
     }
-  </style>
+  
+
+    .landmark{display:block;margin-bottom:5px;color:rgba(255,255,255,.72);font-size:8px;text-transform:uppercase;letter-spacing:.16em}
+    .summary-line{display:block}
+    .inside-cue{display:inline-block;margin-top:9px;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,.36);color:rgba(255,255,255,.8);font-size:8px;text-transform:uppercase;letter-spacing:.16em}
+    details[open] .inside-cue{opacity:0}
+    .visual-case-strip{grid-template-columns:repeat(3,minmax(0,1fr));}
+    .artifact-card{margin:0;min-width:0;border-right:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line);background:#fff;overflow:hidden}
+    .artifact-card img{display:block;width:100%;height:260px;object-fit:cover;object-position:top left}
+    .artifact-card figcaption{padding:12px 14px;color:var(--muted-paper);font-size:8px;text-transform:uppercase;letter-spacing:.12em;background:var(--cream)}
+    .auto-progress{position:fixed;left:244px;right:0;top:0;height:2px;background:rgba(255,255,255,.08);z-index:60;pointer-events:none}
+    .auto-progress span{display:block;width:0;height:100%;background:var(--cream);transition:width .15s linear}
+    @media(max-width:1000px){.auto-progress{left:0;top:54px}.visual-case-strip{grid-template-columns:1fr}.artifact-card img{height:auto}}
+
+.language-switch{
+  display:inline-flex;
+  border:1px solid var(--dark-line);
+  flex:0 0 auto;
+}
+.language-switch button{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.55);
+  padding:7px 8px;
+  cursor:pointer;
+  font-size:7px;
+  line-height:1;
+  letter-spacing:.13em;
+}
+.language-switch button[aria-pressed="true"]{
+  background:var(--cream);
+  color:var(--ink);
+}
+.mobile-bar .language-switch{margin-left:auto;margin-right:8px}
+.chapter-end-trigger{height:1px;width:100%;pointer-events:none}
+@media(max-width:1000px){
+  .topbar .language-switch{display:none}
+}
+
+/* v1.2 targeted corrections */
+.mobile-bar{
+  justify-content:space-between;
+}
+.mobile-bar strong{
+  white-space:nowrap;
+}
+.mobile-language{
+  margin:0;
+  border:0;
+  align-items:center;
+  gap:7px;
+}
+.mobile-language button{
+  padding:6px 2px;
+  background:transparent!important;
+  color:rgba(255,255,255,.48)!important;
+}
+.mobile-language button[aria-pressed="true"]{
+  color:#fff!important;
+}
+.language-divider{
+  color:rgba(255,255,255,.28);
+  font-size:8px;
+}
+
+.chapter-head{
+  grid-template-columns:minmax(210px,.72fr) minmax(260px,1.28fr) 34px;
+}
+.rail nav a{
+  grid-template-columns:1fr;
+}
+.rail nav .label{
+  font-size:10px;
+}
+.chapter-title{
+  font-size:30px;
+}
+.chapter-summary{
+  font-family:var(--serif);
+  font-size:16px;
+  line-height:1.35;
+  color:rgba(255,255,255,.52);
+}
+details#prologue .chapter-head{
+  border-top:0;
+}
+details#prologue .chapter-title{
+  font-style:italic;
+}
+.prologue-bottom{
+  margin-top:80px;
+}
+.chapter-end-trigger{
+  height:18px;
+  width:100%;
+}
+@media(max-width:1000px){
+  .chapter-head{
+    grid-template-columns:minmax(0,1fr) 30px;
+    gap:12px;
+  }
+  .chapter-summary{
+    display:block;
+    grid-column:1;
+    margin-top:5px;
+    font-size:14px;
+  }
+  .chapter-title{
+    font-size:28px;
+  }
+  .toggle{
+    grid-column:2;
+    grid-row:1 / span 2;
+  }
+}
+</style>
 </head>
-<body>
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+<body><div aria-hidden="true" class="auto-progress"><span></span></div>
+<div class="mobile-bar"><strong>Katia E. Pérez</strong><div aria-label="Language" class="language-switch mobile-language"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><span aria-hidden="true" class="language-divider">•</span><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div></div>
+<div class="shell">
+<aside class="rail">
+<div class="brand">
+<strong>Katia E. Pérez</strong>
+<div aria-label="Language" class="language-switch"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div>
+</div>
+<p class="rail-label"><span data-copy-en="Professional chapters" data-copy-es="Capítulos profesionales">Professional chapters</span></p>
+<nav>
+<a href="#prologue"><span class="label"><span data-copy-en="Prologue" data-copy-es="Prólogo">Prologue</span></span></a>
+<a href="#commercial"><span class="label"><span data-copy-en="Operations" data-copy-es="Operaciones">Operations</span></span></a>
+<a href="#aligned"><span class="label"><span data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span></span></a>
+<a href="#repeatable"><span class="label"><span data-copy-en="Systems" data-copy-es="Sistemas">Systems</span></span></a>
+<a href="#perception"><span class="label"><span data-copy-en="Representation" data-copy-es="Representación">Representation</span></span></a>
+<a href="#argument"><span class="label"><span data-copy-en="Research" data-copy-es="Investigación">Research</span></span></a>
+<a href="#appendix"><span class="label"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></span></a>
+</nav>
+<div class="rail-footer">
+<strong>Mexico City</strong>
+<p><span data-copy-en="Open to remote, hybrid and international opportunities." data-copy-es="Abierta a oportunidades remotas, híbridas e internacionales.">Open to remote, hybrid and international opportunities.</span></p>
+<div class="rail-links">
+<a href="#">LinkedIn</a>
+<a href="mailto:pmtzk@icloud.com">Email</a>
+</div>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<div class="crumb"><span data-copy-en="Professional record · 2026" data-copy-es="Perfil profesional · 2026">Professional record · 2026</span></div>
+<div class="actions"><div aria-label="Language" class="language-switch"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div>
+<a class="action" href="mailto:pmtzk@icloud.com"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></a>
+</div>
+</header>
+<section class="book">
+<details class="chapter" id="prologue" open="">
+<summary class="chapter-head">
 
-  <div class="mobile-top">
-    <span class="name">Katia E. Pérez</span>
-    <div class="lang-toggle" aria-label="Language">
-      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
-    </div>
-  </div>
+<div class="chapter-title"><span data-copy-en="Prologue" data-copy-es="Prólogo">Prologue</span></div>
+<div class="chapter-summary"><span data-copy-en="Different roles. The same way of working." data-copy-es="Distintos roles. La misma forma de trabajar.">Different roles. The same way of working.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="prologue">
+<section class="prologue-copy">
+<div>
+<span class="paper-label"><span data-copy-en="Katia E. Pérez · Professional record" data-copy-es="Katia E. Pérez · Perfil profesional">Katia E. Pérez · Professional record</span></span>
+<h1><span data-copy-en="Different roles." data-copy-es="Distintos roles.">Different roles.</span><br/><em><span data-copy-en="The same way" data-copy-es="La misma forma">The same way</span></em><br/><span data-copy-en="of working." data-copy-es="de trabajar.">of working.</span></h1>
+</div>
+<div class="prologue-bottom">
+<p><span data-copy-en="For the past three years, I have worked inside resort operations across Mexico and the Caribbean. The titles changed. The work kept returning to the same questions: what is happening, what is getting in the way, and what needs to change next." data-copy-es="Durante los últimos tres años trabajé dentro de operaciones de resorts en México y el Caribe. Los cargos cambiaron. El trabajo siguió regresando a las mismas preguntas: qué está pasando, qué se está interponiendo y qué tiene que cambiar después.">For the past three years, I have worked inside resort operations across Mexico and the Caribbean. The titles changed. The work kept returning to the same questions: what is happening, what is getting in the way, and what needs to change next.</span></p>
+<div class="note"></div>
+</div>
+</section>
+<aside class="identity">
+<span class="micro"><span data-copy-en="Mexico City · Open to remote, hybrid and international roles" data-copy-es="Ciudad de México · Abierta a roles remotos, híbridos e internacionales">Mexico City · Open to remote, hybrid and international roles</span></span>
+<h2><span data-copy-en="Operations." data-copy-es="Operaciones.">Operations.</span><br/><span data-copy-en="Commercial performance." data-copy-es="Desempeño comercial.">Commercial performance.</span><br/><span data-copy-en="Research and visual judgment." data-copy-es="Investigación y criterio visual.">Research and visual judgment.</span></h2>
+<div class="stats">
+<div class="stat"><b>3</b><span><span data-copy-en="International management assignments" data-copy-es="Asignaciones internacionales como manager">International management assignments</span></span></div>
+<div class="stat"><b>40–60K</b><span><span data-copy-en="USD in monthly revenue targets achieved" data-copy-es="USD en metas mensuales alcanzadas">USD in monthly revenue targets achieved</span></span></div>
+<div class="stat"><b>200–250</b><span><span data-copy-en="Monthly guest transactions under management" data-copy-es="Transacciones mensuales bajo mi gestión">Monthly guest transactions under management</span></span></div>
+<div class="stat"><b>40–60K</b><span><span data-copy-en="USD monthly target range across operating periods" data-copy-es="USD de meta mensual durante los periodos operativos">USD monthly target range across operating periods</span></span></div>
+</div>
+</aside>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="commercial">
+<summary class="chapter-head">
 
-  <div class="layout">
-    <aside class="rail">
-      <div class="rail-head">
-        <span class="name">Katia E. Pérez</span>
-        <div class="lang-toggle" aria-label="Language">
-          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
-        </div>
-      </div>
+<div class="chapter-title"><span data-copy-en="Operations" data-copy-es="Operaciones">Operations</span></div>
+<div class="chapter-summary"><span data-copy-en="Seeing problems earlier." data-copy-es="Antes de que se note.">Seeing problems earlier.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="capability">
+<section class="cap-intro">
+<span class="paper-label">Operations · Commercial performance</span>
+<h2><span data-copy-en="By the time revenue changes, something else usually changed first." data-copy-es="Cuando la venta cambia, casi siempre algo más ya había cambiado antes.">By the time revenue changes, something else usually changed first.</span></h2>
+<p><span data-copy-en="Every month ended with a number. The useful work happened earlier, in the small changes that showed where the operation had started to drift." data-copy-es="Cada mes terminaba en un número. El trabajo útil ocurría antes, en los pequeños cambios que mostraban dónde había empezado a desviarse la operación.">Every month ended with a number. The useful work happened earlier, in the small changes that showed where the operation had started to drift.</span></p>
+</section>
+<section class="evidence">
+<div class="evidence-row"><div class="evidence-key"><span data-copy-en="What I watched" data-copy-es="Qué observaba">What I watched</span></div><div class="evidence-copy"><h3><span data-copy-en="Production, attendance, delivery, sales and guest follow-through" data-copy-es="Producción, asistencia, entregas, ventas y seguimiento al huésped">Production, attendance, delivery, sales and guest follow-through</span></h3><p><span data-copy-en="A photographer producing fewer sessions, unfinished deliveries or guests missing appointments could look separate. Together, they explained why a target was becoming harder to reach." data-copy-es="Un fotógrafo produciendo menos sesiones, entregas pendientes o huéspedes faltando a sus citas podían parecer problemas separados. Juntos explicaban por qué la meta empezaba a costar más.">A photographer producing fewer sessions, unfinished deliveries or guests missing appointments could look separate. Together, they explained why a target was becoming harder to reach.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key"><span data-copy-en="How I worked" data-copy-es="Cómo trabajaba">How I worked</span></div><div class="evidence-copy"><h3><span data-copy-en="Start with what falls outside the norm" data-copy-es="Empezar por lo que se salió de la norma">Start with what falls outside the norm</span></h3><p><span data-copy-en="I reviewed priorities, pending issues, events, updated targets and anything likely to disrupt the day. The goal was to resolve the unusual first, then set the commercial focus for the team." data-copy-es="Revisaba prioridades, pendientes, eventos, metas actualizadas y cualquier cosa que pudiera complicar el día. Primero resolvía lo fuera de norma y después delimitaba el enfoque comercial del equipo.">I reviewed priorities, pending issues, events, updated targets and anything likely to disrupt the day. The goal was to resolve the unusual first, then set the commercial focus for the team.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key"><span data-copy-en="Scale" data-copy-es="Escala">Scale</span></div><div class="evidence-copy"><h3><span data-copy-en="USD 40K–60K in monthly revenue targets achieved" data-copy-es="USD 40K–60K en metas mensuales alcanzadas">USD 40K–60K in monthly revenue targets achieved</span></h3><p><span data-copy-en="Managed resort photography operations handling roughly 200–250 guest transactions each month across three international assignments." data-copy-es="Gestioné operaciones de fotografía en resorts con aproximadamente 200–250 transacciones mensuales en tres asignaciones internacionales.">Managed resort photography operations handling roughly 200–250 guest transactions each month across three international assignments.</span></p></div></div>
+</section>
+</div>
+<div class="case-strip">
+<div class="case"><small><span data-copy-en="Pattern" data-copy-es="Patrón">Pattern</span></small><div><h4><span data-copy-en="Low production" data-copy-es="Producción baja">Low production</span></h4><p><span data-copy-en="Fewer guest approaches created fewer sessions, leaving the sales problem visible only after the opportunity had already been lost." data-copy-es="Menos acercamientos a huéspedes producían menos sesiones. El problema de ventas se volvía visible cuando la oportunidad ya se había perdido.">Fewer guest approaches created fewer sessions, leaving the sales problem visible only after the opportunity had already been lost.</span></p></div></div>
+<div class="case"><small><span data-copy-en="Response" data-copy-es="Respuesta">Response</span></small><div><h4><span data-copy-en="Adjust the mechanism" data-copy-es="Ajustar el mecanismo">Adjust the mechanism</span></h4><p><span data-copy-en="Sales approaches, coupons, staffing focus and daily priorities changed according to the variable causing the gap." data-copy-es="El approach de venta, los cupones, el enfoque del equipo y las prioridades diarias cambiaban según la variable que provocaba el atraso.">Sales approaches, coupons, staffing focus and daily priorities changed according to the variable causing the gap.</span></p></div></div>
+<div class="case"><small><span data-copy-en="Result" data-copy-es="Resultado">Result</span></small><div><h4><span data-copy-en="Problems became diagnosable" data-copy-es="El problema se podía diagnosticar">Problems became diagnosable</span></h4><p><span data-copy-en="Instead of stopping at “we are behind,” the operation could ask whether the cause was capture, ticket value, volume or follow-through." data-copy-es="En lugar de detenernos en “vamos atrasados”, podíamos preguntar si la causa era captación, ticket, volumen o seguimiento.">Instead of stopping at “we are behind,” the operation could ask whether the cause was capture, ticket value, volume or follow-through.</span></p></div></div>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="aligned">
+<summary class="chapter-head">
 
-      <p class="rail-kicker">
-        <span data-lang="en">Inside the work</span>
-        <span data-lang="es">Dentro del trabajo</span>
-      </p>
+<div class="chapter-title"><span data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span></div>
+<div class="chapter-summary"><span data-copy-en="Making the system visible." data-copy-es="Hacer visible la operación.">Making the system visible.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="capability">
+<section class="cap-intro">
+<span class="paper-label">Leadership · Cross-functional work</span>
+<h2><span data-copy-en="At first, I thought managing people meant telling them what to do." data-copy-es="Al principio pensé que dirigir personas significaba decirles qué hacer.">At first, I thought managing people meant telling them what to do.</span></h2>
+<p><span data-copy-en="The harder part was creating enough clarity for people to do the work without waiting for someone else to make it happen." data-copy-es="Lo difícil era crear suficiente claridad para que pudieran hacer su trabajo sin esperar a que alguien más hiciera que ocurriera.">The harder part was creating enough clarity for people to do the work without waiting for someone else to make it happen.</span></p>
+</section>
+<section class="evidence">
+<div class="evidence-row"><div class="evidence-key">The team</div><div class="evidence-copy"><h3><span data-copy-en="Photographers were the center of the operation" data-copy-es="Los fotógrafos eran el centro de la operación">Photographers were the center of the operation</span></h3><p><span data-copy-en="About half of my attention went to whether they were producing, selling, reporting and following the standard. When they were not, the useful question was what they lacked." data-copy-es="Cerca de la mitad de mi atención estaba en si producían, vendían, reportaban y seguían el estándar. Cuando no sucedía, la pregunta útil era qué les faltaba.">About half of my attention went to whether they were producing, selling, reporting and following the standard. When they were not, the useful question was what they lacked.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">The system</div><div class="evidence-copy"><h3><span data-copy-en="Guests experienced one result built by many people" data-copy-es="El huésped recibía un solo resultado construido por muchas personas">Guests experienced one result built by many people</span></h3><p><span data-copy-en="Weddings, concierges, hotel departments, corporate teams and photographers all affected the same delivery, often on different timelines." data-copy-es="Bodas, concierges, departamentos del hotel, corporativo y fotógrafos afectaban la misma entrega, muchas veces con tiempos distintos.">Weddings, concierges, hotel departments, corporate teams and photographers all affected the same delivery, often on different timelines.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">What changed</div><div class="evidence-copy"><h3><span data-copy-en="Jamaica made authority insufficient" data-copy-es="Jamaica hizo que la autoridad dejara de ser suficiente">Jamaica made authority insufficient</span></h3><p><span data-copy-en="Cultural differences made it clear that people needed a reason to follow, a clear role in the operation and a manager willing to acknowledge mistakes." data-copy-es="Las diferencias culturales hicieron evidente que las personas necesitaban una razón para seguirte, claridad sobre su papel y una manager dispuesta a reconocer sus errores.">Cultural differences made it clear that people needed a reason to follow, a clear role in the operation and a manager willing to acknowledge mistakes.</span></p></div></div>
+</section>
+</div>
+<div class="case-strip">
+<div class="case"><small>Recruitment</small><div><h4>Built the team when needed</h4><p>Started recruitment campaigns, interviewed candidates, trained new hires and handled onboarding.</p></div></div>
+<div class="case"><small>Coordination</small><div><h4>Kept moving parts visible</h4><p>Handled wedding changes, sick leave, hotel conflicts, delivery backlogs and service escalations while the day continued.</p></div></div>
+<div class="case"><small>Commercial recovery</small><div><h4>Resolved the issue without losing the sale</h4><p>Guest complaints sometimes ended in four-figure purchases once the concern, service limit and desired outcome were clear.</p></div></div>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="repeatable">
+<summary class="chapter-head">
 
-      <nav class="nav" aria-label="Chapters">
-        <a href="#operations" data-nav="operations"><span class="n">01</span><span class="t"><span data-lang="en">Operations</span><span data-lang="es">Operaciones</span></span></a>
-        <a href="#leadership" data-nav="leadership"><span class="n">02</span><span class="t"><span data-lang="en">Leadership</span><span data-lang="es">Liderazgo</span></span></a>
-        <a href="#systems" data-nav="systems"><span class="n">03</span><span class="t"><span data-lang="en">Systems</span><span data-lang="es">Sistemas</span></span></a>
-        <a href="#representation" data-nav="representation"><span class="n">04</span><span class="t"><span data-lang="en">Representation</span><span data-lang="es">Representación</span></span></a>
-        <a href="#research" data-nav="research"><span class="n">05</span><span class="t"><span data-lang="en">Research</span><span data-lang="es">Investigación</span></span></a>
-        <a href="#contact" data-nav="contact"><span class="n">A</span><span class="t"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></span></a>
-      </nav>
+<div class="chapter-title"><span data-copy-en="Systems" data-copy-es="Sistemas">Systems</span></div>
+<div class="chapter-summary"><span data-copy-en="Not starting from zero." data-copy-es="Para no empezar de cero.">Not starting from zero.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="capability">
+<section class="cap-intro">
+<span class="paper-label">Process design · Enablement</span>
+<h2><span data-copy-en="Before the spreadsheet, monthly planning lived in pencil on a memo pad." data-copy-es="Antes del spreadsheet, la planeación mensual vivía a lápiz en un memo pad.">Before the spreadsheet, monthly planning lived in pencil on a memo pad.</span></h2>
+<p><span data-copy-en="Each month meant rebuilding formulas, remembering assumptions and starting again. I wanted the next month to begin with what the previous one had already taught me." data-copy-es="Cada mes significaba reconstruir fórmulas, recordar supuestos y volver a empezar. Quería que el siguiente mes comenzara desde lo que el anterior ya me había enseñado.">Each month meant rebuilding formulas, remembering assumptions and starting again. I wanted the next month to begin with what the previous one had already taught me.</span></p>
+</section>
+<section class="evidence">
+<div class="evidence-row"><div class="evidence-key">Planning system</div><div class="evidence-copy"><h3><span data-copy-en="One view connected the variables behind revenue" data-copy-es="Una sola vista conectaba las variables detrás de la venta">One view connected the variables behind revenue</span></h3><p><span data-copy-en="Occupancy, contacts, sessions, capture rate, average ticket and sales could be translated into monthly, weekly and daily targets, then adjusted as the month changed." data-copy-es="Ocupación, contactos, sesiones, captación, ticket promedio y ventas se traducían en metas mensuales, semanales y diarias que podían ajustarse conforme avanzaba el mes.">Occupancy, contacts, sessions, capture rate, average ticket and sales could be translated into monthly, weekly and daily targets, then adjusted as the month changed.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">Recurring work</div><div class="evidence-copy"><h3><span data-copy-en="Knowledge moved out of memory" data-copy-es="El conocimiento dejó de depender de la memoria">Knowledge moved out of memory</span></h3><p><span data-copy-en="Daily photographer checklists, wedding interview templates, camera settings and editing presets reduced the need to remember or rebuild the same solution." data-copy-es="Checklists diarios, entrevistas de boda, ajustes de cámara y presets redujeron la necesidad de recordar o reconstruir la misma solución.">Daily photographer checklists, wedding interview templates, camera settings and editing presets reduced the need to remember or rebuild the same solution.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">What it changed</div><div class="evidence-copy"><h3><span data-copy-en="“We are behind” became a question with an answer" data-copy-es="“Vamos atrasados” se convirtió en una pregunta con respuesta">“We are behind” became a question with an answer</span></h3><p><span data-copy-en="The operation could identify whether the gap came from sales volume, ticket value, capture, production or another variable and adjust the plan before the month ended." data-copy-es="La operación podía identificar si el atraso venía del volumen de ventas, el ticket, la captación, la producción u otra variable y ajustar antes de terminar el mes.">The operation could identify whether the gap came from sales volume, ticket value, capture, production or another variable and adjust the plan before the month ended.</span></p></div></div>
+</section>
+</div>
+<div class="case-strip"><div class="case"><small><span data-copy-en="Monthly planning" data-copy-es="Planeación mensual">Monthly planning</span></small><div><h4><span data-copy-en="Located the variable behind the gap before setting the next commercial priority." data-copy-es="Encontrar la variable detrás del atraso antes de definir la siguiente prioridad comercial.">Located the variable behind the gap before setting the next commercial priority.</span></h4><p>Occupancy · Production · Capture · Average ticket · Revenue</p></div></div><div class="case"><small><span data-copy-en="Weekly adjustment" data-copy-es="Ajuste semanal">Weekly adjustment</span></small><div><h4><span data-copy-en="Translated the monthly target into decisions that could still change the result." data-copy-es="Traducir la meta mensual en decisiones que todavía podían cambiar el resultado.">Translated the monthly target into decisions that could still change the result.</span></h4><p>Progress · Gap · Priority · Action · Follow-up</p></div></div><div class="case"><small><span data-copy-en="Daily execution" data-copy-es="Ejecución diaria">Daily execution</span></small><div><h4><span data-copy-en="Made priorities, responsibilities and exceptions visible before the day became harder." data-copy-es="Hacer visibles prioridades, responsabilidades y excepciones antes de que el día se complicara.">Made priorities, responsibilities and exceptions visible before the day became harder.</span></h4><p>Staffing · Events · Sessions · Issues · Next day</p></div></div></div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="perception">
+<summary class="chapter-head">
 
-      <div class="rail-foot">
-        <p>
-          <span data-lang="en">Mexico City. Open to remote, hybrid and international opportunities.</span>
-          <span data-lang="es">Ciudad de México. Abierta a oportunidades remotas, híbridas e internacionales.</span>
-        </p>
-        <a href="mailto:pmtzk@icloud.com">pmtzk@icloud.com</a>
-      </div>
-    </aside>
+<div class="chapter-title"><span data-copy-en="Representation" data-copy-es="Representación">Representation</span></div>
+<div class="chapter-summary"><span data-copy-en="When the image misses the place." data-copy-es="Cuando la imagen no alcanza al lugar.">When the image misses the place.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="capability">
+<section class="cap-intro">
+<span class="paper-label"><span data-copy-en="Hospitality · Brand · Photography" data-copy-es="Hospitalidad · Marca · Fotografía">Hospitality · Brand · Photography</span></span>
+<h2><span data-copy-en="The resorts were memorable. Their online presence often was not." data-copy-es="Los resorts eran memorables. Su presencia digital muchas veces no.">The resorts were memorable. Their online presence often was not.</span></h2>
+<p><span data-copy-en="I kept arriving at beautiful properties, then opening their websites and social channels and finding a version that missed what made the place worth remembering." data-copy-es="Seguía llegando a propiedades bellísimas y después abría sus páginas y redes para encontrar una versión que no captaba lo que hacía al lugar memorable.">I kept arriving at beautiful properties, then opening their websites and social channels and finding a version that missed what made the place worth remembering.</span></p>
+</section>
+<section class="evidence">
+<div class="evidence-row"><div class="evidence-key">The pattern</div><div class="evidence-copy"><h3><span data-copy-en="Different properties became difficult to distinguish online" data-copy-es="Propiedades distintas se volvían difíciles de distinguir en internet">Different properties became difficult to distinguish online</span></h3><p><span data-copy-en="The problem appeared across countries and brands. The photographs could be correct while still failing to communicate the experience." data-copy-es="El problema aparecía entre países y marcas. Las fotos podían ser correctas y aun así no comunicar la experiencia.">The problem appeared across countries and brands. The photographs could be correct while still failing to communicate the experience.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">The guest</div><div class="evidence-copy"><h3><span data-copy-en="Representation changed what people were willing to see" data-copy-es="La representación cambió lo que las personas estaban dispuestas a ver">Representation changed what people were willing to see</span></h3><p><span data-copy-en="Guests who said they hated being photographed often bought hundreds or thousands of dollars in images after the session helped them recognize themselves differently." data-copy-es="Huéspedes que decían odiar tomarse fotos terminaban comprando cientos o miles de dólares después de reconocerse de una forma distinta.">Guests who said they hated being photographed often bought hundreds or thousands of dollars in images after the session helped them recognize themselves differently.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">The work now</div><div class="evidence-copy"><h3><span data-copy-en="That observation became EXIF Studio" data-copy-es="Esa observación se convirtió en EXIF Studio">That observation became EXIF Studio</span></h3><p><span data-copy-en="EXIF studies the distance between what a place is and what a guest can perceive before booking." data-copy-es="EXIF estudia la distancia entre lo que un lugar es y lo que un huésped puede percibir antes de reservar.">EXIF studies the distance between what a place is and what a guest can perceive before booking.</span></p></div></div>
+</section>
+</div>
+<div class="case-strip">
+<div class="case"><small>Practice</small><div><h4><span data-copy-en="A photographer provokes something" data-copy-es="Un fotógrafo provoca algo">A photographer provokes something</span></h4><p><span data-copy-en="Observe. Identify. Compose. Capture. The camera records the final step." data-copy-es="Observa. Identifica. Compone. Captura. La cámara registra el último paso.">Observe. Identify. Compose. Capture. The camera records the final step.</span></p></div></div>
+<div class="case"><small>Publication</small><div><h4>Observation 01</h4><p>Places are compared through the fragments available before arrival.</p></div></div>
+<div class="case"><small>Independent work</small><div><h4>EXIF Studio</h4><p>Research, writing and visual direction for place-led hospitality.</p></div></div>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="argument">
+<summary class="chapter-head">
 
-    <main>
-      <section class="hero" id="top">
-        <div class="hero-meta">
-          <span>
-            <span data-lang="en">Professional record · 2026</span>
-            <span data-lang="es">Perfil profesional · 2026</span>
-          </span>
-          <span>Mexico City</span>
-        </div>
+<div class="chapter-title"><span data-copy-en="Research" data-copy-es="Investigación">Research</span></div>
+<div class="chapter-summary"><span data-copy-en="Finding what does not fit." data-copy-es="Encontrar lo que no cuadra.">Finding what does not fit.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="capability">
+<section class="cap-intro">
+<span class="paper-label"><span data-copy-en="Research · Strategy · Writing" data-copy-es="Investigación · Estrategia · Escritura">Research · Strategy · Writing</span></span>
+<h2><span data-copy-en="Something usually stops making sense before I know why." data-copy-es="Algo suele dejar de tener sentido antes de que yo sepa por qué.">Something usually stops making sense before I know why.</span></h2>
+<p><span data-copy-en="A button does not work. A paragraph says something adjacent to what it should say. A photograph feels uncomfortable. The first useful response is usually: what, exactly, is wrong here?" data-copy-es="Un botón no funciona. Un párrafo dice algo cercano, pero no lo que debería. Una foto se siente incómoda. La primera respuesta útil suele ser: ¿qué exactamente no está funcionando aquí?">A button does not work. A paragraph says something adjacent to what it should say. A photograph feels uncomfortable. The first useful response is usually: what, exactly, is wrong here?</span></p>
+</section>
+<section class="evidence">
+<div class="evidence-row"><div class="evidence-key">Starting point</div><div class="evidence-copy"><h3><span data-copy-en="Begin with the outcome" data-copy-es="Empezar por el resultado">Begin with the outcome</span></h3><p><span data-copy-en="I define what the work needs to make possible, then test what prevents the current version from getting there." data-copy-es="Defino qué debe hacer posible el trabajo y después pruebo qué impide que la versión actual llegue ahí.">I define what the work needs to make possible, then test what prevents the current version from getting there.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">Standard</div><div class="evidence-copy"><h3><span data-copy-en="“Sufficient” is not useful when the meaning is still unclear" data-copy-es="“Suficiente” no sirve cuando el significado sigue sin estar claro">“Sufficient” is not useful when the meaning is still unclear</span></h3><p><span data-copy-en="I keep working when the message, interface, photograph or system leaves room for the wrong interpretation." data-copy-es="Sigo trabajando cuando el mensaje, la interfaz, la fotografía o el sistema todavía permiten una interpretación equivocada.">I keep working when the message, interface, photograph or system leaves room for the wrong interpretation.</span></p></div></div>
+<div class="evidence-row"><div class="evidence-key">Independent evidence</div><div class="evidence-copy"><h3>The same method appears across different formats</h3><p>EXIF research, Observation 01, operational playbooks, application systems and writing frameworks all began with an outcome that the first version could not yet produce.</p></div></div>
+</section>
+</div>
+<div class="case-strip">
+<div class="case"><small>Research</small><div><h4>Find what is actually happening</h4><p>Separate the observable problem from the first explanation attached to it.</p></div></div>
+<div class="case"><small>Writing</small><div><h4>Make the intended meaning easier to reach</h4><p>Remove the language that sounds complete while leaving the point unclear.</p></div></div>
+<div class="case"><small>Direction</small><div><h4>Move the work toward a defined outcome</h4><p>Clarity comes from knowing what the reader, guest or team needs to understand next.</p></div></div>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+<details class="chapter" id="appendix">
+<summary class="chapter-head">
 
-        <div class="hero-copy">
-          <h1>
-            <span data-lang="en">Different roles.<br><em>The same way</em><br>of thinking.</span>
-            <span data-lang="es">Distintos roles.<br><em>La misma forma</em><br>de pensar.</span>
-          </h1>
-        </div>
+<div class="chapter-title"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></div>
+<div class="chapter-summary"><span data-copy-en="Timeline, selected work and direct contact." data-copy-es="Trayectoria, trabajo seleccionado y contacto directo.">Timeline, selected work and direct contact.</span></div>
+<div class="toggle">+</div>
+</summary>
+<div class="page">
+<div class="page-inner">
+<div class="appendix">
+<section>
+<span class="paper-label"><span data-copy-en="Chronological record" data-copy-es="Trayectoria cronológica">Chronological record</span></span>
+<h2><span data-copy-en="Career timeline" data-copy-es="Trayectoria profesional">Career timeline</span></h2>
+<div class="timeline">
+<div class="timeline-row"><div class="timeline-date">2025–2026</div><div class="timeline-copy"><strong>Lead Operations &amp; Sales Manager</strong><span>PhotoPro · Royalton Saint Lucia</span></div></div>
+<div class="timeline-row"><div class="timeline-date">2024–2025</div><div class="timeline-copy"><strong>Operations &amp; Sales Manager</strong><span>PhotoPro · Jamaica and Grenada</span></div></div>
+<div class="timeline-row"><div class="timeline-date">2023–2024</div><div class="timeline-copy"><strong>Resort Photographer &amp; Team Lead</strong><span>PhotoPro · Mexico and Saint Lucia</span></div></div>
+<div class="timeline-row"><div class="timeline-date">2025–Present</div><div class="timeline-copy"><strong>Founder</strong><span>EXIF Studio</span></div></div>
+<div class="timeline-row"><div class="timeline-date">2021–2022</div><div class="timeline-copy"><strong>Film, Television &amp; Media Studies</strong><span>CENTRO · Mexico City</span></div></div>
+</div>
+</section>
+<section>
+<span class="paper-label"><span data-copy-en="References and contact" data-copy-es="Trabajo y contacto">References and contact</span></span>
+<h2><span data-copy-en="Continue reading" data-copy-es="Seguir explorando">Continue</span></h2>
+<div class="reference-grid">
+<a class="reference" href="#"><small><span data-copy-en="Profile" data-copy-es="Perfil">Profile</span></small><strong>LinkedIn</strong><span>Open</span></a>
+<a class="reference" href="mailto:pmtzk@icloud.com"><small><span data-copy-en="Direct" data-copy-es="Directo">Direct</span></small><strong>pmtzk@icloud.com</strong><span>Open</span></a>
+<a class="reference" href="#"><small><span data-copy-en="Selected work" data-copy-es="Trabajo seleccionado">Selected work</span></small><strong>EXIF Studio</strong><span>Open</span></a>
+</div>
+</section>
+</div>
+</div>
+<div aria-hidden="true" class="chapter-end-trigger"></div></div>
+</details>
+</section>
+</main>
+</div>
+<script>
+const chapters = [...document.querySelectorAll('details.chapter')];
+const progressFill = document.querySelector('.auto-progress span');
+const languageButtons = [...document.querySelectorAll('[data-lang-choice]')];
 
-        <div class="hero-bottom">
-          <p class="hero-intro">
-            <span data-lang="en">For the past three years, my work has lived where hotel operations, guest decisions and commercial performance meet.</span>
-            <span data-lang="es">Durante los últimos tres años, mi trabajo ha estado donde se encuentran la operación hotelera, las decisiones del huésped y el desempeño comercial.</span>
-          </p>
-          <div class="hero-landmarks" aria-label="Professional areas">
-            <span><span data-lang="en">Operations</span><span data-lang="es">Operaciones</span></span>
-            <span><span data-lang="en">Commercial performance</span><span data-lang="es">Desempeño comercial</span></span>
-            <span><span data-lang="en">Systems</span><span data-lang="es">Sistemas</span></span>
-            <span><span data-lang="en">Representation</span><span data-lang="es">Representación</span></span>
-          </div>
-        </div>
-      </section>
+let activeChapter = chapters.find(chapter => chapter.open) || chapters[0];
+let transitionLocked = false;
+let manualPauseUntil = 0;
 
-      <!-- 01 -->
-      <section class="chapter-zone" id="operations" data-chapter="operations">
-        <div class="chapter-card">
-          <div class="chapter-shell">
-            <button class="chapter-trigger" type="button" aria-expanded="false" aria-controls="panel-operations">
-              <span class="chapter-index">01</span>
-              <span>
-                <span class="chapter-landmark">
-                  <span data-lang="en">Operations · Commercial performance</span>
-                  <span data-lang="es">Operaciones · Desempeño comercial</span>
-                </span>
-                <span class="chapter-title">
-                  <span data-lang="en">Seeing problems earlier.</span>
-                  <span data-lang="es">Antes de que se note.</span>
-                </span>
-              </span>
-              <p class="chapter-one-line">
-                <span data-lang="en">Most operational problems do not begin where they become visible.</span>
-                <span data-lang="es">Los problemas casi nunca empiezan donde terminan apareciendo.</span>
-              </p>
-              <span class="inside">
-                <span class="inside-closed"><span data-lang="en">Inside the work</span><span data-lang="es">Dentro del trabajo</span></span>
-                <span class="inside-open"><span data-lang="en">Close</span><span data-lang="es">Cerrar</span></span>
-              </span>
-            </button>
+function setLanguage(language) {
+  document.documentElement.lang = language;
 
-            <div class="chapter-panel" id="panel-operations">
-              <div class="panel-scroll">
-                <div class="panel-inner">
-                  <div class="chapter-grid">
-                    <div class="chapter-intro">
-                      <p class="paper-kicker"><span data-lang="en">Where performance starts</span><span data-lang="es">Donde empieza el resultado</span></p>
-                      <h2><span data-lang="en">The number changed last.</span><span data-lang="es">El número cambiaba al final.</span></h2>
-                      <p class="lead"><span data-lang="en">By the time revenue moved, something else usually had first.</span><span data-lang="es">Cuando la venta cambiaba, casi siempre algo más ya había cambiado antes.</span></p>
-                    </div>
-                    <div class="chapter-body">
-                      <div class="text-block">
-                        <div class="block" data-lang="en">
-                          <p>A photographer stopped producing as many sessions. Guests booked, but fewer showed up. The product became less consistent. Daily targets became harder to reach.</p>
-                          <p>None of those things looked like revenue. Not yet.</p>
-                          <p>Most mornings began with the same work: find what had moved outside the norm, solve what could complicate the rest of the day, update the target and decide where the team needed to focus.</p>
-                        </div>
-                        <div class="block" data-lang="es">
-                          <p>Un fotógrafo dejó de producir suficientes sesiones. Los huéspedes agendaban, pero no llegaban. El producto perdió consistencia. La meta diaria empezó a costar más.</p>
-                          <p>Nada de eso parecía un problema de ventas. Todavía.</p>
-                          <p>La mayoría de las mañanas empezaban igual: encontrar qué se había salido de la norma, resolver lo que podía complicar el resto del día, actualizar la meta y decidir dónde debía concentrarse el equipo.</p>
-                        </div>
-                      </div>
+  document.querySelectorAll('[data-copy-en]').forEach(node => {
+    node.textContent = language === 'es'
+      ? node.dataset.copyEs
+      : node.dataset.copyEn;
+  });
 
-                      <p class="evidence-title"><span data-lang="en">In practice</span><span data-lang="es">En la práctica</span></p>
-                      <div class="evidence-list">
-                        <div class="evidence-item"><b>USD 40K–60K</b><span data-lang="en">Monthly targets reached within resort photography operations.</span><span data-lang="es">Metas mensuales alcanzadas dentro de operaciones de fotografía en resorts.</span></div>
-                        <div class="evidence-item"><b>200–250</b><span data-lang="en">Monthly guest transactions under my responsibility as manager.</span><span data-lang="es">Transacciones mensuales con huéspedes bajo mi responsabilidad como manager.</span></div>
-                        <div class="evidence-item"><b>3</b><span data-lang="en">International management assignments across Saint Lucia, Grenada and Jamaica.</span><span data-lang="es">Asignaciones internacionales como manager en Santa Lucía, Granada y Jamaica.</span></div>
-                        <div class="evidence-item"><b>USD 1.2K–2.4K</b><span data-lang="en">Highest individual sales per guest transaction.</span><span data-lang="es">Ventas individuales más altas por transacción con huéspedes.</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  languageButtons.forEach(button => {
+    button.setAttribute(
+      'aria-pressed',
+      String(button.dataset.langChoice === language)
+    );
+  });
 
-      <!-- 02 -->
-      <section class="chapter-zone" id="leadership" data-chapter="leadership">
-        <div class="chapter-card">
-          <div class="chapter-shell">
-            <button class="chapter-trigger" type="button" aria-expanded="false" aria-controls="panel-leadership">
-              <span class="chapter-index">02</span>
-              <span>
-                <span class="chapter-landmark"><span data-lang="en">Leadership · Cross-functional work</span><span data-lang="es">Liderazgo · Coordinación entre equipos</span></span>
-                <span class="chapter-title"><span data-lang="en">Making the system visible.</span><span data-lang="es">Que cada quien vea su parte.</span></span>
-              </span>
-              <p class="chapter-one-line"><span data-lang="en">People cannot do their job clearly if they cannot see where it fits.</span><span data-lang="es">Nadie puede hacer bien su trabajo si no entiende dónde encaja.</span></p>
-              <span class="inside"><span class="inside-closed"><span data-lang="en">Inside the work</span><span data-lang="es">Dentro del trabajo</span></span><span class="inside-open"><span data-lang="en">Close</span><span data-lang="es">Cerrar</span></span></span>
-            </button>
+  localStorage.setItem('pmtzk-language', language);
+}
 
-            <div class="chapter-panel" id="panel-leadership">
-              <div class="panel-scroll">
-                <div class="panel-inner">
-                  <div class="chapter-grid">
-                    <div class="chapter-intro">
-                      <p class="paper-kicker"><span data-lang="en">People inside an operation</span><span data-lang="es">Personas dentro de una operación</span></p>
-                      <h2><span data-lang="en">Giving orders only worked until it did not.</span><span data-lang="es">Dar órdenes funcionó hasta que dejó de funcionar.</span></h2>
-                      <p class="lead"><span data-lang="en">Jamaica was where authority stopped being enough.</span><span data-lang="es">Jamaica fue donde la autoridad dejó de ser suficiente.</span></p>
-                    </div>
-                    <div class="chapter-body">
-                      <div class="text-block">
-                        <div class="block" data-lang="en">
-                          <p>A photographer could wait for guests to appear all day and still believe they had done their job.</p>
-                          <p>The missing piece was not effort. It was causality. Without production, there was nothing to sell.</p>
-                          <p>Managing the team became less about telling people what to do and more about making the whole operation legible: what each person owned, what their work produced and how one missed step affected everyone after them.</p>
-                        </div>
-                        <div class="block" data-lang="es">
-                          <p>Un fotógrafo podía esperar todo el día a que los huéspedes llegaran solos y aun así pensar que había cumplido.</p>
-                          <p>Lo que faltaba no era esfuerzo. Era entender la relación: sin producción, no había nada que vender.</p>
-                          <p>Dirigir al equipo dejó de ser decirle a cada persona qué hacer. Se volvió hacer visible la operación completa: qué le correspondía a cada quien, qué producía su trabajo y cómo una parte afectaba a todas las siguientes.</p>
-                        </div>
-                      </div>
+languageButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    setLanguage(button.dataset.langChoice);
+  });
+});
 
-                      <p class="evidence-title"><span data-lang="en">In practice</span><span data-lang="es">En la práctica</span></p>
-                      <div class="evidence-list">
-                        <div class="evidence-item"><b>50%</b><span data-lang="en">Of my attention went to photographer performance, standards, development and daily execution.</span><span data-lang="es">De mi atención se concentraba en desempeño, estándares, desarrollo y ejecución diaria de fotógrafos.</span></div>
-                        <div class="evidence-item"><b>20%</b><span data-lang="en">Guest sales, rapport, recommendation and service recovery.</span><span data-lang="es">Ventas a huéspedes, relación, recomendación y recuperación de servicio.</span></div>
-                        <div class="evidence-item"><b>20%</b><span data-lang="en">Wedding coverage, client interviews, production, delivery and partner coordination.</span><span data-lang="es">Cobertura de bodas, entrevistas, producción, entrega y coordinación con aliados.</span></div>
-                        <div class="evidence-item"><b>10%</b><span data-lang="en">Hotel departments, corporate coordination, recruitment and onboarding as needed.</span><span data-lang="es">Coordinación con hotel y corporativo, además de reclutamiento y onboarding cuando se requería.</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+setLanguage(localStorage.getItem('pmtzk-language') || 'en');
 
-      <!-- 03 -->
-      <section class="chapter-zone" id="systems" data-chapter="systems">
-        <div class="chapter-card">
-          <div class="chapter-shell">
-            <button class="chapter-trigger" type="button" aria-expanded="false" aria-controls="panel-systems">
-              <span class="chapter-index">03</span>
-              <span>
-                <span class="chapter-landmark"><span data-lang="en">Systems · Planning · Enablement</span><span data-lang="es">Sistemas · Planeación · Habilitación</span></span>
-                <span class="chapter-title"><span data-lang="en">Not starting from zero.</span><span data-lang="es">Para no empezar de cero.</span></span>
-              </span>
-              <p class="chapter-one-line"><span data-lang="en">The second time a problem appears, it is already telling you something.</span><span data-lang="es">La segunda vez que aparece un problema, ya está diciendo algo.</span></p>
-              <span class="inside"><span class="inside-closed"><span data-lang="en">Inside the work</span><span data-lang="es">Dentro del trabajo</span></span><span class="inside-open"><span data-lang="en">Close</span><span data-lang="es">Cerrar</span></span></span>
-            </button>
+function closeChapter(chapter) {
+  chapter.removeAttribute('open');
+}
 
-            <div class="chapter-panel" id="panel-systems">
-              <div class="panel-scroll">
-                <div class="panel-inner">
-                  <div class="chapter-grid">
-                    <div class="chapter-intro">
-                      <p class="paper-kicker"><span data-lang="en">Experience made reusable</span><span data-lang="es">Experiencia que se puede volver a usar</span></p>
-                      <h2><span data-lang="en">A notebook became a planning system.</span><span data-lang="es">Un bloc de notas terminó convertido en un sistema.</span></h2>
-                      <p class="lead"><span data-lang="en">The point was not to record that we were behind. It was to know why.</span><span data-lang="es">No servía saber que íbamos atrasados. Había que saber por qué.</span></p>
-                    </div>
-                    <div class="chapter-body">
-                      <div class="text-block">
-                        <div class="block" data-lang="en">
-                          <p>At first, monthly planning lived in pencil on a memo pad. Every month meant remembering the formulas again.</p>
-                          <p>The spreadsheet changed the question. Instead of only showing the gap, it separated the variables behind it: number of sales, average ticket, production, capture and occupancy.</p>
-                          <p>Without it, the next period began from zero. With it, the next decision began with what the previous month had already taught me.</p>
-                        </div>
-                        <div class="block" data-lang="es">
-                          <p>Al principio, la planeación mensual vivía a lápiz en un memo pad. Cada mes significaba volver a recordar las fórmulas.</p>
-                          <p>El spreadsheet cambió la pregunta. Ya no solo mostraba la diferencia contra la meta. Separaba las variables detrás: número de ventas, ticket promedio, producción, captación y ocupación.</p>
-                          <p>Sin él, el siguiente periodo empezaba desde cero. Con él, la siguiente decisión empezaba desde lo que el mes anterior ya me había enseñado.</p>
-                        </div>
-                      </div>
+function openChapter(chapter, options = {}) {
+  if (!chapter) return;
 
-                      <p class="evidence-title"><span data-lang="en">What the systems did</span><span data-lang="es">Qué resolvían los sistemas</span></p>
-                      <div class="artifact-stack">
-                        <div class="artifact">
-                          <div class="artifact-name"><span data-lang="en">Monthly planning</span><span data-lang="es">Planeación mensual</span></div>
-                          <div class="artifact-copy">
-                            <p><span data-lang="en">Locate the variable behind the gap before setting the next commercial priority.</span><span data-lang="es">Encontrar la variable detrás del atraso antes de definir la siguiente prioridad comercial.</span></p>
-                            <ul><li>Occupancy</li><li>Production</li><li>Capture</li><li>Average ticket</li><li>Revenue</li></ul>
-                          </div>
-                        </div>
-                        <div class="artifact">
-                          <div class="artifact-name"><span data-lang="en">Weekly adjustment</span><span data-lang="es">Ajuste semanal</span></div>
-                          <div class="artifact-copy">
-                            <p><span data-lang="en">Translate the monthly target into a smaller decision that could still change the outcome.</span><span data-lang="es">Traducir la meta mensual en una decisión más pequeña que todavía pudiera cambiar el resultado.</span></p>
-                            <ul><li>Progress</li><li>Gap</li><li>Priority</li><li>Action</li><li>Follow-up</li></ul>
-                          </div>
-                        </div>
-                        <div class="artifact">
-                          <div class="artifact-name"><span data-lang="en">Daily execution</span><span data-lang="es">Ejecución diaria</span></div>
-                          <div class="artifact-copy">
-                            <p><span data-lang="en">Make priorities, responsibilities and exceptions visible before the day became harder.</span><span data-lang="es">Hacer visibles prioridades, responsabilidades y excepciones antes de que el día se complicara.</span></p>
-                            <ul><li>Staffing</li><li>Events</li><li>Sessions</li><li>Issues</li><li>Tomorrow</li></ul>
-                          </div>
-                        </div>
-                        <div class="artifact">
-                          <div class="artifact-name"><span data-lang="en">Operating tools</span><span data-lang="es">Herramientas de operación</span></div>
-                          <div class="artifact-copy">
-                            <p><span data-lang="en">Reduce the number of important details left to memory.</span><span data-lang="es">Reducir la cantidad de detalles importantes que dependían de la memoria.</span></p>
-                            <ul><li>Checklists</li><li>Wedding interviews</li><li>Presets</li><li>Camera settings</li><li>Sales tactics</li></ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  const { manual = false, scroll = false } = options;
 
-      <!-- 04 -->
-      <section class="chapter-zone" id="representation" data-chapter="representation">
-        <div class="chapter-card">
-          <div class="chapter-shell">
-            <button class="chapter-trigger" type="button" aria-expanded="false" aria-controls="panel-representation">
-              <span class="chapter-index">04</span>
-              <span>
-                <span class="chapter-landmark"><span data-lang="en">Hospitality · Brand · Photography</span><span data-lang="es">Hospitalidad · Marca · Fotografía</span></span>
-                <span class="chapter-title"><span data-lang="en">When the image misses the place.</span><span data-lang="es">Cuando la imagen no alcanza al lugar.</span></span>
-              </span>
-              <p class="chapter-one-line"><span data-lang="en">Some of the most memorable properties I knew felt almost ordinary online.</span><span data-lang="es">Algunos de los lugares más memorables que conocí se veían casi ordinarios en internet.</span></p>
-              <span class="inside"><span class="inside-closed"><span data-lang="en">Inside the work</span><span data-lang="es">Dentro del trabajo</span></span><span class="inside-open"><span data-lang="en">Close</span><span data-lang="es">Cerrar</span></span></span>
-            </button>
+  if (manual) {
+    manualPauseUntil = Date.now() + 900;
+  }
 
-            <div class="chapter-panel" id="panel-representation">
-              <div class="panel-scroll">
-                <div class="panel-inner">
-                  <div class="chapter-grid">
-                    <div class="chapter-intro">
-                      <p class="paper-kicker"><span data-lang="en">Representation before arrival</span><span data-lang="es">Representación antes de llegar</span></p>
-                      <h2><span data-lang="en">The place was there. The feeling was not.</span><span data-lang="es">El lugar estaba ahí. La sensación no.</span></h2>
-                      <p class="lead"><span data-lang="en">That distance became difficult to ignore.</span><span data-lang="es">Esa distancia se volvió difícil de ignorar.</span></p>
-                    </div>
-                    <div class="chapter-body">
-                      <div class="text-block">
-                        <div class="block" data-lang="en">
-                          <p>I would arrive at a resort, see how beautiful it was, then open its website and social channels.</p>
-                          <p>They did not capture the place. Or the experience. Then it happened again. Different property, same problem.</p>
-                          <p>Photography had already taught me what representation could do. Guests who arrived convinced they hated photographs could end the session recognizing themselves in a version they had not expected to see. Once you understand what matters to someone, you know where the image needs to move.</p>
-                          <p>EXIF began with the same question applied to places.</p>
-                        </div>
-                        <div class="block" data-lang="es">
-                          <p>Llegaba a un resort, veía lo hermoso que era y después abría su página y sus redes.</p>
-                          <p>No captaban el lugar. Tampoco la experiencia. Después volvió a pasar. Otra propiedad, el mismo problema.</p>
-                          <p>La fotografía ya me había enseñado lo que una representación puede hacer. Huéspedes convencidas de que odiaban tomarse fotos terminaban reconociéndose en una versión que no esperaban ver. Cuando entiendes qué le importa a alguien, sabes hacia dónde mover la imagen.</p>
-                          <p>EXIF empezó al hacerle la misma pregunta a los lugares.</p>
-                        </div>
-                      </div>
+  chapters.forEach(other => {
+    if (other !== chapter) closeChapter(other);
+  });
 
-                      <p class="evidence-title"><span data-lang="en">In practice</span><span data-lang="es">En la práctica</span></p>
-                      <div class="evidence-list">
-                        <div class="evidence-item"><b>40%+</b><span data-lang="en">Of team sales came from my personal sales during my photographer stage.</span><span data-lang="es">De las ventas del equipo provenían de mis ventas personales durante mi etapa como fotógrafa.</span></div>
-                        <div class="evidence-item"><b>EXIF</b><span data-lang="en">An independent studio examining how hospitality becomes perceptible before arrival.</span><span data-lang="es">Un estudio independiente que examina cómo la hospitalidad se vuelve perceptible antes de llegar.</span></div>
-                        <div class="evidence-item"><b>Observation 01</b><span data-lang="en">A publication on what happens when distinct places enter the same comparison structure.</span><span data-lang="es">Una publicación sobre lo que ocurre cuando lugares distintos entran en la misma estructura de comparación.</span></div>
-                        <div class="evidence-item"><b>One distinction</b><span data-lang="en">A photographer observes, identifies, composes and provokes. A person with a camera clicks.</span><span data-lang="es">Un fotógrafo observa, identifica, compone y provoca. Una persona con una cámara hace clic.</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  chapter.setAttribute('open', '');
+  activeChapter = chapter;
+  history.replaceState(null, '', `#${chapter.id}`);
 
-      <!-- 05 -->
-      <section class="chapter-zone" id="research" data-chapter="research">
-        <div class="chapter-card">
-          <div class="chapter-shell">
-            <button class="chapter-trigger" type="button" aria-expanded="false" aria-controls="panel-research">
-              <span class="chapter-index">05</span>
-              <span>
-                <span class="chapter-landmark"><span data-lang="en">Research · Strategy · Writing</span><span data-lang="es">Investigación · Estrategia · Escritura</span></span>
-                <span class="chapter-title"><span data-lang="en">Finding what does not fit.</span><span data-lang="es">Encontrar lo que no cuadra.</span></span>
-              </span>
-              <p class="chapter-one-line"><span data-lang="en">Most of my work begins when something looks complete but still does not make sense.</span><span data-lang="es">Gran parte de mi trabajo empieza cuando algo parece terminado, pero todavía no tiene sentido.</span></p>
-              <span class="inside"><span class="inside-closed"><span data-lang="en">Inside the work</span><span data-lang="es">Dentro del trabajo</span></span><span class="inside-open"><span data-lang="en">Close</span><span data-lang="es">Cerrar</span></span></span>
-            </button>
+  if (scroll) {
+    transitionLocked = true;
 
-            <div class="chapter-panel" id="panel-research">
-              <div class="panel-scroll">
-                <div class="panel-inner">
-                  <div class="chapter-grid">
-                    <div class="chapter-intro">
-                      <p class="paper-kicker"><span data-lang="en">Clarity as a working requirement</span><span data-lang="es">La claridad como requisito de trabajo</span></p>
-                      <h2><span data-lang="en">But... what?</span><span data-lang="es">Pero... ¿qué?</span></h2>
-                      <p class="lead"><span data-lang="en">Something stops making sense. That is usually where the work begins.</span><span data-lang="es">Algo deja de tener sentido. Ahí suele empezar el trabajo.</span></p>
-                    </div>
-                    <div class="chapter-body">
-                      <div class="text-block">
-                        <div class="block" data-lang="en">
-                          <p>A button does not work. A photograph feels uncomfortable. A sentence is technically correct but still says the wrong thing.</p>
-                          <p>I start with the outcome. What needs to happen? What should become clear? Then I keep adjusting until there is no confusion about what the work is trying to do.</p>
-                          <p>The best ideas usually do not add something new. They make something that was already there easier to see.</p>
-                        </div>
-                        <div class="block" data-lang="es">
-                          <p>Un botón no funciona. Una foto se siente incómoda. Un texto es técnicamente correcto, pero sigue diciendo otra cosa.</p>
-                          <p>Empiezo por el resultado. ¿Qué tiene que pasar? ¿Qué debería quedar claro? Después sigo ajustando hasta que no haya duda sobre lo que el trabajo intenta hacer.</p>
-                          <p>Las mejores ideas casi nunca agregan algo nuevo. Hacen más evidente algo que ya estaba enfrente.</p>
-                        </div>
-                      </div>
+    requestAnimationFrame(() => {
+      const mobileOffset = window.innerWidth <= 1000 ? 58 : 8;
+      const destination =
+        chapter.getBoundingClientRect().top +
+        window.scrollY -
+        mobileOffset;
 
-                      <p class="evidence-title"><span data-lang="en">Where this appears</span><span data-lang="es">Dónde aparece</span></p>
-                      <div class="artifact-stack">
-                        <div class="artifact"><div class="artifact-name"><span data-lang="en">Research</span><span data-lang="es">Investigación</span></div><div class="artifact-copy"><p><span data-lang="en">Separate what is known, what is inferred and what still needs to be tested.</span><span data-lang="es">Separar lo que sabemos, lo que estamos infiriendo y lo que todavía necesita probarse.</span></p></div></div>
-                        <div class="artifact"><div class="artifact-name"><span data-lang="en">Writing</span><span data-lang="es">Escritura</span></div><div class="artifact-copy"><p><span data-lang="en">Remove the language that names a quality before the evidence has made it visible.</span><span data-lang="es">Quitar el lenguaje que nombra una cualidad antes de que la evidencia la vuelva visible.</span></p></div></div>
-                        <div class="artifact"><div class="artifact-name"><span data-lang="en">Strategy</span><span data-lang="es">Estrategia</span></div><div class="artifact-copy"><p><span data-lang="en">Trace an outcome back to the conditions that can still be changed.</span><span data-lang="es">Rastrear un resultado hasta las condiciones que todavía se pueden cambiar.</span></p></div></div>
-                        <div class="artifact"><div class="artifact-name"><span data-lang="en">Communication</span><span data-lang="es">Comunicación</span></div><div class="artifact-copy"><p><span data-lang="en">Make the useful idea difficult to misunderstand.</span><span data-lang="es">Hacer que la idea útil sea difícil de malinterpretar.</span></p></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer class="closing" id="contact">
-        <div>
-          <p class="paper-kicker"><span data-lang="en">Continue the conversation</span><span data-lang="es">Continuar la conversación</span></p>
-          <h2><span data-lang="en">The work changes.<br>The way I work travels with me.</span><span data-lang="es">El trabajo cambia.<br>Mi forma de trabajar viaja conmigo.</span></h2>
-        </div>
-        <div class="closing-right">
-          <p class="closing-copy">
-            <span data-lang="en">This record is organized around the capabilities that kept appearing across hospitality, operations, sales, photography and independent work.</span>
-            <span data-lang="es">Este perfil está organizado alrededor de las capacidades que siguieron apareciendo entre hospitalidad, operaciones, ventas, fotografía y trabajo independiente.</span>
-          </p>
-          <div class="contact-grid">
-            <a class="contact-link" href="mailto:pmtzk@icloud.com"><small><span data-lang="en">Direct</span><span data-lang="es">Directo</span></small><strong>Email</strong></a>
-            <a class="contact-link" href="#" aria-label="LinkedIn"><small>Profile</small><strong>LinkedIn</strong></a>
-            <a class="contact-link" href="#" aria-label="Selected work"><small><span data-lang="en">Selected work</span><span data-lang="es">Trabajo seleccionado</span></small><strong>EXIF Studio</strong></a>
-            <a class="contact-link" href="#top"><small><span data-lang="en">Return</span><span data-lang="es">Volver</span></small><strong><span data-lang="en">Top</span><span data-lang="es">Inicio</span></strong></a>
-          </div>
-        </div>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const zones = [...document.querySelectorAll('.chapter-zone')];
-      const navLinks = [...document.querySelectorAll('[data-nav]')];
-      const progressBar = document.getElementById('progressBar');
-      let activeId = null;
-      let manualLockUntil = 0;
-      let ticking = false;
-
-      function setLanguage(lang){
-        root.dataset.language = lang;
-        root.lang = lang;
-        document.querySelectorAll('[data-set-lang]').forEach(btn => {
-          btn.setAttribute('aria-pressed', String(btn.dataset.setLang === lang));
-        });
-        localStorage.setItem('pmtzk-language', lang);
-      }
-
-      document.querySelectorAll('[data-set-lang]').forEach(btn => {
-        btn.addEventListener('click', () => setLanguage(btn.dataset.setLang));
+      window.scrollTo({
+        top: destination,
+        behavior: 'smooth'
       });
 
-      setLanguage(localStorage.getItem('pmtzk-language') || 'en');
+      window.setTimeout(() => {
+        transitionLocked = false;
+      }, 750);
+    });
+  }
+}
 
-      function setOpen(zone, open, source='auto'){
-        const trigger = zone.querySelector('.chapter-trigger');
-        zone.classList.toggle('is-open', open);
-        trigger.setAttribute('aria-expanded', String(open));
+chapters.forEach(chapter => {
+  const summary = chapter.querySelector('summary');
 
-        if(open){
-          zones.forEach(other => {
-            if(other !== zone){
-              other.classList.remove('is-open');
-              other.querySelector('.chapter-trigger').setAttribute('aria-expanded','false');
-            }
-          });
-          activeId = zone.id;
-          navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.nav === activeId));
-        } else if(activeId === zone.id){
-          activeId = null;
-          navLinks.forEach(link => link.classList.remove('is-active'));
-        }
+  summary.addEventListener('click', event => {
+    event.preventDefault();
 
-        if(source === 'manual'){
-          manualLockUntil = Date.now() + 900;
-        }
+    const shouldOpen = !chapter.open;
+    manualPauseUntil = Date.now() + 900;
+
+    if (shouldOpen) {
+      openChapter(chapter, { manual: true });
+    } else {
+      closeChapter(chapter);
+
+      if (activeChapter === chapter) {
+        activeChapter = null;
       }
+    }
+  });
+});
 
-      zones.forEach(zone => {
-        zone.querySelector('.chapter-trigger').addEventListener('click', () => {
-          setOpen(zone, !zone.classList.contains('is-open'), 'manual');
-        });
-      });
+/*
+  Auto advance happens only when the final marker inside an open chapter
+  reaches the viewport. Clicking remains independent and can reopen or
+  close any chapter.
+*/
+const endObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (
+      !entry.isIntersecting ||
+      transitionLocked ||
+      Date.now() < manualPauseUntil
+    ) return;
 
-      function chooseActiveZone(){
-        if(Date.now() < manualLockUntil) return;
+    const chapter = entry.target.closest('details.chapter');
 
-        const activationY = window.innerHeight * .42;
-        let best = null;
-        let bestDistance = Infinity;
+    if (!chapter || !chapter.open || chapter !== activeChapter) return;
 
-        zones.forEach(zone => {
-          const rect = zone.getBoundingClientRect();
-          if(rect.bottom < 80 || rect.top > window.innerHeight * .96) return;
-          const distance = Math.abs(rect.top - activationY);
-          if(distance < bestDistance){
-            best = zone;
-            bestDistance = distance;
-          }
-        });
+    const index = chapters.indexOf(chapter);
+    const next = chapters[index + 1];
 
-        if(best && best.id !== activeId){
-          setOpen(best, true, 'auto');
-        }
-      }
+    if (!next) return;
 
-      function updateProgress(){
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        const value = max > 0 ? window.scrollY / max : 0;
-        progressBar.style.width = `${Math.max(0, Math.min(1, value)) * 100}%`;
+    openChapter(next, { scroll: true });
+  });
+}, {
+  root: null,
+  threshold: 0.9,
+  rootMargin: '0px 0px -8% 0px'
+});
 
-        const contact = document.getElementById('contact').getBoundingClientRect();
-        if(contact.top < window.innerHeight * .55){
-          navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.nav === 'contact'));
-        }
-      }
+chapters.forEach(chapter => {
+  const marker = chapter.querySelector('.chapter-end-trigger');
+  if (marker) endObserver.observe(marker);
+});
 
-      function onScroll(){
-        if(ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          chooseActiveZone();
-          updateProgress();
-          ticking = false;
-        });
-      }
+function updateProgress() {
+  if (!progressFill) return;
 
-      window.addEventListener('scroll', onScroll, {passive:true});
-      window.addEventListener('resize', onScroll);
+  const maximum =
+    document.documentElement.scrollHeight - window.innerHeight;
 
-      navLinks.forEach(link => {
-        link.addEventListener('click', event => {
-          const id = link.getAttribute('href').slice(1);
-          const target = document.getElementById(id);
-          if(!target) return;
-          event.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
-          if(target.classList.contains('chapter-zone')){
-            setTimeout(() => setOpen(target, true, 'manual'), 380);
-          }
-        });
-      });
+  const percentage =
+    maximum > 0
+      ? (window.scrollY / maximum) * 100
+      : 0;
 
-      updateProgress();
-      chooseActiveZone();
-    })();
-  </script>
+  progressFill.style.width =
+    `${Math.min(100, Math.max(0, percentage))}%`;
+}
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+window.addEventListener('resize', updateProgress);
+
+const hashTarget = location.hash
+  ? document.querySelector(location.hash)
+  : null;
+
+if (hashTarget && hashTarget.matches('details.chapter')) {
+  openChapter(hashTarget);
+} else if (activeChapter) {
+  openChapter(activeChapter);
+}
+
+updateProgress();
+</script>
 </body>
 </html>
