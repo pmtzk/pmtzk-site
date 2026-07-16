@@ -1004,7 +1004,29 @@ function closeChapter(chapter) {
   chapter.removeAttribute('open');
 }
 
-function openChapter(chapter) {
+function moveToChapterStart(chapter) {
+  /*
+    Closing the previous chapter changes the document height.
+    Wait for that reflow, then place the newly opened chapter
+    at the beginning of the viewport.
+  */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const mobileOffset = window.innerWidth <= 1000 ? 56 : 8;
+      const destination =
+        chapter.getBoundingClientRect().top +
+        window.scrollY -
+        mobileOffset;
+
+      window.scrollTo({
+        top: Math.max(0, destination),
+        behavior: 'smooth'
+      });
+    });
+  });
+}
+
+function openChapter(chapter, shouldAlign = false) {
   if (!chapter) return;
 
   chapters.forEach(other => {
@@ -1014,6 +1036,10 @@ function openChapter(chapter) {
   chapter.setAttribute('open', '');
   activeChapter = chapter;
   history.replaceState(null, '', `#${chapter.id}`);
+
+  if (shouldAlign) {
+    moveToChapterStart(chapter);
+  }
 }
 
 chapters.forEach(chapter => {
@@ -1029,11 +1055,22 @@ chapters.forEach(chapter => {
         activeChapter = null;
       }
 
-      history.replaceState(null, '', location.pathname + location.search);
+      history.replaceState(
+        null,
+        '',
+        location.pathname + location.search
+      );
+
       return;
     }
 
-    openChapter(chapter);
+    /*
+      Open by click:
+      1. close the previous chapter
+      2. open this chapter
+      3. move to this chapter's beginning after the layout changes
+    */
+    openChapter(chapter, true);
   });
 });
 
@@ -1060,9 +1097,9 @@ const hashTarget = location.hash
   : null;
 
 if (hashTarget && hashTarget.matches('details.chapter')) {
-  openChapter(hashTarget);
+  openChapter(hashTarget, false);
 } else if (activeChapter) {
-  openChapter(activeChapter);
+  openChapter(activeChapter, false);
 }
 
 updateProgress();
