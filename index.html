@@ -763,7 +763,6 @@ details#prologue .chapter-title{
 <section class="book">
 <details class="chapter" id="prologue" open="">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Prologue" data-copy-es="Prólogo">Prologue</span></div>
 <div class="chapter-summary"><span data-copy-en="Different roles. The same way of working." data-copy-es="Distintos roles. La misma forma de trabajar.">Different roles. The same way of working.</span></div>
 <div class="toggle">+</div>
@@ -797,7 +796,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="commercial">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Operations" data-copy-es="Operaciones">Operations</span></div>
 <div class="chapter-summary"><span data-copy-en="Seeing problems earlier." data-copy-es="Antes de que se note.">Seeing problems earlier.</span></div>
 <div class="toggle">+</div>
@@ -826,7 +824,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="aligned">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span></div>
 <div class="chapter-summary"><span data-copy-en="Making the system visible." data-copy-es="Hacer visible la operación.">Making the system visible.</span></div>
 <div class="toggle">+</div>
@@ -855,7 +852,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="repeatable">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Systems" data-copy-es="Sistemas">Systems</span></div>
 <div class="chapter-summary"><span data-copy-en="Not starting from zero." data-copy-es="Para no empezar de cero.">Not starting from zero.</span></div>
 <div class="toggle">+</div>
@@ -880,7 +876,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="perception">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Representation" data-copy-es="Representación">Representation</span></div>
 <div class="chapter-summary"><span data-copy-en="When the image misses the place." data-copy-es="Cuando la imagen no alcanza al lugar.">When the image misses the place.</span></div>
 <div class="toggle">+</div>
@@ -909,7 +904,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="argument">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Research" data-copy-es="Investigación">Research</span></div>
 <div class="chapter-summary"><span data-copy-en="Finding what does not fit." data-copy-es="Encontrar lo que no cuadra.">Finding what does not fit.</span></div>
 <div class="toggle">+</div>
@@ -938,7 +932,6 @@ details#prologue .chapter-title{
 </details>
 <details class="chapter" id="appendix">
 <summary class="chapter-head">
-
 <div class="chapter-title"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></div>
 <div class="chapter-summary"><span data-copy-en="Timeline, selected work and direct contact." data-copy-es="Trayectoria, trabajo seleccionado y contacto directo.">Timeline, selected work and direct contact.</span></div>
 <div class="toggle">+</div>
@@ -979,8 +972,6 @@ const progressFill = document.querySelector('.auto-progress span');
 const languageButtons = [...document.querySelectorAll('[data-lang-choice]')];
 
 let activeChapter = chapters.find(chapter => chapter.open) || chapters[0];
-let transitionLocked = false;
-let manualPauseUntil = 0;
 
 function setLanguage(language) {
   document.documentElement.lang = language;
@@ -1013,14 +1004,8 @@ function closeChapter(chapter) {
   chapter.removeAttribute('open');
 }
 
-function openChapter(chapter, options = {}) {
+function openChapter(chapter) {
   if (!chapter) return;
-
-  const { manual = false, scroll = false } = options;
-
-  if (manual) {
-    manualPauseUntil = Date.now() + 900;
-  }
 
   chapters.forEach(other => {
     if (other !== chapter) closeChapter(other);
@@ -1029,27 +1014,6 @@ function openChapter(chapter, options = {}) {
   chapter.setAttribute('open', '');
   activeChapter = chapter;
   history.replaceState(null, '', `#${chapter.id}`);
-
-  if (scroll) {
-    transitionLocked = true;
-
-    requestAnimationFrame(() => {
-      const mobileOffset = window.innerWidth <= 1000 ? 58 : 8;
-      const destination =
-        chapter.getBoundingClientRect().top +
-        window.scrollY -
-        mobileOffset;
-
-      window.scrollTo({
-        top: destination,
-        behavior: 'smooth'
-      });
-
-      window.setTimeout(() => {
-        transitionLocked = false;
-      }, 750);
-    });
-  }
 }
 
 chapters.forEach(chapter => {
@@ -1058,54 +1022,19 @@ chapters.forEach(chapter => {
   summary.addEventListener('click', event => {
     event.preventDefault();
 
-    const shouldOpen = !chapter.open;
-    manualPauseUntil = Date.now() + 900;
-
-    if (shouldOpen) {
-      openChapter(chapter, { manual: true });
-    } else {
+    if (chapter.open) {
       closeChapter(chapter);
 
       if (activeChapter === chapter) {
         activeChapter = null;
       }
+
+      history.replaceState(null, '', location.pathname + location.search);
+      return;
     }
+
+    openChapter(chapter);
   });
-});
-
-/*
-  Auto advance happens only when the final marker inside an open chapter
-  reaches the viewport. Clicking remains independent and can reopen or
-  close any chapter.
-*/
-const endObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (
-      !entry.isIntersecting ||
-      transitionLocked ||
-      Date.now() < manualPauseUntil
-    ) return;
-
-    const chapter = entry.target.closest('details.chapter');
-
-    if (!chapter || !chapter.open || chapter !== activeChapter) return;
-
-    const index = chapters.indexOf(chapter);
-    const next = chapters[index + 1];
-
-    if (!next) return;
-
-    openChapter(next, { scroll: true });
-  });
-}, {
-  root: null,
-  threshold: 0.9,
-  rootMargin: '0px 0px -8% 0px'
-});
-
-chapters.forEach(chapter => {
-  const marker = chapter.querySelector('.chapter-end-trigger');
-  if (marker) endObserver.observe(marker);
 });
 
 function updateProgress() {
