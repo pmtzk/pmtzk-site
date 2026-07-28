@@ -192,43 +192,6 @@
     showSystemSlide(0);
   }
 
-  const perception = document.querySelector('[data-perception]');
-  const perceptionHandle = document.querySelector('[data-perception-handle]');
-  if (perception && perceptionHandle) {
-    let dragging = false;
-    const isVertical = () => window.matchMedia('(max-width: 520px)').matches;
-    const setSplit = (clientX, clientY) => {
-      const rect = perception.getBoundingClientRect();
-      const percentage = isVertical()
-        ? ((clientY - rect.top) / rect.height) * 100
-        : ((clientX - rect.left) / rect.width) * 100;
-      const clamped = Math.min(88, Math.max(12, percentage));
-      perception.style.setProperty(isVertical() ? '--split-y' : '--split', `${clamped}%`);
-    };
-    perceptionHandle.addEventListener('pointerdown', event => {
-      dragging = true;
-      perceptionHandle.setPointerCapture(event.pointerId);
-      setSplit(event.clientX, event.clientY);
-    });
-    perceptionHandle.addEventListener('pointermove', event => {
-      if (dragging) setSplit(event.clientX, event.clientY);
-    });
-    perceptionHandle.addEventListener('pointerup', event => {
-      dragging = false;
-      perceptionHandle.releasePointerCapture(event.pointerId);
-    });
-    perception.addEventListener('click', event => {
-      if (event.target !== perceptionHandle && !dragging) setSplit(event.clientX, event.clientY);
-    });
-    perceptionHandle.addEventListener('keydown', event => {
-      const property = isVertical() ? '--split-y' : '--split';
-      const current = parseFloat(getComputedStyle(perception).getPropertyValue(property)) || 50;
-      const decrease = isVertical() ? event.key === 'ArrowUp' : event.key === 'ArrowLeft';
-      const increase = isVertical() ? event.key === 'ArrowDown' : event.key === 'ArrowRight';
-      if (decrease) perception.style.setProperty(property, `${Math.max(12, current - 4)}%`);
-      if (increase) perception.style.setProperty(property, `${Math.min(88, current + 4)}%`);
-    });
-  }
 
   const inspection = document.querySelector('[data-inspection]');
   const inspectionWord = document.querySelector('[data-inspection-word]');
