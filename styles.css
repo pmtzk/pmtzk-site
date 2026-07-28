@@ -2284,3 +2284,243 @@ html, body { overflow-x: clip; }
   .system-carousel__track,
   .system-carousel__progress span { transition-duration: .01ms; }
 }
+
+/* v6 final interaction and tablet correction ---------------------------- */
+
+/* Cover: one quiet date mark, set in Model at the same visual scale. */
+.cover__edition {
+  top: auto;
+  right: clamp(-24px, -1vw, 0px);
+  bottom: clamp(118px, 14vh, 190px);
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(150px, 22vw, 360px);
+  line-height: .62;
+  letter-spacing: -.065em;
+  color: rgba(245,240,231,.045);
+  white-space: nowrap;
+  transform: none;
+}
+.cover__edition i { display: none; }
+
+/* Leadership: keep every participant inside the room at all widths. */
+.constellation {
+  min-height: clamp(620px, 64vw, 820px);
+  overflow: hidden;
+}
+.constellation__node {
+  width: clamp(88px, 8.8vw, 118px);
+  height: clamp(88px, 8.8vw, 118px);
+  max-width: none;
+  padding: 10px;
+  z-index: 3;
+  animation: constellation-invite 3.8s ease-in-out infinite;
+}
+.constellation__node:nth-of-type(2) { animation-delay: .45s; }
+.constellation__node:nth-of-type(3) { animation-delay: .9s; }
+.constellation__node:nth-of-type(4) { animation-delay: 1.35s; }
+.constellation__node--team { left: 8%; top: 8%; }
+.constellation__node--hotel { right: 8%; top: 8%; }
+.constellation__node--guest { right: 8%; bottom: 8%; }
+.constellation__node--delivery { left: 8%; bottom: 8%; }
+.constellation__center {
+  width: clamp(210px, 24vw, 310px);
+  min-height: clamp(210px, 24vw, 310px);
+  aspect-ratio: 1;
+  padding: clamp(24px, 3vw, 42px);
+  z-index: 2;
+  background: rgba(245,240,231,.94);
+}
+.constellation__center span { margin-bottom: 16px; }
+.constellation__center p {
+  max-width: 16ch;
+  font-size: clamp(22px, 2.25vw, 34px);
+  line-height: 1.02;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.constellation__lines { inset: 2%; width: 96%; height: 96%; }
+
+/* Representation: each idea owns one side, so the divider reveals instead
+   of crushing text into narrow fragments. */
+.perception {
+  min-height: clamp(640px, 68vw, 860px);
+  --split: 50%;
+}
+.perception__layer {
+  padding: clamp(38px, 5vw, 76px);
+  justify-content: flex-start;
+}
+.perception__layer p {
+  position: absolute;
+  top: 50%;
+  width: min(39%, 560px);
+  max-width: none;
+  margin: 0;
+  transform: translateY(-50%);
+  font-family: var(--body);
+  font-size: clamp(39px, 4.6vw, 72px);
+  line-height: .93;
+  letter-spacing: -.035em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+.perception__layer--place p { left: clamp(38px, 5vw, 76px); }
+.perception__layer--representation p {
+  right: clamp(38px, 5vw, 76px);
+  text-align: right;
+}
+.perception__layer--representation .perception__micro {
+  align-self: flex-end;
+  text-align: right;
+}
+.perception__handle {
+  z-index: 5;
+  animation: divider-invite 3s ease-in-out infinite;
+}
+.perception__handle:active { animation: none; }
+
+/* Research: the word itself is the invitation. Remove the floating label
+   and use a calm pulse until the drawer has been opened. */
+.inspection__word::after { content: none; }
+.inspection__word::before {
+  inset: -.08em -.12em;
+  opacity: .22;
+  transform: scale(.96) rotate(-2deg);
+  animation: inspection-invite 2.6s ease-in-out infinite;
+}
+.inspection.is-open .inspection__word::before {
+  animation: none;
+  opacity: 0;
+}
+.inspection__word {
+  text-shadow: 0 0 0 transparent;
+  animation: word-glow 2.6s ease-in-out infinite;
+}
+.inspection.is-open .inspection__word { animation: none; }
+.inspection__drawer {
+  margin-top: 0;
+}
+
+@keyframes constellation-invite {
+  0%, 76%, 100% { transform: translateY(0); }
+  84% { transform: translateY(-4px); }
+  92% { transform: translateY(0); }
+}
+@keyframes divider-invite {
+  0%, 72%, 100% { transform: translateX(-50%); }
+  80% { transform: translateX(calc(-50% - 5px)); }
+  90% { transform: translateX(calc(-50% + 5px)); }
+}
+@keyframes inspection-invite {
+  0%, 100% { opacity: .13; transform: scale(.95) rotate(-2deg); }
+  50% { opacity: .34; transform: scale(1.03) rotate(-2deg); }
+}
+@keyframes word-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .72; }
+}
+
+@media (max-width: 1100px) {
+  .cover__edition {
+    right: -10px;
+    bottom: clamp(150px, 18vh, 220px);
+    font-size: clamp(140px, 25vw, 280px);
+  }
+  .constellation {
+    min-height: 690px;
+  }
+  .constellation__node {
+    width: 96px;
+    height: 96px;
+  }
+  .constellation__node--team { left: 7%; top: 7%; }
+  .constellation__node--hotel { right: 7%; top: 7%; }
+  .constellation__node--guest { right: 7%; bottom: 7%; }
+  .constellation__node--delivery { left: 7%; bottom: 7%; }
+  .constellation__center {
+    width: 250px;
+    min-height: 250px;
+  }
+  .constellation__center p { font-size: 28px; }
+  .perception__layer p {
+    width: 40%;
+    font-size: clamp(36px, 5.4vw, 58px);
+  }
+}
+
+@media (max-width: 760px) {
+  .cover__edition {
+    right: -8px;
+    bottom: 210px;
+    font-size: clamp(112px, 34vw, 190px);
+  }
+  .constellation {
+    min-height: 650px;
+  }
+  .constellation__lines { display: block; }
+  .constellation__node {
+    width: 78px;
+    height: 78px;
+    font-size: 7px;
+  }
+  .constellation__node--team { left: 5%; top: 6%; }
+  .constellation__node--hotel { right: 5%; top: 6%; }
+  .constellation__node--guest { right: 5%; bottom: 6%; }
+  .constellation__node--delivery { left: 5%; bottom: 6%; }
+  .constellation__center {
+    width: 210px;
+    min-height: 210px;
+    padding: 24px;
+  }
+  .constellation__center p { font-size: 23px; }
+  .perception {
+    min-height: 700px;
+  }
+  .perception__layer { padding: 26px 22px; }
+  .perception__layer p {
+    width: 42%;
+    font-size: clamp(31px, 7vw, 44px);
+  }
+  .perception__layer--place p { left: 22px; }
+  .perception__layer--representation p { right: 22px; }
+}
+
+@media (max-width: 520px) {
+  .cover__edition {
+    bottom: 250px;
+    font-size: 37vw;
+  }
+  .constellation {
+    min-height: 700px;
+  }
+  .constellation__lines { display: none; }
+  .constellation__node--team { left: 4%; top: 5%; }
+  .constellation__node--hotel { right: 4%; top: 5%; }
+  .constellation__node--guest { right: 4%; bottom: 5%; }
+  .constellation__node--delivery { left: 4%; bottom: 5%; }
+  .perception {
+    min-height: 760px;
+    --split-y: 50%;
+  }
+  .perception__layer p {
+    top: auto;
+    width: auto;
+    left: 24px;
+    right: 24px;
+    text-align: left;
+    transform: none;
+    font-size: clamp(31px, 10vw, 46px);
+  }
+  .perception__layer--place p { top: 90px; left: 24px; }
+  .perception__layer--representation p { bottom: 54px; right: 24px; text-align: left; }
+  .perception__layer--representation .perception__micro { align-self: flex-start; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .constellation__node,
+  .perception__handle,
+  .inspection__word,
+  .inspection__word::before { animation: none !important; }
+}

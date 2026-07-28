@@ -130,6 +130,7 @@
     node.addEventListener('focus', () => updateConstellation(node));
     node.addEventListener('click', () => updateConstellation(node));
   });
+  if (constellationNodes[0]) updateConstellation(constellationNodes[0]);
 
   const systemCarousel = document.querySelector('[data-system-carousel]');
   if (systemCarousel) {
