@@ -7,33 +7,7 @@
   const indexToggle = document.querySelector('.index-toggle');
   const indexPanel = document.querySelector('.index-panel');
   const wipe = document.querySelector('.page-wipe');
-  const languageButtons = [...document.querySelectorAll('[data-lang-choice]')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const storage = {
-    get(key) { try { return window.localStorage.getItem(key); } catch (_) { return null; } },
-    set(key, value) { try { window.localStorage.setItem(key, value); } catch (_) {} }
-  };
-  let currentLanguage = storage.get('pmtzk-language') || 'en';
-
-  function setLanguage(language) {
-    currentLanguage = language;
-    root.lang = language;
-    document.querySelectorAll('[data-copy-en]').forEach(node => {
-      node.textContent = language === 'es' ? node.dataset.copyEs : node.dataset.copyEn;
-    });
-    languageButtons.forEach(button => {
-      button.setAttribute('aria-pressed', String(button.dataset.langChoice === language));
-    });
-    const diagnosticActive = document.querySelector('.diagnostic__item.is-active');
-    if (diagnosticActive) updateDiagnostic(diagnosticActive);
-    const constellationActive = document.querySelector('.constellation__node.is-active');
-    if (constellationActive) updateConstellation(constellationActive);
-    storage.set('pmtzk-language', language);
-  }
-
-  languageButtons.forEach(button => {
-    button.addEventListener('click', () => setLanguage(button.dataset.langChoice));
-  });
 
   function openIndex(open) {
     indexPanel.classList.toggle('is-open', open);
@@ -133,7 +107,7 @@
     diagnosticItems.forEach(button => button.classList.toggle('is-active', button === item));
     const output = document.querySelector('[data-diagnostic-output]');
     const ordinal = document.querySelector('.diagnostic__ordinal');
-    if (output) output.textContent = currentLanguage === 'es' ? item.dataset.es : item.dataset.en;
+    if (output) output.textContent = item.dataset.copy;
     if (ordinal) ordinal.textContent = item.dataset.index;
   }
   diagnosticItems.forEach(item => {
@@ -149,7 +123,7 @@
       line.classList.toggle('is-active', line.dataset.line === node.dataset.node);
     });
     const output = document.querySelector('[data-constellation-output]');
-    if (output) output.textContent = currentLanguage === 'es' ? node.dataset.es : node.dataset.en;
+    if (output) output.textContent = node.dataset.copy;
   }
   constellationNodes.forEach(node => {
     node.addEventListener('mouseenter', () => updateConstellation(node));
@@ -160,22 +134,13 @@
   const systemLab = document.querySelector('.system-lab');
   const systemButtons = [...document.querySelectorAll('[data-system-choice]')];
   const systemCaption = document.querySelector('[data-system-caption]');
-  const systemCopy = {
-    noise: {
-      en: 'The operation depends on remembering the logic again every month.',
-      es: 'La operación depende de recordar la lógica de nuevo cada mes.'
-    },
-    method: {
-      en: 'The relationships remain visible, so attention can move to the variable that changed.',
-      es: 'Las relaciones permanecen visibles, para que la atención pueda dirigirse a la variable que cambió.'
-    }
-  };
+  const systemCopy = { noise: 'The operation depends on remembering the logic again every month.', method: 'The relationships remain visible, so attention can move to the variable that changed.' };
   systemButtons.forEach(button => {
     button.addEventListener('click', () => {
       const choice = button.dataset.systemChoice;
       systemLab.dataset.systemState = choice;
       systemButtons.forEach(other => other.classList.toggle('is-active', other === button));
-      systemCaption.textContent = systemCopy[choice][currentLanguage];
+      systemCaption.textContent = systemCopy[choice];
     });
   });
 
@@ -227,6 +192,5 @@
     });
   }
 
-  setLanguage(currentLanguage);
   updateProgress();
 })();
