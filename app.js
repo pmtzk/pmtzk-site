@@ -116,20 +116,38 @@
     item.addEventListener('click', () => updateDiagnostic(item));
   });
 
-  const constellationNodes = [...document.querySelectorAll('.constellation__node')];
+  const constellation = document.querySelector('[data-constellation]');
+  const constellationNodes = constellation
+    ? [...constellation.querySelectorAll('.constellation__node')]
+    : [];
+
   function updateConstellation(node) {
-    constellationNodes.forEach(button => button.classList.toggle('is-active', button === node));
-    document.querySelectorAll('.constellation__lines line').forEach(line => {
+    if (!node || !constellation) return;
+
+    constellationNodes.forEach(button => {
+      const active = button === node;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    constellation.querySelectorAll('.constellation__lines line').forEach(line => {
       line.classList.toggle('is-active', line.dataset.line === node.dataset.node);
     });
-    const output = document.querySelector('[data-constellation-output]');
+
+    const output = constellation.querySelector('[data-constellation-output]');
     if (output) output.textContent = node.dataset.copy;
   }
+
   constellationNodes.forEach(node => {
-    node.addEventListener('mouseenter', () => updateConstellation(node));
-    node.addEventListener('focus', () => updateConstellation(node));
+    node.setAttribute('aria-pressed', 'false');
+    node.addEventListener('pointerup', event => {
+      event.preventDefault();
+      updateConstellation(node);
+    });
     node.addEventListener('click', () => updateConstellation(node));
+    node.addEventListener('focus', () => updateConstellation(node));
   });
+
   if (constellationNodes[0]) updateConstellation(constellationNodes[0]);
 
   const systemCarousel = document.querySelector('[data-system-carousel]');
