@@ -1,317 +1,381 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f5f0e7">
-<title>Katia E. Pérez — Commercial Operations, Hospitality & Representation</title>
-<meta name="description" content="The professional portfolio of Katia E. Pérez: commercial operations, hospitality, systems, leadership and representation.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-@font-face{
-  font-family:"Model 4F Unicase";
-  src:url("./Model 4F Unicase.ttf") format("truetype");
-  font-display:swap;
-}
-:root{
-  --paper:#f5f0e7;
-  --ink:#262321;
-  --soft:#8c867e;
-  --line:rgba(38,35,33,.22);
-  --line-strong:rgba(38,35,33,.6);
-  --display:"Model 4F Unicase", Georgia, serif;
-  --body:"Tinos", Georgia, serif;
-  --ui:"Open Sans", Arial, sans-serif;
-  --pad:clamp(22px,3vw,52px);
-  --gutter:clamp(20px,3.5vw,64px);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--paper)}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
-::selection{background:var(--ink);color:var(--paper)}
-
-.progress{position:fixed;top:0;left:0;width:100%;height:2px;z-index:100;background:transparent}.progress span{display:block;width:0;height:100%;background:var(--ink)}
-
-.site-header{position:fixed;inset:0 0 auto 0;height:76px;padding:0 var(--pad);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;z-index:90;background:rgba(245,240,231,.92);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .25s}
-.site-header.scrolled{border-color:var(--line)}
-.wordmark{font-family:var(--display);font-size:28px;line-height:1;letter-spacing:-.04em}
-.primary-nav{display:flex;gap:28px;font-family:var(--ui);font-size:10px;text-transform:uppercase;letter-spacing:.16em}
-.primary-nav a{position:relative;padding:8px 0}.primary-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:var(--ink);transition:right .25s}.primary-nav a:hover:after{right:0}
-.header-meta{justify-self:end;display:flex;align-items:center;gap:16px;font-family:var(--ui);font-size:10px;text-transform:uppercase;letter-spacing:.14em}
-.lang{display:flex;gap:8px}.lang button{padding:0;border:0;background:none;cursor:pointer;opacity:.4}.lang button[aria-pressed="true"]{opacity:1}
-.menu-button{display:none;border:0;background:none;padding:10px 0;font-family:var(--ui);font-size:10px;text-transform:uppercase;letter-spacing:.14em}
-
-main{overflow:hidden}
-.section{min-height:100vh;padding:calc(76px + var(--gutter)) var(--pad) var(--gutter);border-bottom:1px solid var(--line);position:relative}
-.kicker{font-family:var(--ui);font-size:10px;line-height:1.2;text-transform:uppercase;letter-spacing:.2em}
-.micro{font-family:var(--ui);font-size:9px;line-height:1.45;text-transform:uppercase;letter-spacing:.16em}
-
-.hero{display:grid;grid-template-rows:auto 1fr auto;min-height:100svh}
-.hero-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
-.hero-role{max-width:360px;text-align:right}
-.hero-title{align-self:center;margin:6vh 0 4vh;font-family:var(--display);font-size:clamp(86px,16vw,250px);font-weight:400;line-height:.72;letter-spacing:-.065em;text-transform:lowercase}
-.hero-title span{display:block}.hero-title span:nth-child(2){margin-left:12vw}
-.hero-foot{display:grid;grid-template-columns:minmax(260px,1.15fr) minmax(240px,.85fr);gap:clamp(36px,8vw,140px);align-items:end}
-.hero-statement{max-width:760px;margin:0;font-size:clamp(24px,2.45vw,42px);line-height:1.15;letter-spacing:-.02em}
-.hero-statement em{font-style:italic}
-.hero-index{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-.hero-index div{min-height:104px;padding:14px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between}
-.hero-index b{font-family:var(--display);font-size:34px;font-weight:400;line-height:1}
-.hero-index span{font-family:var(--ui);font-size:8px;text-transform:uppercase;letter-spacing:.12em;line-height:1.45}
-
-.statement{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);align-items:start}
-.statement-number{font-family:var(--display);font-size:clamp(130px,18vw,290px);line-height:.7;letter-spacing:-.07em}
-.statement-copy{padding-top:8vh}
-.statement-copy h2{max-width:760px;margin:0;font-family:var(--display);font-size:clamp(54px,7vw,110px);font-weight:400;line-height:.86;letter-spacing:-.045em}
-.statement-copy p{max-width:610px;margin:42px 0 0;font-size:clamp(19px,1.6vw,27px);line-height:1.35}
-.statement-note{position:absolute;left:var(--pad);bottom:var(--gutter);max-width:380px;padding-top:12px;border-top:1px solid var(--line-strong);font-size:16px;line-height:1.45}
-
-.chapter{padding-top:calc(76px + 30px)}
-.chapter-head{display:grid;grid-template-columns:150px minmax(0,1fr) 260px;gap:var(--gutter);align-items:start;margin-bottom:clamp(70px,10vw,150px)}
-.chapter-no{font-family:var(--display);font-size:clamp(82px,9vw,148px);line-height:.72;letter-spacing:-.05em}
-.chapter-title{margin:0;font-family:var(--display);font-size:clamp(62px,9vw,145px);font-weight:400;line-height:.78;letter-spacing:-.05em}
-.chapter-deck{margin:4px 0 0;font-size:20px;line-height:1.35}
-
-.evidence-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-.evidence{min-height:310px;padding:20px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between}
-.evidence:nth-child(1){grid-column:span 5}.evidence:nth-child(2){grid-column:span 3}.evidence:nth-child(3){grid-column:span 4}.evidence:nth-child(4){grid-column:span 4}.evidence:nth-child(5){grid-column:span 8}
-.evidence-label{font-family:var(--ui);font-size:9px;text-transform:uppercase;letter-spacing:.16em}
-.evidence h3{max-width:570px;margin:70px 0 18px;font-family:var(--display);font-size:clamp(35px,3.5vw,58px);font-weight:400;line-height:.94;letter-spacing:-.03em}
-.evidence p{max-width:590px;margin:0;font-size:17px;line-height:1.45}
-.metric{font-family:var(--display);font-size:clamp(70px,9vw,150px);line-height:.72;letter-spacing:-.05em}
-
-.systems-layout{display:grid;grid-template-columns:minmax(340px,.8fr) minmax(520px,1.2fr);gap:var(--gutter);align-items:start}
-.systems-quote{position:sticky;top:120px}
-.systems-quote h2{margin:0;font-family:var(--display);font-size:clamp(62px,7vw,112px);font-weight:400;line-height:.86;letter-spacing:-.045em}
-.systems-quote p{max-width:520px;margin:36px 0 0;font-size:20px;line-height:1.45}
-.system-rows{border-top:1px solid var(--ink)}
-.system-row{display:grid;grid-template-columns:110px 1fr;gap:26px;padding:28px 0;border-bottom:1px solid var(--ink)}
-.system-row span{font-family:var(--ui);font-size:9px;text-transform:uppercase;letter-spacing:.14em}
-.system-row h3{margin:0 0 10px;font-family:var(--display);font-size:40px;font-weight:400;line-height:.95}
-.system-row p{max-width:650px;margin:0;font-size:17px;line-height:1.5}
-
-.representation{background:var(--ink);color:var(--paper)}
-.representation .chapter-head{margin-bottom:80px}
-.representation-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:var(--gutter)}
-.representation-main{min-height:66vh;display:flex;flex-direction:column;justify-content:space-between;border-top:1px solid var(--paper);padding-top:20px}
-.representation-main h3{max-width:980px;margin:0;font-family:var(--display);font-size:clamp(66px,9vw,145px);font-weight:400;line-height:.83;letter-spacing:-.055em}
-.representation-main p{max-width:650px;margin:50px 0 0;font-size:21px;line-height:1.45}
-.representation-aside{display:grid;border-top:1px solid var(--paper)}
-.representation-note{padding:20px 0;border-bottom:1px solid rgba(245,240,231,.45)}
-.representation-note strong{display:block;margin-bottom:20px;font-family:var(--display);font-size:34px;font-weight:400;line-height:1}
-.representation-note p{margin:0;font-size:16px;line-height:1.45}
-
-.timeline-wrap{display:grid;grid-template-columns:.55fr 1.45fr;gap:var(--gutter)}
-.timeline-intro h2{position:sticky;top:120px;margin:0;font-family:var(--display);font-size:clamp(62px,7vw,108px);font-weight:400;line-height:.88;letter-spacing:-.045em}
-.timeline{border-top:1px solid var(--ink)}
-.timeline-item{display:grid;grid-template-columns:170px 1fr 140px;gap:24px;padding:28px 0;border-bottom:1px solid var(--ink);align-items:start}
-.timeline-item time,.timeline-item .place{font-family:var(--ui);font-size:9px;text-transform:uppercase;letter-spacing:.13em;line-height:1.5}
-.timeline-item h3{margin:0 0 7px;font-family:var(--display);font-size:35px;font-weight:400;line-height:.95}
-.timeline-item p{margin:0;max-width:560px;font-size:16px;line-height:1.45}
-.timeline-item .place{text-align:right}
-
-.contact{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto}
-.contact-title{align-self:center;margin:0;font-family:var(--display);font-size:clamp(84px,15vw,235px);font-weight:400;line-height:.72;letter-spacing:-.06em}
-.contact-title a{display:block;width:max-content;max-width:100%;border-bottom:.06em solid currentColor}
-.contact-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;padding-top:24px;border-top:1px solid var(--ink)}
-.contact-bottom p{margin:0;font-size:17px}.contact-bottom a{text-decoration:underline;text-underline-offset:3px}
-
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-
-@media(max-width:980px){
-  .site-header{grid-template-columns:1fr auto;height:64px}.primary-nav,.header-meta>a{display:none}.header-meta{gap:14px}.menu-button{display:block}
-  .section{padding-top:calc(64px + var(--gutter))}
-  .hero-title{font-size:clamp(82px,20vw,160px)}.hero-title span:nth-child(2){margin-left:7vw}
-  .hero-foot,.statement,.chapter-head,.systems-layout,.representation-grid,.timeline-wrap{grid-template-columns:1fr}
-  .hero-role{text-align:left}.hero-index{margin-top:16px}
-  .statement-copy{padding-top:0}.statement-number{font-size:150px}.statement-note{position:static;margin-top:80px}
-  .chapter-head{gap:26px}.chapter-deck{max-width:560px}
-  .evidence:nth-child(n){grid-column:span 6}
-  .systems-quote,.timeline-intro h2{position:static}.representation-main{min-height:auto}
-  .timeline-item{grid-template-columns:130px 1fr}.timeline-item .place{grid-column:2;text-align:left}
-}
-@media(max-width:640px){
-  body{font-size:16px}.site-header{padding:0 18px}.wordmark{font-size:24px}.lang{display:none}
-  .section{padding-left:18px;padding-right:18px;min-height:auto}
-  .hero{min-height:100svh}.hero-top{display:grid}.hero-title{margin:10vh 0 8vh;font-size:clamp(78px,25vw,120px)}
-  .hero-foot{gap:44px}.hero-statement{font-size:25px}.hero-index{grid-template-columns:1fr 1fr}.hero-index div:last-child{grid-column:1/-1}
-  .statement{padding-bottom:80px}.statement-number{font-size:110px}.statement-copy h2{font-size:60px}
-  .chapter{padding-top:94px}.chapter-no{font-size:82px}.chapter-title{font-size:62px}.chapter-head{margin-bottom:70px}
-  .evidence-grid{display:block;border-left:1px solid var(--ink)}.evidence{min-height:260px}.evidence h3{margin-top:50px;font-size:42px}
-  .system-row{grid-template-columns:1fr;gap:10px}.system-row h3{font-size:34px}
-  .representation-main h3{font-size:64px}.representation-main p{font-size:19px}
-  .timeline-item{grid-template-columns:1fr;gap:10px}.timeline-item .place{grid-column:auto}.timeline-item h3{font-size:32px}
-  .contact-title{font-size:20vw}.contact-bottom{grid-template-columns:1fr;gap:14px}
-}
-
-.mobile-panel{position:fixed;inset:64px 0 0;background:var(--paper);z-index:80;padding:28px 18px;display:none}.mobile-panel.open{display:flex;flex-direction:column}.mobile-panel nav{display:grid;border-top:1px solid var(--ink)}.mobile-panel a{padding:18px 0;border-bottom:1px solid var(--ink);font-family:var(--display);font-size:34px;line-height:1}.mobile-panel small{margin-top:auto;font-family:var(--ui);font-size:9px;text-transform:uppercase;letter-spacing:.14em}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#262321">
+  <meta name="description" content="Katia E. Pérez — a professional record in chapters.">
+  <title>Katia E. Pérez — Professional Record</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header">
-  <a class="wordmark" href="#top">Katia Pérez</a>
-  <nav class="primary-nav" aria-label="Primary">
-    <a href="#operations" data-en="Operations" data-es="Operaciones">Operations</a>
-    <a href="#systems" data-en="Systems" data-es="Sistemas">Systems</a>
-    <a href="#representation" data-en="Representation" data-es="Representación">Representation</a>
-    <a href="#record" data-en="Record" data-es="Trayectoria">Record</a>
-  </nav>
-  <div class="header-meta">
-    <div class="lang" aria-label="Language"><button aria-pressed="true" data-lang="en">EN</button><button aria-pressed="false" data-lang="es">ES</button></div>
-    <a href="mailto:pmtzk@icloud.com" data-en="Contact" data-es="Contacto">Contact</a>
-    <button class="menu-button" aria-expanded="false">Menu</button>
-  </div>
-</header>
-<div class="mobile-panel" aria-hidden="true">
-  <nav>
-    <a href="#operations" data-en="Operations" data-es="Operaciones">Operations</a>
-    <a href="#systems" data-en="Systems" data-es="Sistemas">Systems</a>
-    <a href="#representation" data-en="Representation" data-es="Representación">Representation</a>
-    <a href="#record" data-en="Record" data-es="Trayectoria">Record</a>
-    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
-  </nav>
-  <small>Mexico City · 2026</small>
-</div>
+  <a class="skip-link" href="#contents">Skip to contents</a>
 
-<main id="top">
-<section class="section hero">
-  <div class="hero-top reveal">
-    <span class="kicker" data-en="Commercial · Hospitality · Representation" data-es="Comercial · Hospitalidad · Representación">Commercial · Hospitality · Representation</span>
-    <span class="micro hero-role" data-en="Commercial operations and guest experience across Mexico and the Caribbean" data-es="Operaciones comerciales y experiencia del huésped en México y el Caribe">Commercial operations and guest experience across Mexico and the Caribbean</span>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="page-wipe" aria-hidden="true">
+    <div class="page-wipe__panel page-wipe__panel--left"></div>
+    <div class="page-wipe__panel page-wipe__panel--right"></div>
   </div>
-  <h1 class="hero-title reveal"><span>katia</span><span>perez.</span></h1>
-  <div class="hero-foot reveal">
-    <p class="hero-statement" data-en="My work has always existed where commercial operations, guest experience and visual judgment meet." data-es="Mi trabajo siempre ha existido donde se encuentran las operaciones comerciales, la experiencia del huésped y el criterio visual.">My work has always existed where commercial operations, guest experience and visual judgment meet.</p>
-    <div class="hero-index">
-      <div><b>3+</b><span data-en="Years in international resort operations" data-es="Años en operaciones internacionales de resorts">Years in international resort operations</span></div>
-      <div><b>6</b><span data-en="Resorts across four countries" data-es="Resorts en cuatro países">Resorts across four countries</span></div>
-      <div><b>40–60K</b><span data-en="USD monthly commercial targets" data-es="USD en metas comerciales mensuales">USD monthly commercial targets</span></div>
+
+  <header class="masthead" data-tone="dark">
+    <a class="masthead__name" href="#cover" aria-label="Back to cover">Katia E. Pérez</a>
+    <div class="masthead__edition">Professional record · 2026</div>
+    <div class="masthead__actions">
+      <div class="language" aria-label="Language">
+        <button type="button" data-lang-choice="en" aria-pressed="true">EN</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang-choice="es" aria-pressed="false">ES</button>
+      </div>
+      <button class="index-toggle" type="button" aria-expanded="false" aria-controls="index-panel">
+        <span data-copy-en="Index" data-copy-es="Índice">Index</span>
+        <span class="index-toggle__mark" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="folio-nav" aria-label="Chapter progress">
+    <span class="folio-nav__current">00</span>
+    <span class="folio-nav__rule"></span>
+    <span class="folio-nav__total">06</span>
+  </aside>
+
+  <div class="index-panel" id="index-panel" aria-hidden="true">
+    <div class="index-panel__meta">
+      <span data-copy-en="A professional record in six chapters" data-copy-es="Un perfil profesional en seis capítulos">A professional record in six chapters</span>
+      <span>Mexico City · 2026</span>
+    </div>
+    <nav class="index-panel__nav" aria-label="Full chapter index">
+      <a href="#operations" data-chapter-link><span>01</span><strong data-copy-en="Operations" data-copy-es="Operaciones">Operations</strong><em data-copy-en="Seeing the first change" data-copy-es="Ver el primer cambio">Seeing the first change</em></a>
+      <a href="#leadership" data-chapter-link><span>02</span><strong data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</strong><em data-copy-en="Making the whole visible" data-copy-es="Hacer visible el conjunto">Making the whole visible</em></a>
+      <a href="#systems" data-chapter-link><span>03</span><strong data-copy-en="Systems" data-copy-es="Sistemas">Systems</strong><em data-copy-en="Keeping what was learned" data-copy-es="Conservar lo aprendido">Keeping what was learned</em></a>
+      <a href="#representation" data-chapter-link><span>04</span><strong data-copy-en="Representation" data-copy-es="Representación">Representation</strong><em data-copy-en="Closing the distance" data-copy-es="Cerrar la distancia">Closing the distance</em></a>
+      <a href="#research" data-chapter-link><span>05</span><strong data-copy-en="Research" data-copy-es="Investigación">Research</strong><em data-copy-en="Finding what does not fit" data-copy-es="Encontrar lo que no encaja">Finding what does not fit</em></a>
+      <a href="#record" data-chapter-link><span>06</span><strong data-copy-en="Record" data-copy-es="Trayectoria">Record</strong><em data-copy-en="The evidence behind the method" data-copy-es="La evidencia detrás del método">The evidence behind the method</em></a>
+    </nav>
+    <div class="index-panel__footer">
+      <a href="mailto:pmtzk@icloud.com">pmtzk@icloud.com</a>
+      <a href="https://exif.studio" target="_blank" rel="noreferrer">EXIF Studio</a>
     </div>
   </div>
-</section>
 
-<section class="section statement">
-  <div class="statement-number reveal">01</div>
-  <div class="statement-copy reveal">
-    <span class="kicker" data-en="Point of view" data-es="Punto de vista">Point of view</span>
-    <h2 data-en="The best guest experiences are prepared before the guest arrives." data-es="Las mejores experiencias se preparan antes de que llegue el huésped.">The best guest experiences are prepared before the guest arrives.</h2>
-    <p data-en="I learned to look for the small operational decisions that determine whether a team performs, whether a guest trusts the process and whether commercial results follow." data-es="Aprendí a observar las pequeñas decisiones operativas que determinan si un equipo funciona, si un huésped confía en el proceso y si los resultados comerciales llegan.">I learned to look for the small operational decisions that determine whether a team performs, whether a guest trusts the process and whether commercial results follow.</p>
-  </div>
-  <p class="statement-note reveal" data-en="The same method appears throughout my work: observe the operation, identify what is getting in the way and make the next decision clearer." data-es="El mismo método aparece en todo mi trabajo: observar la operación, identificar qué se interpone y hacer más clara la siguiente decisión.">The same method appears throughout my work: observe the operation, identify what is getting in the way and make the next decision clearer.</p>
-</section>
+  <main>
+    <section class="cover tone-dark" id="cover" data-chapter="00" data-masthead-tone="dark">
+      <div class="cover__edition" aria-hidden="true">01 / 02</div>
+      <div class="cover__title" data-parallax>
+        <span>Katia</span>
+        <span>Pérez.</span>
+      </div>
+      <div class="cover__grid">
+        <p class="cover__field" data-copy-en="Commercial · Events · Hospitality" data-copy-es="Comercial · Eventos · Hospitalidad">Commercial · Events · Hospitality</p>
+        <p class="cover__intro" data-copy-en="My work developed inside resort operations, where commercial performance, guest experience and execution had to function as one system." data-copy-es="Mi trabajo se desarrolló dentro de operaciones de resorts, donde el desempeño comercial, la experiencia del huésped y la ejecución tenían que funcionar como un solo sistema.">My work developed inside resort operations, where commercial performance, guest experience and execution had to function as one system.</p>
+        <p class="cover__thesis" data-copy-en="I notice what changed, make the system visible, and decide what needs attention next." data-copy-es="Observo qué cambió, hago visible el sistema y decido qué necesita atención después.">I notice what changed, make the system visible, and decide what needs attention next.</p>
+        <a class="cover__enter" href="#contents" data-chapter-link>
+          <span data-copy-en="Enter the record" data-copy-es="Entrar al perfil">Enter the record</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
 
-<section class="section chapter" id="operations">
-  <div class="chapter-head reveal">
-    <div class="chapter-no">02</div>
-    <h2 class="chapter-title" data-en="Operations" data-es="Operaciones">Operations</h2>
-    <p class="chapter-deck" data-en="By the time revenue changes, something else usually changed first." data-es="Cuando cambia la venta, casi siempre algo más ya había cambiado antes.">By the time revenue changes, something else usually changed first.</p>
-  </div>
-  <div class="evidence-grid reveal">
-    <article class="evidence"><span class="evidence-label" data-en="What I watched" data-es="Qué observaba">What I watched</span><div><h3 data-en="Production, attendance, delivery, sales and guest follow-through." data-es="Producción, asistencia, entregas, ventas y seguimiento al huésped.">Production, attendance, delivery, sales and guest follow-through.</h3><p data-en="Small operational changes often revealed the commercial problem before the monthly result did." data-es="Los pequeños cambios operativos solían revelar el problema comercial antes que el resultado mensual.">Small operational changes often revealed the commercial problem before the monthly result did.</p></div></article>
-    <article class="evidence"><span class="evidence-label" data-en="Scale" data-es="Escala">Scale</span><div><div class="metric">200–250</div><p data-en="Guest transactions managed each month." data-es="Transacciones de huéspedes gestionadas cada mes.">Guest transactions managed each month.</p></div></article>
-    <article class="evidence"><span class="evidence-label" data-en="Commercial" data-es="Comercial">Commercial</span><div><div class="metric">40–60K</div><p data-en="USD in monthly revenue targets across operating periods." data-es="USD en metas mensuales durante los periodos operativos.">USD in monthly revenue targets across operating periods.</p></div></article>
-    <article class="evidence"><span class="evidence-label" data-en="Response" data-es="Respuesta">Response</span><div><h3 data-en="Start with what falls outside the norm." data-es="Empezar por lo que se salió de la norma.">Start with what falls outside the norm.</h3><p data-en="Resolve the exception first, then set the commercial focus for the day." data-es="Resolver primero la excepción y después definir el enfoque comercial del día.">Resolve the exception first, then set the commercial focus for the day.</p></div></article>
-    <article class="evidence"><span class="evidence-label" data-en="Leadership" data-es="Liderazgo">Leadership</span><div><h3 data-en="Clarity made the operation less dependent on constant supervision." data-es="La claridad hizo que la operación dependiera menos de la supervisión constante.">Clarity made the operation less dependent on constant supervision.</h3><p data-en="I coordinated photographers, hotel teams, wedding departments and corporate stakeholders across different timelines, priorities and cultural contexts." data-es="Coordiné fotógrafos, equipos de hotel, departamentos de bodas y corporativo entre distintos tiempos, prioridades y contextos culturales.">I coordinated photographers, hotel teams, wedding departments and corporate stakeholders across different timelines, priorities and cultural contexts.</p></div></article>
-  </div>
-</section>
+    <section class="contents tone-cream" id="contents" data-chapter="00" data-masthead-tone="cream">
+      <header class="section-header reveal">
+        <span class="kicker" data-copy-en="Contents" data-copy-es="Contenido">Contents</span>
+        <h1 data-copy-en="Six chapters. One way of working." data-copy-es="Seis capítulos. Una forma de trabajar.">Six chapters. One way of working.</h1>
+        <p data-copy-en="Each chapter isolates one recurring instinct: observe, connect, structure, interpret, investigate, deliver." data-copy-es="Cada capítulo aísla un instinto recurrente: observar, conectar, estructurar, interpretar, investigar y ejecutar.">Each chapter isolates one recurring instinct: observe, connect, structure, interpret, investigate, deliver.</p>
+      </header>
 
-<section class="section chapter" id="systems">
-  <div class="systems-layout">
-    <div class="systems-quote reveal">
-      <span class="kicker">03 · <span data-en="Systems" data-es="Sistemas">Systems</span></span>
-      <h2 data-en="The next month should begin with what the previous one already taught us." data-es="El siguiente mes debe comenzar desde lo que el anterior ya nos enseñó.">The next month should begin with what the previous one already taught us.</h2>
-      <p data-en="I turned recurring decisions into visible systems so planning, training and follow-through did not have to restart from memory." data-es="Convertí decisiones recurrentes en sistemas visibles para que la planeación, la capacitación y el seguimiento no tuvieran que comenzar otra vez desde la memoria.">I turned recurring decisions into visible systems so planning, training and follow-through did not have to restart from memory.</p>
-    </div>
-    <div class="system-rows reveal">
-      <article class="system-row"><span data-en="Planning" data-es="Planeación">Planning</span><div><h3 data-en="Connected occupancy, production, capture, ticket and revenue." data-es="Conecté ocupación, producción, captación, ticket y ventas.">Connected occupancy, production, capture, ticket and revenue.</h3><p data-en="Monthly targets became weekly and daily decisions that could still change the result." data-es="Las metas mensuales se convirtieron en decisiones semanales y diarias que todavía podían cambiar el resultado.">Monthly targets became weekly and daily decisions that could still change the result.</p></div></article>
-      <article class="system-row"><span data-en="Enablement" data-es="Capacitación">Enablement</span><div><h3 data-en="Moved operational knowledge out of memory." data-es="Saqué el conocimiento operativo de la memoria.">Moved operational knowledge out of memory.</h3><p data-en="Checklists, wedding interview templates, camera standards and reporting structures made recurring work easier to execute and teach." data-es="Checklists, formatos de entrevista de bodas, estándares de cámara y estructuras de reporte facilitaron ejecutar y enseñar el trabajo recurrente.">Checklists, wedding interview templates, camera standards and reporting structures made recurring work easier to execute and teach.</p></div></article>
-      <article class="system-row"><span data-en="Diagnosis" data-es="Diagnóstico">Diagnosis</span><div><h3 data-en="“We are behind” became a question with an answer." data-es="“Vamos atrasados” se convirtió en una pregunta con respuesta.">“We are behind” became a question with an answer.</h3><p data-en="The operation could locate whether the gap came from volume, average ticket, capture, production or follow-through." data-es="La operación podía ubicar si el atraso venía del volumen, el ticket promedio, la captación, la producción o el seguimiento.">The operation could locate whether the gap came from volume, average ticket, capture, production or follow-through.</p></div></article>
-      <article class="system-row"><span data-en="Training" data-es="Formación">Training</span><div><h3 data-en="Built people and process together." data-es="Desarrollé personas y procesos al mismo tiempo.">Built people and process together.</h3><p data-en="Recruited, onboarded and trained photographers and sales teams while maintaining live resort operations." data-es="Recluté, integré y capacité fotógrafos y equipos de venta mientras mantenía operaciones activas en resort.">Recruited, onboarded and trained photographers and sales teams while maintaining live resort operations.</p></div></article>
-    </div>
-  </div>
-</section>
+      <nav class="contents__list" aria-label="Chapters">
+        <a href="#operations" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">01</span>
+          <span class="contents__title" data-copy-en="Operations" data-copy-es="Operaciones">Operations</span>
+          <span class="contents__note" data-copy-en="Seeing the first change" data-copy-es="Ver el primer cambio">Seeing the first change</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a href="#leadership" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">02</span>
+          <span class="contents__title" data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span>
+          <span class="contents__note" data-copy-en="Making the whole visible" data-copy-es="Hacer visible el conjunto">Making the whole visible</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a href="#systems" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">03</span>
+          <span class="contents__title" data-copy-en="Systems" data-copy-es="Sistemas">Systems</span>
+          <span class="contents__note" data-copy-en="Keeping what was learned" data-copy-es="Conservar lo aprendido">Keeping what was learned</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a href="#representation" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">04</span>
+          <span class="contents__title" data-copy-en="Representation" data-copy-es="Representación">Representation</span>
+          <span class="contents__note" data-copy-en="Closing the distance" data-copy-es="Cerrar la distancia">Closing the distance</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a href="#research" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">05</span>
+          <span class="contents__title" data-copy-en="Research" data-copy-es="Investigación">Research</span>
+          <span class="contents__note" data-copy-en="Finding what does not fit" data-copy-es="Encontrar lo que no encaja">Finding what does not fit</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a href="#record" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">06</span>
+          <span class="contents__title" data-copy-en="Record" data-copy-es="Trayectoria">Record</span>
+          <span class="contents__note" data-copy-en="The evidence behind the method" data-copy-es="La evidencia detrás del método">The evidence behind the method</span>
+          <span class="contents__arrow" aria-hidden="true">↘</span>
+        </a>
+      </nav>
+    </section>
 
-<section class="section chapter representation" id="representation">
-  <div class="chapter-head reveal">
-    <div class="chapter-no">04</div>
-    <h2 class="chapter-title" data-en="Representation" data-es="Representación">Representation</h2>
-    <p class="chapter-deck" data-en="What a guest can perceive before arrival shapes what they are willing to choose." data-es="Lo que un huésped puede percibir antes de llegar influye en lo que está dispuesto a elegir.">What a guest can perceive before arrival shapes what they are willing to choose.</p>
-  </div>
-  <div class="representation-grid reveal">
-    <div class="representation-main">
-      <div><span class="kicker">EXIF Studio · 2025—</span><h3 data-en="The resorts were memorable. Their online presence often was not." data-es="Los resorts eran memorables. Su presencia digital muchas veces no.">The resorts were memorable. Their online presence often was not.</h3></div>
-      <p data-en="That recurring observation became EXIF Studio, an independent practice studying the distance between what a place is and what a guest can perceive before booking." data-es="Esa observación recurrente se convirtió en EXIF Studio, una práctica independiente que estudia la distancia entre lo que un lugar es y lo que un huésped puede percibir antes de reservar.">That recurring observation became EXIF Studio, an independent practice studying the distance between what a place is and what a guest can perceive before booking.</p>
-    </div>
-    <aside class="representation-aside">
-      <div class="representation-note"><strong data-en="Observe" data-es="Observar">Observe</strong><p data-en="Identify what is present in the experience and absent from its representation." data-es="Identificar qué está presente en la experiencia y ausente en su representación.">Identify what is present in the experience and absent from its representation.</p></div>
-      <div class="representation-note"><strong data-en="Interpret" data-es="Interpretar">Interpret</strong><p data-en="Understand how images, language and structure shape expectation before arrival." data-es="Comprender cómo las imágenes, el lenguaje y la estructura forman expectativas antes de la llegada.">Understand how images, language and structure shape expectation before arrival.</p></div>
-      <div class="representation-note"><strong data-en="Direct" data-es="Dirigir">Direct</strong><p data-en="Turn the observation into clearer decisions for photography, content and digital presentation." data-es="Convertir la observación en decisiones más claras para fotografía, contenido y presentación digital.">Turn the observation into clearer decisions for photography, content and digital presentation.</p></div>
-    </aside>
-  </div>
-</section>
+    <article class="chapter tone-dark" id="operations" data-chapter="01" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">01</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Operations · Commercial performance" data-copy-es="Operaciones · Desempeño comercial">Operations · Commercial performance</span>
+          <h2 data-copy-en="I look for the first thing that moved." data-copy-es="Busco lo primero que se movió.">I look for the first thing that moved.</h2>
+          <p data-copy-en="Revenue is usually the last visible consequence. The useful signal appears earlier, somewhere inside the operation." data-copy-es="La venta suele ser la última consecuencia visible. La señal útil aparece antes, en algún punto de la operación.">Revenue is usually the last visible consequence. The useful signal appears earlier, somewhere inside the operation.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#operations-room" aria-label="Continue through Operations">↓</a>
+      </section>
 
-<section class="section chapter" id="record">
-  <div class="timeline-wrap">
-    <div class="timeline-intro reveal"><span class="kicker">05 · <span data-en="Professional record" data-es="Trayectoria profesional">Professional record</span></span><h2 data-en="Why believe it." data-es="La evidencia.">Why believe it.</h2></div>
-    <div class="timeline reveal">
-      <article class="timeline-item"><time>2025—2026</time><div><h3>Lead Operations & Sales Manager</h3><p data-en="Full responsibility for the on-property photography business: commercial performance, team coordination, weddings, service recovery and daily operations." data-es="Responsabilidad completa del negocio de fotografía en propiedad: desempeño comercial, coordinación de equipo, bodas, recuperación de servicio y operación diaria.">Full responsibility for the on-property photography business: commercial performance, team coordination, weddings, service recovery and daily operations.</p></div><div class="place">Royalton Saint Lucia</div></article>
-      <article class="timeline-item"><time>2024—2025</time><div><h3>Operations & Sales Manager</h3><p data-en="Managed resort operations across Grenada and Jamaica, leading sales execution, guest service, team performance and hotel coordination." data-es="Gestioné operaciones de resort en Granada y Jamaica, liderando ejecución comercial, servicio al huésped, desempeño del equipo y coordinación con hotel.">Managed resort operations across Grenada and Jamaica, leading sales execution, guest service, team performance and hotel coordination.</p></div><div class="place">Grenada · Jamaica</div></article>
-      <article class="timeline-item"><time>2023—2024</time><div><h3>Resort Photographer & Team Lead</h3><p data-en="Developed the commercial and operational foundation of the career through direct guest sales, photography, service and team support." data-es="Desarrollé la base comercial y operativa de mi trayectoria mediante ventas directas al huésped, fotografía, servicio y apoyo al equipo.">Developed the commercial and operational foundation of the career through direct guest sales, photography, service and team support.</p></div><div class="place">Mexico · Saint Lucia</div></article>
-      <article class="timeline-item"><time>2025—Present</time><div><h3>Founder, EXIF Studio</h3><p data-en="Independent research and direction focused on how hospitality places are represented before arrival." data-es="Investigación y dirección independiente enfocada en cómo se representan los lugares de hospitalidad antes de la llegada.">Independent research and direction focused on how hospitality places are represented before arrival.</p></div><div class="place">Independent</div></article>
-      <article class="timeline-item"><time>2021—2022</time><div><h3>Film, Television & Media Studies</h3><p data-en="Completed foundational studies in image-making, narrative and visual production." data-es="Cursé estudios fundamentales en creación de imagen, narrativa y producción visual.">Completed foundational studies in image-making, narrative and visual production.</p></div><div class="place">CENTRO · Mexico City</div></article>
-    </div>
-  </div>
-</section>
+      <section class="room room--diagnostic" id="operations-room">
+        <header class="room__label reveal">
+          <span data-copy-en="Room 01 · Diagnostic instinct" data-copy-es="Sala 01 · Instinto de diagnóstico">Room 01 · Diagnostic instinct</span>
+          <p data-copy-en="Move through the chain. The commercial result changes last." data-copy-es="Recorre la cadena. El resultado comercial cambia al final.">Move through the chain. The commercial result changes last.</p>
+        </header>
+        <div class="diagnostic reveal">
+          <div class="diagnostic__statement" aria-live="polite">
+            <span class="diagnostic__ordinal">01</span>
+            <p data-diagnostic-output data-copy-en="Attention falls before contact volume does." data-copy-es="La atención cae antes que el volumen de contactos.">Attention falls before contact volume does.</p>
+          </div>
+          <div class="diagnostic__chain" role="list">
+            <button type="button" class="diagnostic__item is-active" data-index="01" data-en="Attention falls before contact volume does." data-es="La atención cae antes que el volumen de contactos."><span>01</span><strong data-copy-en="Attention" data-copy-es="Atención">Attention</strong></button>
+            <button type="button" class="diagnostic__item" data-index="02" data-en="Fewer approaches reduce the number of sessions created." data-es="Menos acercamientos reducen el número de sesiones creadas."><span>02</span><strong data-copy-en="Contact" data-copy-es="Contacto">Contact</strong></button>
+            <button type="button" class="diagnostic__item" data-index="03" data-en="Session volume changes the number of commercial opportunities." data-es="El volumen de sesiones cambia el número de oportunidades comerciales."><span>03</span><strong data-copy-en="Production" data-copy-es="Producción">Production</strong></button>
+            <button type="button" class="diagnostic__item" data-index="04" data-en="Follow-through determines how many opportunities remain alive." data-es="El seguimiento determina cuántas oportunidades siguen vivas."><span>04</span><strong data-copy-en="Follow-through" data-copy-es="Seguimiento">Follow-through</strong></button>
+            <button type="button" class="diagnostic__item" data-index="05" data-en="Revenue records the accumulated effect of everything before it." data-es="La venta registra el efecto acumulado de todo lo anterior."><span>05</span><strong data-copy-en="Revenue" data-copy-es="Venta">Revenue</strong></button>
+          </div>
+        </div>
+        <div class="room__footnote reveal">
+          <p data-copy-en="This is how a monthly target became a daily decision: identify the variable, choose the intervention, watch what changes next." data-copy-es="Así una meta mensual se convertía en una decisión diaria: identificar la variable, elegir la intervención y observar qué cambia después.">This is how a monthly target became a daily decision: identify the variable, choose the intervention, watch what changes next.</p>
+          <strong>40–60K USD</strong>
+          <span data-copy-en="monthly target range across operating periods" data-copy-es="rango de objetivos mensuales durante los periodos operativos">monthly target range across operating periods</span>
+        </div>
+      </section>
+    </article>
 
-<section class="section contact" id="contact">
-  <span class="kicker reveal" data-en="Open to remote, hybrid and international opportunities" data-es="Abierta a oportunidades remotas, híbridas e internacionales">Open to remote, hybrid and international opportunities</span>
-  <h2 class="contact-title reveal"><a href="mailto:pmtzk@icloud.com">let’s talk.</a></h2>
-  <div class="contact-bottom reveal">
-    <p>Mexico City<br>Available internationally</p>
-    <p><a href="mailto:pmtzk@icloud.com">pmtzk@icloud.com</a><br><a href="#">LinkedIn</a></p>
-    <p data-en="Commercial operations · Hospitality · Representation" data-es="Operaciones comerciales · Hospitalidad · Representación">Commercial operations · Hospitality · Representation</p>
-  </div>
-</section>
-</main>
-<script>
-const header=document.querySelector('.site-header');
-const progress=document.querySelector('.progress span');
-const reveals=[...document.querySelectorAll('.reveal')];
-const menuButton=document.querySelector('.menu-button');
-const panel=document.querySelector('.mobile-panel');
-const langButtons=[...document.querySelectorAll('[data-lang]')];
+    <article class="chapter tone-cream" id="leadership" data-chapter="02" data-masthead-tone="cream">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">02</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Leadership · Cross-functional work" data-copy-es="Liderazgo · Trabajo transversal">Leadership · Cross-functional work</span>
+          <h2 data-copy-en="People move when they can see their place in the whole." data-copy-es="Las personas avanzan cuando pueden ver su lugar en el conjunto.">People move when they can see their place in the whole.</h2>
+          <p data-copy-en="The work was to create enough clarity for photographers, hotel teams and guests to move through the same day without losing the shared result." data-copy-es="El trabajo consistía en crear suficiente claridad para que fotógrafos, equipos del hotel y huéspedes avanzaran durante el mismo día sin perder el resultado compartido.">The work was to create enough clarity for photographers, hotel teams and guests to move through the same day without losing the shared result.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#leadership-room" aria-label="Continue through Leadership">↓</a>
+      </section>
 
-function onScroll(){
-  header.classList.toggle('scrolled',scrollY>10);
-  const max=document.documentElement.scrollHeight-innerHeight;
-  progress.style.width=(max?Math.min(100,scrollY/max*100):0)+'%';
-}
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+      <section class="room room--constellation" id="leadership-room">
+        <header class="room__label reveal">
+          <span data-copy-en="Room 02 · Shared outcome" data-copy-es="Sala 02 · Resultado compartido">Room 02 · Shared outcome</span>
+          <p data-copy-en="Select a participant to see what they needed from the system." data-copy-es="Selecciona a una persona para ver qué necesitaba del sistema.">Select a participant to see what they needed from the system.</p>
+        </header>
 
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
-reveals.forEach(el=>io.observe(el));
+        <div class="constellation reveal" data-constellation>
+          <svg class="constellation__lines" viewBox="0 0 1000 610" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="500" y1="305" x2="185" y2="130" data-line="team"></line>
+            <line x1="500" y1="305" x2="820" y2="125" data-line="hotel"></line>
+            <line x1="500" y1="305" x2="835" y2="485" data-line="guest"></line>
+            <line x1="500" y1="305" x2="170" y2="490" data-line="delivery"></line>
+          </svg>
+          <button type="button" class="constellation__node constellation__node--team" data-node="team" data-en="The team needed priorities, standards, feedback and room to act." data-es="El equipo necesitaba prioridades, estándares, retroalimentación y espacio para actuar."><span data-copy-en="Team" data-copy-es="Equipo">Team</span></button>
+          <button type="button" class="constellation__node constellation__node--hotel" data-node="hotel" data-en="Hotel teams needed reliable coordination across events, service and timing." data-es="Los equipos del hotel necesitaban coordinación confiable entre eventos, servicio y tiempos."><span data-copy-en="Hotel" data-copy-es="Hotel">Hotel</span></button>
+          <button type="button" class="constellation__node constellation__node--guest" data-node="guest" data-en="Guests needed one coherent experience, even when many people shaped it." data-es="Los huéspedes necesitaban una experiencia coherente, aunque muchas personas participaran en ella."><span data-copy-en="Guest" data-copy-es="Huésped">Guest</span></button>
+          <button type="button" class="constellation__node constellation__node--delivery" data-node="delivery" data-en="The delivery needed ownership, follow-through and decisions made in time." data-es="La entrega necesitaba responsabilidad, seguimiento y decisiones tomadas a tiempo."><span data-copy-en="Delivery" data-copy-es="Entrega">Delivery</span></button>
+          <div class="constellation__center">
+            <span data-copy-en="Shared result" data-copy-es="Resultado compartido">Shared result</span>
+            <p data-constellation-output data-copy-en="Clarity lets the system move without waiting for one person to carry it." data-copy-es="La claridad permite que el sistema avance sin esperar a que una sola persona lo cargue.">Clarity lets the system move without waiting for one person to carry it.</p>
+          </div>
+        </div>
+        <div class="room__footnote room__footnote--split reveal">
+          <p data-copy-en="Across four countries, authority was never enough on its own. Trust came from understanding the environment, explaining the reason, and staying accountable for the result." data-copy-es="En cuatro países, la autoridad nunca fue suficiente por sí sola. La confianza surgía al comprender el entorno, explicar la razón y asumir responsabilidad por el resultado.">Across four countries, authority was never enough on its own. Trust came from understanding the environment, explaining the reason, and staying accountable for the result.</p>
+          <div><strong>16</strong><span data-copy-en="professionals trained" data-copy-es="profesionales formados">professionals trained</span></div>
+          <div><strong>4</strong><span data-copy-en="countries" data-copy-es="países">countries</span></div>
+        </div>
+      </section>
+    </article>
 
-function toggleMenu(force){
-  const open=typeof force==='boolean'?force:!panel.classList.contains('open');
-  panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'Close':'Menu';document.body.style.overflow=open?'hidden':'';
-}
-menuButton.addEventListener('click',()=>toggleMenu());
-panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+    <article class="chapter tone-dark" id="systems" data-chapter="03" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">03</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Systems · Process design" data-copy-es="Sistemas · Diseño de procesos">Systems · Process design</span>
+          <h2 data-copy-en="The next month should begin with what the last one already taught us." data-copy-es="El siguiente mes debe comenzar con lo que el anterior ya nos enseñó.">The next month should begin with what the last one already taught us.</h2>
+          <p data-copy-en="Recurring work becomes lighter when decisions, standards and assumptions move out of memory and into a system." data-copy-es="El trabajo recurrente se vuelve más ligero cuando las decisiones, los estándares y los supuestos salen de la memoria y entran en un sistema.">Recurring work becomes lighter when decisions, standards and assumptions move out of memory and into a system.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#systems-room" aria-label="Continue through Systems">↓</a>
+      </section>
 
-function setLang(lang){
-  document.documentElement.lang=lang;
-  document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang]);
-  langButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.lang===lang)));
-  localStorage.setItem('pmtzk-lang',lang);
-}
-langButtons.forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
-setLang(localStorage.getItem('pmtzk-lang')||'en');
-</script>
+      <section class="room room--system" id="systems-room">
+        <header class="room__label reveal">
+          <span data-copy-en="Room 03 · From memory to method" data-copy-es="Sala 03 · De memoria a método">Room 03 · From memory to method</span>
+          <p data-copy-en="Change the state of the room." data-copy-es="Cambia el estado de la sala.">Change the state of the room.</p>
+        </header>
+
+        <div class="system-lab reveal" data-system-state="noise">
+          <div class="system-lab__controls" role="group" aria-label="System state">
+            <button type="button" class="is-active" data-system-choice="noise" data-copy-en="In memory" data-copy-es="En memoria">In memory</button>
+            <button type="button" data-system-choice="method" data-copy-en="In a system" data-copy-es="En un sistema">In a system</button>
+          </div>
+          <div class="system-lab__stage">
+            <div class="system-card card-a"><span>01</span><strong data-copy-en="Occupancy" data-copy-es="Ocupación">Occupancy</strong><small data-copy-en="monthly assumption" data-copy-es="supuesto mensual">monthly assumption</small></div>
+            <div class="system-card card-b"><span>02</span><strong data-copy-en="Contacts" data-copy-es="Contactos">Contacts</strong><small data-copy-en="daily target" data-copy-es="meta diaria">daily target</small></div>
+            <div class="system-card card-c"><span>03</span><strong data-copy-en="Sessions" data-copy-es="Sesiones">Sessions</strong><small data-copy-en="production" data-copy-es="producción">production</small></div>
+            <div class="system-card card-d"><span>04</span><strong data-copy-en="Capture" data-copy-es="Captación">Capture</strong><small data-copy-en="conversion" data-copy-es="conversión">conversion</small></div>
+            <div class="system-card card-e"><span>05</span><strong data-copy-en="Average ticket" data-copy-es="Ticket promedio">Average ticket</strong><small data-copy-en="commercial quality" data-copy-es="calidad comercial">commercial quality</small></div>
+            <div class="system-card card-f"><span>06</span><strong data-copy-en="Revenue" data-copy-es="Venta">Revenue</strong><small data-copy-en="result" data-copy-es="resultado">result</small></div>
+          </div>
+          <div class="system-lab__caption">
+            <p data-system-caption data-copy-en="The operation depends on remembering the logic again every month." data-copy-es="La operación depende de recordar la lógica de nuevo cada mes.">The operation depends on remembering the logic again every month.</p>
+          </div>
+        </div>
+
+        <div class="room__footnote reveal">
+          <p data-copy-en="Planning sheets, checklists, interview templates and presets preserved useful decisions so the team could spend attention on the exception." data-copy-es="Hojas de planeación, checklists, plantillas de entrevista y presets conservaron decisiones útiles para que el equipo pudiera dedicar atención a la excepción.">Planning sheets, checklists, interview templates and presets preserved useful decisions so the team could spend attention on the exception.</p>
+          <strong data-copy-en="Less rebuilding." data-copy-es="Menos reconstrucción.">Less rebuilding.</strong>
+          <span data-copy-en="More attention available for the work that changed." data-copy-es="Más atención disponible para el trabajo que cambió.">More attention available for the work that changed.</span>
+        </div>
+      </section>
+    </article>
+
+    <article class="chapter tone-cream" id="representation" data-chapter="04" data-masthead-tone="cream">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">04</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Representation · Visual judgment" data-copy-es="Representación · Criterio visual">Representation · Visual judgment</span>
+          <h2 data-copy-en="A place can be remarkable and still appear ordinary before arrival." data-copy-es="Un lugar puede ser extraordinario y aun parecer ordinario antes de la llegada.">A place can be remarkable and still appear ordinary before arrival.</h2>
+          <p data-copy-en="Working inside resorts made the distance between lived experience and online perception impossible to ignore." data-copy-es="Trabajar dentro de resorts hizo imposible ignorar la distancia entre la experiencia vivida y la percepción digital.">Working inside resorts made the distance between lived experience and online perception impossible to ignore.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#representation-room" aria-label="Continue through Representation">↓</a>
+      </section>
+
+      <section class="room room--representation" id="representation-room">
+        <header class="room__label reveal">
+          <span data-copy-en="Room 04 · Perception before arrival" data-copy-es="Sala 04 · Percepción antes de la llegada">Room 04 · Perception before arrival</span>
+          <p data-copy-en="Drag the threshold between the place and its representation." data-copy-es="Arrastra el umbral entre el lugar y su representación.">Drag the threshold between the place and its representation.</p>
+        </header>
+
+        <div class="perception reveal" data-perception>
+          <div class="perception__layer perception__layer--place">
+            <span class="perception__micro" data-copy-en="What exists" data-copy-es="Lo que existe">What exists</span>
+            <p data-copy-en="Quiet mornings. Staff who remember a name. A particular quality of light. The pace of the property. The feeling that remains after departure." data-copy-es="Mañanas silenciosas. Personal que recuerda un nombre. Una calidad particular de luz. El ritmo de la propiedad. La sensación que permanece después de partir.">Quiet mornings. Staff who remember a name. A particular quality of light. The pace of the property. The feeling that remains after departure.</p>
+          </div>
+          <div class="perception__layer perception__layer--representation" data-perception-overlay>
+            <span class="perception__micro" data-copy-en="What can be perceived" data-copy-es="Lo que se puede percibir">What can be perceived</span>
+            <p data-copy-en="A room type. A pool. A rating. Amenities. A price. Fragments that make distinct places easy to compare and difficult to remember." data-copy-es="Un tipo de habitación. Una piscina. Una calificación. Amenidades. Un precio. Fragmentos que vuelven fáciles de comparar y difíciles de recordar lugares distintos.">A room type. A pool. A rating. Amenities. A price. Fragments that make distinct places easy to compare and difficult to remember.</p>
+          </div>
+          <button class="perception__handle" type="button" data-perception-handle aria-label="Drag to compare the place and its representation">
+            <span aria-hidden="true">↔</span>
+          </button>
+        </div>
+
+        <div class="room__footnote reveal">
+          <p data-copy-en="That observation became EXIF Studio: research, writing and visual direction focused on the distance between what a place is and what a guest can perceive before booking." data-copy-es="Esa observación se convirtió en EXIF Studio: investigación, escritura y dirección visual enfocadas en la distancia entre lo que un lugar es y lo que un huésped puede percibir antes de reservar.">That observation became EXIF Studio: research, writing and visual direction focused on the distance between what a place is and what a guest can perceive before booking.</p>
+          <a href="https://exif.studio" target="_blank" rel="noreferrer"><span data-copy-en="Visit EXIF Studio" data-copy-es="Visitar EXIF Studio">Visit EXIF Studio</span> ↗</a>
+        </div>
+      </section>
+    </article>
+
+    <article class="chapter tone-dark" id="research" data-chapter="05" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">05</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Research · Strategy · Writing" data-copy-es="Investigación · Estrategia · Escritura">Research · Strategy · Writing</span>
+          <h2 data-copy-en="Something stops making sense before I know why." data-copy-es="Algo deja de tener sentido antes de que yo sepa por qué.">Something stops making sense before I know why.</h2>
+          <p data-copy-en="The first step is to resist the convenient explanation and locate the exact point where meaning, behavior or outcome breaks." data-copy-es="El primer paso es resistir la explicación conveniente y localizar el punto exacto donde se rompe el significado, el comportamiento o el resultado.">The first step is to resist the convenient explanation and locate the exact point where meaning, behavior or outcome breaks.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#research-room" aria-label="Continue through Research">↓</a>
+      </section>
+
+      <section class="room room--inspection" id="research-room">
+        <header class="room__label reveal">
+          <span data-copy-en="Room 05 · Inspection" data-copy-es="Sala 05 · Inspección">Room 05 · Inspection</span>
+          <p data-copy-en="One sentence is almost right. Inspect the word that changes its meaning." data-copy-es="Una frase está casi bien. Inspecciona la palabra que cambia su significado.">One sentence is almost right. Inspect the word that changes its meaning.</p>
+        </header>
+
+        <div class="inspection reveal" data-inspection>
+          <p class="inspection__sentence">
+            <span data-copy-en="The interface is complete when every element is" data-copy-es="La interfaz está completa cuando cada elemento es">The interface is complete when every element is</span>
+            <button type="button" class="inspection__word" aria-expanded="false" data-inspection-word>
+              <span data-copy-en="present" data-copy-es="visible">present</span>
+            </button><span>.</span>
+          </p>
+          <div class="inspection__drawer" data-inspection-drawer>
+            <span class="inspection__wrong" data-copy-en="Present" data-copy-es="Visible">Present</span>
+            <span class="inspection__becomes">→</span>
+            <span class="inspection__right" data-copy-en="Understood" data-copy-es="Comprensible">Understood</span>
+            <p data-copy-en="Completion is an inventory. Clarity is an outcome. The work continues until the intended meaning is the easiest one to reach." data-copy-es="Completar es hacer un inventario. La claridad es un resultado. El trabajo continúa hasta que el significado previsto sea el más fácil de alcanzar.">Completion is an inventory. Clarity is an outcome. The work continues until the intended meaning is the easiest one to reach.</p>
+          </div>
+        </div>
+
+        <div class="research-method reveal">
+          <div><span>01</span><strong data-copy-en="Observe" data-copy-es="Observar">Observe</strong><p data-copy-en="Separate what happened from the explanation already attached to it." data-copy-es="Separar lo que ocurrió de la explicación que ya se le atribuyó.">Separate what happened from the explanation already attached to it.</p></div>
+          <div><span>02</span><strong data-copy-en="Define" data-copy-es="Definir">Define</strong><p data-copy-en="Name the outcome the work must make possible." data-copy-es="Nombrar el resultado que el trabajo debe hacer posible.">Name the outcome the work must make possible.</p></div>
+          <div><span>03</span><strong data-copy-en="Test" data-copy-es="Probar">Test</strong><p data-copy-en="Find the condition preventing the current version from reaching it." data-copy-es="Encontrar la condición que impide que la versión actual lo alcance.">Find the condition preventing the current version from reaching it.</p></div>
+          <div><span>04</span><strong data-copy-en="Refine" data-copy-es="Refinar">Refine</strong><p data-copy-en="Keep working until the intended meaning survives contact with reality." data-copy-es="Seguir trabajando hasta que el significado previsto sobreviva al contacto con la realidad.">Keep working until the intended meaning survives contact with reality.</p></div>
+        </div>
+      </section>
+    </article>
+
+    <article class="chapter tone-cream" id="record" data-chapter="06" data-masthead-tone="cream">
+      <section class="chapter-threshold chapter-threshold--record">
+        <span class="chapter-threshold__number" aria-hidden="true">06</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker" data-copy-en="Professional record · Evidence" data-copy-es="Trayectoria profesional · Evidencia">Professional record · Evidence</span>
+          <h2 data-copy-en="The method was built in motion." data-copy-es="El método se construyó en movimiento.">The method was built in motion.</h2>
+          <p data-copy-en="Three years across resort operations in Mexico and the Caribbean turned observation, coordination and commercial judgment into a repeatable way of working." data-copy-es="Tres años en operaciones de resorts en México y el Caribe convirtieron la observación, la coordinación y el criterio comercial en una forma de trabajo repetible.">Three years across resort operations in Mexico and the Caribbean turned observation, coordination and commercial judgment into a repeatable way of working.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#record-room" aria-label="Continue through Professional Record">↓</a>
+      </section>
+
+      <section class="record-room" id="record-room">
+        <div class="record-room__metrics reveal">
+          <div><strong>40–60K</strong><span data-copy-en="USD monthly targets" data-copy-es="USD en objetivos mensuales">USD monthly targets</span></div>
+          <div><strong>10–15</strong><span data-copy-en="weddings coordinated monthly" data-copy-es="bodas coordinadas al mes">weddings coordinated monthly</span></div>
+          <div><strong>6</strong><span data-copy-en="resorts" data-copy-es="resorts">resorts</span></div>
+          <div><strong>4</strong><span data-copy-en="countries" data-copy-es="países">countries</span></div>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline__heading">
+            <span class="kicker">PhotoPro · 2023–2026</span>
+            <p data-copy-en="Promoted five times to take over, structure and develop commercial operations across Caribbean resorts." data-copy-es="Promovida cinco veces para asumir, estructurar y desarrollar operaciones comerciales en resorts del Caribe.">Promoted five times to take over, structure and develop commercial operations across Caribbean resorts.</p>
+          </div>
+          <ol>
+            <li><time>2025–2026</time><div><strong data-copy-en="Lead Operations & Sales Manager" data-copy-es="Responsable de operaciones y ventas">Lead Operations & Sales Manager</strong><span>Royalton Saint Lucia · Saint Lucia</span></div></li>
+            <li><time>2024–2025</time><div><strong data-copy-en="Operations & Sales Manager" data-copy-es="Responsable de sitio">Operations & Sales Manager</strong><span>RIU Palace Aquarelle · Royalton Negril · Royalton Grenada</span></div></li>
+            <li><time>2023–2024</time><div><strong data-copy-en="Resort Photographer & Team Lead" data-copy-es="Photographe de resort et cheffe d’équipe">Resort Photographer & Team Lead</strong><span>Catalonia Playa Maroma · Royalton Saint Lucia</span></div></li>
+            <li><time>2025–Present</time><div><strong data-copy-en="Founder" data-copy-es="Fondatrice">Founder</strong><span>EXIF Studio</span></div></li>
+          </ol>
+        </div>
+      </section>
+    </article>
+
+    <footer class="closing tone-dark" id="contact" data-chapter="06" data-masthead-tone="dark">
+      <div class="closing__folio" aria-hidden="true">02</div>
+      <div class="closing__copy reveal">
+        <span class="kicker" data-copy-en="End of record · Beginning of conversation" data-copy-es="Fin del perfil · Inicio de la conversación">End of record · Beginning of conversation</span>
+        <h2 data-copy-en="The next chapter is open." data-copy-es="El siguiente capítulo está abierto.">The next chapter is open.</h2>
+        <p data-copy-en="Mexico City. Open to remote, hybrid and international opportunities across hospitality, partnerships, commercial operations and creative production." data-copy-es="Ciudad de México. Abierta a oportunidades remotas, híbridas e internacionales en hospitalidad, partnerships, operaciones comerciales y producción creativa.">Mexico City. Open to remote, hybrid and international opportunities across hospitality, partnerships, commercial operations and creative production.</p>
+      </div>
+      <div class="closing__links reveal">
+        <a href="mailto:pmtzk@icloud.com"><span>Email</span><strong>pmtzk@icloud.com</strong></a>
+        <a href="https://exif.studio" target="_blank" rel="noreferrer"><span data-copy-en="Independent work" data-copy-es="Trabajo independiente">Independent work</span><strong>EXIF Studio</strong></a>
+        <a href="#cover" data-chapter-link><span data-copy-en="Return" data-copy-es="Volver">Return</span><strong data-copy-en="Back to cover" data-copy-es="Volver a la portada">Back to cover</strong></a>
+      </div>
+      <div class="closing__wordmark" aria-hidden="true">Katia Pérez.</div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
