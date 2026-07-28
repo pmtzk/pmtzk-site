@@ -58,7 +58,7 @@
 
   <main>
     <section class="cover tone-dark" id="cover" data-chapter="00" data-masthead-tone="dark">
-      <div class="cover__edition" aria-hidden="true">01 / 02</div>
+      <div class="cover__edition" aria-hidden="true"><span>Field</span><i></i><span>Method</span></div>
       <div class="cover__title" data-parallax>
         <span>Katia</span>
         <span>Pérez.</span>
@@ -69,7 +69,7 @@
         <p class="cover__thesis">I notice what changed, make the system visible, and decide what needs attention next.</p>
         <a class="cover__enter" href="#contents" data-chapter-link>
           <span>Enter the record</span>
-          <span aria-hidden="true">↓</span>
+          <span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span>
         </a>
       </div>
     </section>
@@ -86,37 +86,37 @@
           <span class="contents__number">01</span>
           <span class="contents__title">Operations</span>
           <span class="contents__note">Seeing the first change</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
         <a href="#leadership" data-chapter-link class="contents__row reveal">
           <span class="contents__number">02</span>
           <span class="contents__title">Leadership</span>
           <span class="contents__note">Making the whole visible</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
         <a href="#systems" data-chapter-link class="contents__row reveal">
           <span class="contents__number">03</span>
           <span class="contents__title">Systems</span>
           <span class="contents__note">Keeping what was learned</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
         <a href="#representation" data-chapter-link class="contents__row reveal">
           <span class="contents__number">04</span>
           <span class="contents__title">Representation</span>
           <span class="contents__note">Closing the distance</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
         <a href="#research" data-chapter-link class="contents__row reveal">
           <span class="contents__number">05</span>
           <span class="contents__title">Research</span>
           <span class="contents__note">Finding what does not fit</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
         <a href="#record" data-chapter-link class="contents__row reveal">
           <span class="contents__number">06</span>
           <span class="contents__title">Record</span>
           <span class="contents__note">The evidence behind the method</span>
-          <span class="contents__arrow" aria-hidden="true">↘</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
         </a>
       </nav>
     </section>
@@ -129,7 +129,7 @@
           <h2>I look for the first thing that moved.</h2>
           <p>Revenue is usually the last visible consequence. The useful signal appears earlier, somewhere inside the operation.</p>
         </div>
-        <a class="chapter-threshold__down" href="#operations-room" aria-label="Continue through Operations">↓</a>
+        <a class="chapter-threshold__down" href="#operations-room" aria-label="Continue through Operations"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="room room--diagnostic" id="operations-room">
@@ -166,7 +166,7 @@
           <h2>People move when they can see their place in the whole.</h2>
           <p>The work was to create enough clarity for photographers, hotel teams and guests to move through the same day without losing the shared result.</p>
         </div>
-        <a class="chapter-threshold__down" href="#leadership-room" aria-label="Continue through Leadership">↓</a>
+        <a class="chapter-threshold__down" href="#leadership-room" aria-label="Continue through Leadership"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="room room--constellation" id="leadership-room">
@@ -207,7 +207,7 @@
           <h2>The next month should begin with what the last one already taught us.</h2>
           <p>Recurring work becomes lighter when decisions, standards and assumptions move out of memory and into a system.</p>
         </div>
-        <a class="chapter-threshold__down" href="#systems-room" aria-label="Continue through Systems">↓</a>
+        <a class="chapter-threshold__down" href="#systems-room" aria-label="Continue through Systems"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="room room--system" id="systems-room">
@@ -216,22 +216,45 @@
           <p>Change the state of the room.</p>
         </header>
 
-        <div class="system-lab reveal" data-system-state="noise">
-          <div class="system-lab__controls" role="group" aria-label="System state">
-            <button type="button" class="is-active" data-system-choice="noise">In memory</button>
-            <button type="button" data-system-choice="method">In a system</button>
+        <div class="system-carousel reveal" data-system-carousel aria-roledescription="carousel" aria-label="From memory to method">
+          <div class="system-carousel__header">
+            <div class="system-carousel__tabs" role="tablist" aria-label="System scenes">
+              <button type="button" class="is-active" role="tab" aria-selected="true" data-system-slide="0">In memory</button>
+              <button type="button" role="tab" aria-selected="false" data-system-slide="1">In a system</button>
+            </div>
+            <div class="system-carousel__navigation">
+              <button type="button" class="carousel-control carousel-control--previous" data-system-previous aria-label="Previous scene"><span aria-hidden="true"><i></i></span></button>
+              <span class="system-carousel__count" aria-live="polite"><b data-system-current>01</b><i></i><span>02</span></span>
+              <button type="button" class="carousel-control carousel-control--next" data-system-next aria-label="Next scene"><span aria-hidden="true"><i></i></span></button>
+            </div>
           </div>
-          <div class="system-lab__stage">
-            <div class="system-card card-a"><span>01</span><strong>Occupancy</strong><small>monthly assumption</small></div>
-            <div class="system-card card-b"><span>02</span><strong>Contacts</strong><small>daily target</small></div>
-            <div class="system-card card-c"><span>03</span><strong>Sessions</strong><small>production</small></div>
-            <div class="system-card card-d"><span>04</span><strong>Capture</strong><small>conversion</small></div>
-            <div class="system-card card-e"><span>05</span><strong>Average ticket</strong><small>commercial quality</small></div>
-            <div class="system-card card-f"><span>06</span><strong>Revenue</strong><small>result</small></div>
+          <div class="system-carousel__viewport" data-system-viewport>
+            <div class="system-carousel__track" data-system-track>
+              <section class="system-slide system-slide--memory" role="tabpanel" aria-label="In memory">
+                <div class="system-slide__stage system-slide__stage--memory">
+                  <div class="system-card card-a"><span>01</span><strong>Occupancy</strong><small>monthly assumption</small></div>
+                  <div class="system-card card-b"><span>02</span><strong>Contacts</strong><small>daily target</small></div>
+                  <div class="system-card card-c"><span>03</span><strong>Sessions</strong><small>production</small></div>
+                  <div class="system-card card-d"><span>04</span><strong>Capture</strong><small>conversion</small></div>
+                  <div class="system-card card-e"><span>05</span><strong>Average ticket</strong><small>commercial quality</small></div>
+                  <div class="system-card card-f"><span>06</span><strong>Revenue</strong><small>result</small></div>
+                </div>
+                <p class="system-slide__caption">The operation depends on remembering the logic again every month.</p>
+              </section>
+              <section class="system-slide system-slide--method" role="tabpanel" aria-label="In a system" aria-hidden="true">
+                <div class="system-slide__stage system-slide__stage--method">
+                  <div class="system-card"><span>01</span><strong>Occupancy</strong><small>monthly assumption</small></div>
+                  <div class="system-card"><span>02</span><strong>Contacts</strong><small>daily target</small></div>
+                  <div class="system-card"><span>03</span><strong>Sessions</strong><small>production</small></div>
+                  <div class="system-card"><span>04</span><strong>Capture</strong><small>conversion</small></div>
+                  <div class="system-card"><span>05</span><strong>Average ticket</strong><small>commercial quality</small></div>
+                  <div class="system-card"><span>06</span><strong>Revenue</strong><small>result</small></div>
+                </div>
+                <p class="system-slide__caption">The relationships remain visible, so attention can move to the variable that changed.</p>
+              </section>
+            </div>
           </div>
-          <div class="system-lab__caption">
-            <p data-system-caption>The operation depends on remembering the logic again every month.</p>
-          </div>
+          <div class="system-carousel__progress" aria-hidden="true"><span data-system-progress></span></div>
         </div>
 
         <div class="room__footnote reveal">
@@ -250,7 +273,7 @@
           <h2>A place can be remarkable and still appear ordinary before arrival.</h2>
           <p>Working inside resorts made the distance between lived experience and online perception impossible to ignore.</p>
         </div>
-        <a class="chapter-threshold__down" href="#representation-room" aria-label="Continue through Representation">↓</a>
+        <a class="chapter-threshold__down" href="#representation-room" aria-label="Continue through Representation"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="room room--representation" id="representation-room">
@@ -269,13 +292,13 @@
             <p>A room type. A pool. A rating. Amenities. A price. Fragments that make distinct places easy to compare and difficult to remember.</p>
           </div>
           <button class="perception__handle" type="button" data-perception-handle aria-label="Drag to compare the place and its representation">
-            <span aria-hidden="true">↔</span>
+            <span class="drag-cue" aria-hidden="true"><i></i><b></b></span>
           </button>
         </div>
 
         <div class="room__footnote reveal">
           <p>That observation became EXIF Studio: research, writing and visual direction focused on the distance between what a place is and what a guest can perceive before booking.</p>
-          <a href="https://exif.studio" target="_blank" rel="noreferrer"><span>Visit EXIF Studio</span> ↗</a>
+          <a class="text-link text-link--external" href="https://exif.studio" target="_blank" rel="noreferrer"><span>Visit EXIF Studio</span><span class="external-cue" aria-hidden="true"><i></i></span></a>
         </div>
       </section>
     </article>
@@ -288,7 +311,7 @@
           <h2>Something stops making sense before I know why.</h2>
           <p>The first step is to resist the convenient explanation and locate the exact point where meaning, behavior or outcome breaks.</p>
         </div>
-        <a class="chapter-threshold__down" href="#research-room" aria-label="Continue through Research">↓</a>
+        <a class="chapter-threshold__down" href="#research-room" aria-label="Continue through Research"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="room room--inspection" id="research-room">
@@ -306,7 +329,7 @@
           </p>
           <div class="inspection__drawer" data-inspection-drawer>
             <span class="inspection__wrong">Present</span>
-            <span class="inspection__becomes">→</span>
+            <span class="inspection__becomes" aria-hidden="true"><i></i></span>
             <span class="inspection__right">Understood</span>
             <p>Completion is an inventory. Clarity is an outcome. The work continues until the intended meaning is the easiest one to reach.</p>
           </div>
@@ -329,7 +352,7 @@
           <h2>The method was built in motion.</h2>
           <p>Three years across resort operations in Mexico and the Caribbean turned observation, coordination and commercial judgment into a repeatable way of working.</p>
         </div>
-        <a class="chapter-threshold__down" href="#record-room" aria-label="Continue through Professional Record">↓</a>
+        <a class="chapter-threshold__down" href="#record-room" aria-label="Continue through Professional Record"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
       </section>
 
       <section class="record-room" id="record-room">

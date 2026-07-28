@@ -131,18 +131,65 @@
     node.addEventListener('click', () => updateConstellation(node));
   });
 
-  const systemLab = document.querySelector('.system-lab');
-  const systemButtons = [...document.querySelectorAll('[data-system-choice]')];
-  const systemCaption = document.querySelector('[data-system-caption]');
-  const systemCopy = { noise: 'The operation depends on remembering the logic again every month.', method: 'The relationships remain visible, so attention can move to the variable that changed.' };
-  systemButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const choice = button.dataset.systemChoice;
-      systemLab.dataset.systemState = choice;
-      systemButtons.forEach(other => other.classList.toggle('is-active', other === button));
-      systemCaption.textContent = systemCopy[choice];
+  const systemCarousel = document.querySelector('[data-system-carousel]');
+  if (systemCarousel) {
+    const track = systemCarousel.querySelector('[data-system-track]');
+    const viewport = systemCarousel.querySelector('[data-system-viewport]');
+    const slides = [...systemCarousel.querySelectorAll('.system-slide')];
+    const tabs = [...systemCarousel.querySelectorAll('[data-system-slide]')];
+    const previous = systemCarousel.querySelector('[data-system-previous]');
+    const next = systemCarousel.querySelector('[data-system-next]');
+    const currentLabel = systemCarousel.querySelector('[data-system-current]');
+    let current = 0;
+    let pointerStart = null;
+
+    const showSystemSlide = index => {
+      current = (index + slides.length) % slides.length;
+      systemCarousel.dataset.slide = String(current);
+      tabs.forEach((tab, tabIndex) => {
+        const active = tabIndex === current;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+      slides.forEach((slide, slideIndex) => {
+        slide.setAttribute('aria-hidden', String(slideIndex !== current));
+      });
+      if (currentLabel) currentLabel.textContent = String(current + 1).padStart(2, '0');
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => showSystemSlide(index));
+      tab.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); showSystemSlide(current - 1); tabs[(current + tabs.length) % tabs.length].focus(); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); showSystemSlide(current + 1); tabs[current].focus(); }
+      });
     });
-  });
+    previous?.addEventListener('click', () => showSystemSlide(current - 1));
+    next?.addEventListener('click', () => showSystemSlide(current + 1));
+
+    viewport?.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerStart = event.clientX;
+      viewport.setPointerCapture?.(event.pointerId);
+    });
+    viewport?.addEventListener('pointerup', event => {
+      if (pointerStart === null) return;
+      const distance = event.clientX - pointerStart;
+      pointerStart = null;
+      if (Math.abs(distance) > 55) showSystemSlide(current + (distance < 0 ? 1 : -1));
+      viewport.releasePointerCapture?.(event.pointerId);
+    });
+    viewport?.addEventListener('pointercancel', () => { pointerStart = null; });
+
+    systemCarousel.addEventListener('keydown', event => {
+      if (event.target.matches('[data-system-slide]')) return;
+      if (event.key === 'ArrowLeft') { event.preventDefault(); showSystemSlide(current - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); showSystemSlide(current + 1); }
+    });
+
+    showSystemSlide(0);
+  }
 
   const perception = document.querySelector('[data-perception]');
   const perceptionHandle = document.querySelector('[data-perception-handle]');
