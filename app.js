@@ -51,6 +51,20 @@
     });
   });
 
+
+  /* Threshold controls use the same reliable navigation behavior everywhere. */
+  document.querySelectorAll('.chapter-threshold__down').forEach(link => {
+    link.addEventListener('click', event => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: reducedMotion ? 'auto' : 'smooth',
+        block: 'start'
+      });
+    });
+  });
+
   function updateProgress() {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const progress = max > 0 ? (window.scrollY / max) * 100 : 0;

@@ -2832,3 +2832,86 @@ html, body { overflow-x: clip; }
   .constellation__center { width: 180px; min-height: 180px; padding: 20px; }
   .constellation__center p { font-size: 19px; }
 }
+
+/* v8 — mobile navigation and scroll reliability ------------------------- */
+
+/* The former draggable perception component left touch-action:none behind.
+   This room is now static, so vertical page scrolling must always win. */
+.perception--static,
+.perception--static .perception__layer,
+.room--representation {
+  touch-action: pan-y !important;
+  overscroll-behavior: auto;
+}
+
+/* One consistent threshold control. It occupies its own protected area and
+   never sits on top of the chapter copy. */
+.chapter-threshold__down {
+  left: auto;
+  right: var(--pad);
+  bottom: clamp(30px, 4vh, 48px);
+  flex: 0 0 auto;
+  isolation: isolate;
+}
+
+@media (max-width: 760px) {
+  .chapter-threshold {
+    min-height: max(720px, 100svh);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: calc(var(--header-h) + 82px) var(--pad) 42px;
+    overflow: hidden;
+  }
+
+  .chapter-threshold__copy {
+    width: 100%;
+    grid-column: auto;
+    align-self: auto;
+    margin-top: auto;
+    padding-bottom: 0;
+  }
+
+  .chapter-threshold__copy h2 {
+    max-width: 10.5ch;
+  }
+
+  .chapter-threshold__down {
+    position: relative;
+    inset: auto;
+    align-self: flex-start;
+    margin-top: 34px;
+    width: 48px;
+    height: 48px;
+    z-index: 4;
+  }
+
+  .perception--static,
+  .perception--static .perception__layer {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 520px) {
+  .perception--static .perception__layer {
+    min-height: auto;
+    padding: 64px 24px 72px;
+  }
+
+  .perception--static .perception__layer p,
+  .perception--static .perception__layer--representation p {
+    margin: 72px 0 18px;
+    max-width: 11ch;
+    font-size: clamp(38px, 10.7vw, 52px);
+    line-height: .98;
+  }
+
+  .perception--static .perception__micro {
+    order: -1;
+  }
+
+  .perception--static::after {
+    display: none;
+  }
+}
