@@ -1,1108 +1,396 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="#111111" name="theme-color"/>
-<title>Katia E. Pérez — Professional Record</title>
-<meta content="A capability-led professional record by Katia E. Pérez." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-    :root{
-      --black:#0f0f0f;
-      --black-2:#171717;
-      --cream:#f2eee6;
-      --cream-2:#e8e1d6;
-      --ink:#171717;
-      --paper-line:rgba(23,23,23,.22);
-      --dark-line:rgba(255,255,255,.17);
-      --muted-dark:rgba(255,255,255,.52);
-      --muted-paper:#6b6964;
-      --serif:"Instrument Serif", Georgia, serif;
-      --sans:"Manrope", Arial, sans-serif;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      min-height:100vh;
-      background:var(--black);
-      color:#f8f5ee;
-      font-family:var(--sans);
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:inherit;text-decoration:none}
-
-    .mobile-bar{display:none}
-    .shell{
-      min-height:100vh;
-      display:grid;
-      grid-template-columns:244px minmax(0,1fr);
-    }
-
-    /* Left rail */
-    .rail{
-      position:sticky;
-      top:0;
-      height:100vh;
-      padding:28px 22px 22px;
-      display:flex;
-      flex-direction:column;
-      border-right:1px solid var(--dark-line);
-      background:var(--black);
-      z-index:20;
-    }
-    .brand{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:44px;
-    }
-    .brand strong{
-      font-family:var(--serif);
-      font-size:22px;
-      font-weight:400;
-    }
-    .status{
-      margin-top:6px;
-      display:flex;
-      align-items:center;
-      gap:7px;
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color:var(--muted-dark);
-    }
-    .status::before{
-      content:"";
-      width:5px;height:5px;
-      border-radius:50%;
-      background:var(--cream);
-    }
-    .rail-label{
-      margin:0 0 10px;
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:rgba(255,255,255,.34);
-    }
-    .rail nav{
-      display:grid;
-      border-bottom:1px solid var(--dark-line);
-    }
-    .rail nav a{
-      display:grid;
-      grid-template-columns:32px 1fr;
-      gap:8px;
-      padding:13px 0;
-      border-top:1px solid var(--dark-line);
-      color:rgba(255,255,255,.56);
-      transition:.2s ease;
-    }
-    .rail nav a:hover{color:#fff;padding-left:5px}
-    .rail nav .num{
-      font-family:var(--serif);
-      font-size:15px;
-      line-height:1;
-    }
-    .rail nav .label{
-      font-size:10px;
-      line-height:1.35;
-    }
-    .rail-footer{
-      margin-top:auto;
-      padding-top:17px;
-      border-top:1px solid var(--dark-line);
-    }
-    .rail-footer strong{
-      display:block;
-      font-family:var(--serif);
-      font-weight:400;
-      font-size:18px;
-      margin-bottom:5px;
-    }
-    .rail-footer p{
-      margin:0;
-      color:var(--muted-dark);
-      font-size:9px;
-      line-height:1.6;
-    }
-    .rail-links{
-      display:flex;
-      gap:14px;
-      margin-top:17px;
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-      color:rgba(255,255,255,.58);
-    }
-
-    /* Main */
-    .main{
-      min-width:0;
-      padding:18px 20px 72px;
-      background:var(--black);
-    }
-    .topbar{
-      max-width:1240px;
-      min-height:58px;
-      margin:0 auto 12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-    }
-    .crumb{
-      color:rgba(255,255,255,.44);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-    }
-    .actions{display:flex;gap:8px}
-    .action{
-      padding:10px 14px;
-      border:1px solid var(--dark-line);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-    }
-    .action.primary{
-      background:var(--cream);
-      color:var(--ink);
-      border-color:var(--cream);
-    }
-
-    .book{
-      max-width:1240px;
-      margin:0 auto;
-      border-top:1px solid rgba(255,255,255,.72);
-    }
-
-    /* Native accordion */
-    details.chapter{
-      border-bottom:1px solid var(--dark-line);
-      scroll-margin-top:10px;
-    }
-    summary{
-      list-style:none;
-      cursor:pointer;
-    }
-    summary::-webkit-details-marker{display:none}
-    .chapter-head{
-      min-height:94px;
-      padding:20px 4px;
-      display:grid;
-      grid-template-columns:72px minmax(235px,.85fr) 1.15fr 34px;
-      gap:18px;
-      align-items:center;
-      color:#f8f5ee;
-    }
-    .chapter-head:hover .chapter-title{font-style:italic}
-    .eyebrow{
-      display:block;
-      font-size:7px;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:rgba(255,255,255,.42);
-    }
-    .chapter-number{
-      font-family:var(--serif);
-      font-size:26px;
-      line-height:1;
-    }
-    .chapter-title{
-      font-family:var(--serif);
-      font-weight:400;
-      font-size:28px;
-      line-height:1;
-      letter-spacing:-.025em;
-      transition:.2s ease;
-    }
-    .chapter-summary{
-      max-width:590px;
-      color:var(--muted-dark);
-      font-size:10px;
-      line-height:1.6;
-    }
-    .toggle{
-      width:29px;height:29px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--dark-line);
-      border-radius:50%;
-      font-size:15px;
-      color:rgba(255,255,255,.56);
-      transition:.28s ease;
-    }
-    details[open] .toggle{transform:rotate(45deg)}
-    details[open] .chapter-head{color:var(--cream)}
-    details[open] .chapter-title{font-style:italic}
-
-    .page{
-      margin:0 -20px;
-      padding:44px 20px 56px;
-      background:var(--cream);
-      color:var(--ink);
-      border-top:1px solid rgba(255,255,255,.28);
-    }
-    .page-inner{
-      max-width:1240px;
-      margin:0 auto;
-    }
-    .paper-label{
-      display:block;
-      color:var(--muted-paper);
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      margin-bottom:22px;
-    }
-
-    /* Prologue */
-    .prologue{
-      display:grid;
-      grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);
-      gap:48px;
-      min-height:610px;
-    }
-    .prologue-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .prologue h1{
-      margin:0;
-      max-width:800px;
-      font-family:var(--serif);
-      font-size:clamp(62px,7.2vw,114px);
-      font-weight:400;
-      line-height:.86;
-      letter-spacing:-.055em;
-    }
-    .prologue h1 em{font-weight:400}
-    .prologue-bottom{
-      display:grid;
-      grid-template-columns:1fr 245px;
-      gap:38px;
-      align-items:end;
-    }
-    .prologue-bottom p{
-      margin:0;
-      max-width:650px;
-      font-family:var(--serif);
-      font-size:21px;
-      line-height:1.42;
-    }
-    .note{
-      padding-top:12px;
-      border-top:1px solid var(--paper-line);
-      color:var(--muted-paper);
-      font-size:9px;
-      line-height:1.65;
-    }
-    .identity{
-      min-height:610px;
-      padding:28px;
-      background:var(--black);
-      color:var(--cream);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      position:relative;
-      overflow:hidden;
-    }
-    .identity::before{
-      content:"";
-      position:absolute;
-      width:430px;height:430px;
-      border:1px solid rgba(242,238,230,.23);
-      border-radius:50%;
-      right:-120px;
-      top:76px;
-    }
-    .identity::after{
-      content:"";
-      position:absolute;
-      width:280px;height:520px;
-      border:1px solid rgba(242,238,230,.16);
-      right:-30px;
-      bottom:-240px;
-      transform:rotate(28deg);
-    }
-    .identity .micro{
-      position:relative;
-      z-index:2;
-      font-size:8px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:rgba(242,238,230,.63);
-    }
-    .identity h2{
-      position:relative;
-      z-index:2;
-      margin:auto 0 34px;
-      font-family:var(--serif);
-      font-weight:400;
-      font-size:52px;
-      line-height:.97;
-      letter-spacing:-.035em;
-    }
-    .stats{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      border-top:1px solid rgba(242,238,230,.28);
-      border-left:1px solid rgba(242,238,230,.28);
-    }
-    .stat{
-      min-height:102px;
-      padding:14px;
-      border-right:1px solid rgba(242,238,230,.28);
-      border-bottom:1px solid rgba(242,238,230,.28);
-    }
-    .stat b{
-      display:block;
-      margin-bottom:6px;
-      font-family:var(--serif);
-      font-size:29px;
-      font-weight:400;
-    }
-    .stat span{
-      display:block;
-      max-width:135px;
-      font-size:7px;
-      line-height:1.5;
-      text-transform:uppercase;
-      letter-spacing:.11em;
-      color:rgba(242,238,230,.66);
-    }
-
-    /* Capability pages */
-    .capability{
-      display:grid;
-      grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);
-      gap:54px;
-      align-items:start;
-    }
-    .cap-intro{
-      position:sticky;
-      top:24px;
-    }
-    .cap-intro h2{
-      margin:0;
-      max-width:530px;
-      font-family:var(--serif);
-      font-size:59px;
-      line-height:.95;
-      letter-spacing:-.04em;
-      font-weight:400;
-    }
-    .cap-intro p{
-      margin:30px 0 0;
-      max-width:460px;
-      color:var(--muted-paper);
-      font-size:11px;
-      line-height:1.75;
-    }
-    .evidence{display:grid}
-    .evidence-row{
-      display:grid;
-      grid-template-columns:118px 1fr;
-      gap:22px;
-      padding:22px 0;
-      border-top:1px solid var(--paper-line);
-    }
-    .evidence-row:last-child{border-bottom:1px solid var(--paper-line)}
-    .evidence-key{
-      color:var(--muted-paper);
-      font-size:7px;
-      line-height:1.55;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-    }
-    .evidence-copy h3{
-      margin:0 0 7px;
-      font-family:var(--serif);
-      font-size:28px;
-      font-weight:400;
-      line-height:1.04;
-    }
-    .evidence-copy p{
-      margin:0;
-      max-width:690px;
-      color:var(--muted-paper);
-      font-size:10px;
-      line-height:1.7;
-    }
-    .case-strip{
-      margin-top:46px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border-top:1px solid var(--paper-line);
-      border-left:1px solid var(--paper-line);
-    }
-    .case{
-      min-height:190px;
-      padding:18px;
-      border-right:1px solid var(--paper-line);
-      border-bottom:1px solid var(--paper-line);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .case small{
-      color:var(--muted-paper);
-      font-size:7px;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-    }
-    .case h4{
-      margin:38px 0 9px;
-      font-family:var(--serif);
-      font-weight:400;
-      font-size:25px;
-      line-height:1.04;
-    }
-    .case p{
-      margin:0;
-      color:var(--muted-paper);
-      font-size:9px;
-      line-height:1.6;
-    }
-
-    /* Appendix */
-    .appendix{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:54px;
-    }
-    .appendix h2{
-      margin:0 0 34px;
-      font-family:var(--serif);
-      font-size:62px;
-      line-height:.95;
-      font-weight:400;
-    }
-    .timeline{display:grid}
-    .timeline-row{
-      display:grid;
-      grid-template-columns:138px 1fr;
-      gap:20px;
-      padding:17px 0;
-      border-top:1px solid var(--paper-line);
-    }
-    .timeline-row:last-child{border-bottom:1px solid var(--paper-line)}
-    .timeline-date{
-      color:var(--muted-paper);
-      font-size:7px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
-    .timeline-copy strong{
-      display:block;
-      font-family:var(--serif);
-      font-weight:400;
-      font-size:21px;
-    }
-    .timeline-copy span{
-      display:block;
-      margin-top:4px;
-      color:var(--muted-paper);
-      font-size:7px;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-    }
-    .reference-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      border-top:1px solid var(--ink);
-      border-left:1px solid var(--ink);
-    }
-    .reference{
-      min-height:165px;
-      padding:18px;
-      border-right:1px solid var(--ink);
-      border-bottom:1px solid var(--ink);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      transition:.2s ease;
-    }
-    .reference:hover{
-      background:var(--black);
-      color:var(--cream);
-    }
-    .reference small{
-      font-size:7px;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-      color:var(--muted-paper);
-    }
-    .reference strong{
-      font-family:var(--serif);
-      font-size:26px;
-      font-weight:400;
-    }
-    .reference span{font-size:18px}
-
-    @media(max-width:1000px){
-      .shell{grid-template-columns:1fr}
-      .rail{display:none}
-      .mobile-bar{
-        display:flex;
-        position:sticky;
-        top:0;
-        z-index:30;
-        height:54px;
-        padding:0 16px;
-        align-items:center;
-        justify-content:space-between;
-        background:rgba(15,15,15,.96);
-        border-bottom:1px solid var(--dark-line);
-      }
-      .mobile-bar strong{
-        font-family:var(--serif);
-        font-size:20px;
-        font-weight:400;
-      }
-      .mobile-bar a{
-        padding:7px 10px;
-        border:1px solid var(--dark-line);
-        font-size:7px;
-        text-transform:uppercase;
-        letter-spacing:.13em;
-      }
-      .main{padding:10px 12px 50px}
-      .topbar{display:none}
-      .chapter-head{
-        grid-template-columns:58px 1fr 31px;
-        gap:10px;
-        padding:17px 2px;
-      }
-      .chapter-summary{display:none}
-      .chapter-title{font-size:23px}
-      .page{margin:0 -12px;padding:32px 12px 44px}
-      .prologue,.capability,.appendix{grid-template-columns:1fr}
-      .prologue-copy{min-height:530px}
-      .identity{min-height:500px}
-      .cap-intro{position:static}
-      .case-strip{grid-template-columns:1fr}
-    }
-
-    @media(max-width:620px){
-      .prologue h1{font-size:60px}
-      .prologue-bottom{grid-template-columns:1fr}
-      .prologue-bottom p{font-size:18px}
-      .identity h2{font-size:42px}
-      .cap-intro h2{font-size:47px}
-      .evidence-row{grid-template-columns:1fr;gap:9px}
-      .reference-grid{grid-template-columns:1fr}
-      .timeline-row{grid-template-columns:102px 1fr}
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      *{scroll-behavior:auto!important;transition:none!important}
-    }
-  
-
-    .landmark{display:block;margin-bottom:5px;color:rgba(255,255,255,.72);font-size:8px;text-transform:uppercase;letter-spacing:.16em}
-    .summary-line{display:block}
-    .inside-cue{display:inline-block;margin-top:9px;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,.36);color:rgba(255,255,255,.8);font-size:8px;text-transform:uppercase;letter-spacing:.16em}
-    details[open] .inside-cue{opacity:0}
-    .visual-case-strip{grid-template-columns:repeat(3,minmax(0,1fr));}
-    .artifact-card{margin:0;min-width:0;border-right:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line);background:#fff;overflow:hidden}
-    .artifact-card img{display:block;width:100%;height:260px;object-fit:cover;object-position:top left}
-    .artifact-card figcaption{padding:12px 14px;color:var(--muted-paper);font-size:8px;text-transform:uppercase;letter-spacing:.12em;background:var(--cream)}
-    .auto-progress{position:fixed;left:244px;right:0;top:0;height:2px;background:rgba(255,255,255,.08);z-index:60;pointer-events:none}
-    .auto-progress span{display:block;width:0;height:100%;background:var(--cream);transition:width .15s linear}
-    @media(max-width:1000px){.auto-progress{left:0;top:54px}.visual-case-strip{grid-template-columns:1fr}.artifact-card img{height:auto}}
-
-.language-switch{
-  display:inline-flex;
-  border:1px solid var(--dark-line);
-  flex:0 0 auto;
-}
-.language-switch button{
-  appearance:none;
-  border:0;
-  background:transparent;
-  color:rgba(255,255,255,.55);
-  padding:7px 8px;
-  cursor:pointer;
-  font-size:7px;
-  line-height:1;
-  letter-spacing:.13em;
-}
-.language-switch button[aria-pressed="true"]{
-  background:var(--cream);
-  color:var(--ink);
-}
-.mobile-bar .language-switch{margin-left:auto;margin-right:8px}
-.chapter-end-trigger{height:1px;width:100%;pointer-events:none}
-@media(max-width:1000px){
-  .topbar .language-switch{display:none}
-}
-
-/* v1.2 targeted corrections */
-.mobile-bar{
-  justify-content:space-between;
-}
-.mobile-bar strong{
-  white-space:nowrap;
-}
-.mobile-language{
-  margin:0;
-  border:0;
-  align-items:center;
-  gap:7px;
-}
-.mobile-language button{
-  padding:6px 2px;
-  background:transparent!important;
-  color:rgba(255,255,255,.48)!important;
-}
-.mobile-language button[aria-pressed="true"]{
-  color:#fff!important;
-}
-.language-divider{
-  color:rgba(255,255,255,.28);
-  font-size:8px;
-}
-
-.chapter-head{
-  grid-template-columns:minmax(210px,.72fr) minmax(260px,1.28fr) 34px;
-}
-.rail nav a{
-  grid-template-columns:1fr;
-}
-.rail nav .label{
-  font-size:10px;
-}
-.chapter-title{
-  font-size:30px;
-}
-.chapter-summary{
-  font-family:var(--serif);
-  font-size:16px;
-  line-height:1.35;
-  color:rgba(255,255,255,.52);
-}
-details#prologue .chapter-head{
-  border-top:0;
-}
-details#prologue .chapter-title{
-  font-style:italic;
-}
-.prologue-bottom{
-  margin-top:80px;
-}
-.chapter-end-trigger{
-  height:18px;
-  width:100%;
-}
-@media(max-width:1000px){
-  .chapter-head{
-    grid-template-columns:minmax(0,1fr) 30px;
-    gap:12px;
-  }
-  .chapter-summary{
-    display:block;
-    grid-column:1;
-    margin-top:5px;
-    font-size:14px;
-  }
-  .chapter-title{
-    font-size:28px;
-  }
-  .toggle{
-    grid-column:2;
-    grid-row:1 / span 2;
-  }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#262321">
+  <meta name="description" content="Katia E. Pérez — a professional record in chapters.">
+  <title>Katia E. Pérez — Professional Record</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body><div aria-hidden="true" class="auto-progress"><span></span></div>
-<div class="mobile-bar"><strong>Katia E. Pérez</strong><div aria-label="Language" class="language-switch mobile-language"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><span aria-hidden="true" class="language-divider">•</span><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div></div>
-<div class="shell">
-<aside class="rail">
-<div class="brand">
-<strong>Katia E. Pérez</strong>
-<div aria-label="Language" class="language-switch"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div>
-</div>
-<p class="rail-label"><span data-copy-en="Professional chapters" data-copy-es="Capítulos profesionales">Professional chapters</span></p>
-<nav>
-<a href="#prologue"><span class="label"><span data-copy-en="Prologue" data-copy-es="Prólogo">Prologue</span></span></a>
-<a href="#commercial"><span class="label"><span data-copy-en="Operations" data-copy-es="Operaciones">Operations</span></span></a>
-<a href="#aligned"><span class="label"><span data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span></span></a>
-<a href="#repeatable"><span class="label"><span data-copy-en="Systems" data-copy-es="Sistemas">Systems</span></span></a>
-<a href="#perception"><span class="label"><span data-copy-en="Representation" data-copy-es="Representación">Representation</span></span></a>
-<a href="#argument"><span class="label"><span data-copy-en="Research" data-copy-es="Investigación">Research</span></span></a>
-<a href="#appendix"><span class="label"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></span></a>
-</nav>
-<div class="rail-footer">
-<strong>Mexico City</strong>
-<p><span data-copy-en="Open to remote, hybrid and international opportunities." data-copy-es="Abierta a oportunidades remotas, híbridas e internacionales.">Open to remote, hybrid and international opportunities.</span></p>
-<div class="rail-links">
-<a href="#">LinkedIn</a>
-<a href="mailto:pmtzk@icloud.com">Email</a>
-</div>
-</div>
-</aside>
-<main class="main">
-<header class="topbar">
-<div class="crumb"><span data-copy-en="Professional record · 2026" data-copy-es="Perfil profesional · 2026">Professional record · 2026</span></div>
-<div class="actions"><div aria-label="Language" class="language-switch"><button aria-pressed="true" data-lang-choice="en" type="button">EN</button><button aria-pressed="false" data-lang-choice="es" type="button">ES</button></div>
-<a class="action" href="mailto:pmtzk@icloud.com"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></a>
-</div>
-</header>
-<section class="book">
-<details class="chapter" id="prologue" open="">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Prologue" data-copy-es="Prólogo">Prologue</span></div>
-<div class="chapter-summary"><span data-copy-en="Different roles. The same way of working." data-copy-es="Distintos roles. La misma forma de trabajar.">Different roles. The same way of working.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="prologue">
-<section class="prologue-copy">
-<div>
-<span class="paper-label"><span data-copy-en="Katia E. Pérez · Professional record" data-copy-es="Katia E. Pérez · Perfil profesional">Katia E. Pérez · Professional record</span></span>
-<h1><span data-copy-en="Different roles." data-copy-es="Distintos roles.">Different roles.</span><br/><em><span data-copy-en="The same way" data-copy-es="La misma forma">The same way</span></em><br/><span data-copy-en="of working." data-copy-es="de trabajar.">of working.</span></h1>
-</div>
-<div class="prologue-bottom">
-<p><span data-copy-en="For the past three years, I have worked inside resort operations across Mexico and the Caribbean. The titles changed. The work kept returning to the same questions: what is happening, what is getting in the way, and what needs to change next." data-copy-es="Durante los últimos tres años trabajé dentro de operaciones de resorts en México y el Caribe. Los cargos cambiaron. El trabajo siguió regresando a las mismas preguntas: qué está pasando, qué se está interponiendo y qué tiene que cambiar después.">For the past three years, I have worked inside resort operations across Mexico and the Caribbean. The titles changed. The work kept returning to the same questions: what is happening, what is getting in the way, and what needs to change next.</span></p>
-<div class="note"></div>
-</div>
-</section>
-<aside class="identity">
-<span class="micro"><span data-copy-en="Mexico City · Open to remote, hybrid and international roles" data-copy-es="Ciudad de México · Abierta a roles remotos, híbridos e internacionales">Mexico City · Open to remote, hybrid and international roles</span></span>
-<h2><span data-copy-en="Operations." data-copy-es="Operaciones.">Operations.</span><br/><span data-copy-en="Commercial performance." data-copy-es="Desempeño comercial.">Commercial performance.</span><br/><span data-copy-en="Research and visual judgment." data-copy-es="Investigación y criterio visual.">Research and visual judgment.</span></h2>
-<div class="stats">
-<div class="stat"><b>3</b><span><span data-copy-en="International management assignments" data-copy-es="Asignaciones internacionales como manager">International management assignments</span></span></div>
-<div class="stat"><b>40–60K</b><span><span data-copy-en="USD in monthly revenue targets achieved" data-copy-es="USD en metas mensuales alcanzadas">USD in monthly revenue targets achieved</span></span></div>
-<div class="stat"><b>200–250</b><span><span data-copy-en="Monthly guest transactions under management" data-copy-es="Transacciones mensuales bajo mi gestión">Monthly guest transactions under management</span></span></div>
-<div class="stat"><b>40–60K</b><span><span data-copy-en="USD monthly target range across operating periods" data-copy-es="USD de meta mensual durante los periodos operativos">USD monthly target range across operating periods</span></span></div>
-</div>
-</aside>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="commercial">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Operations" data-copy-es="Operaciones">Operations</span></div>
-<div class="chapter-summary"><span data-copy-en="Seeing problems earlier." data-copy-es="Antes de que se note.">Seeing problems earlier.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="capability">
-<section class="cap-intro">
-<span class="paper-label">Operations · Commercial performance</span>
-<h2><span data-copy-en="By the time revenue changes, something else usually changed first." data-copy-es="Cuando la venta cambia, casi siempre algo más ya había cambiado antes.">By the time revenue changes, something else usually changed first.</span></h2>
-<p><span data-copy-en="Every month ended with a number. The useful work happened earlier, in the small changes that showed where the operation had started to drift." data-copy-es="Cada mes terminaba en un número. El trabajo útil ocurría antes, en los pequeños cambios que mostraban dónde había empezado a desviarse la operación.">Every month ended with a number. The useful work happened earlier, in the small changes that showed where the operation had started to drift.</span></p>
-</section>
-<section class="evidence">
-<div class="evidence-row"><div class="evidence-key"><span data-copy-en="What I watched" data-copy-es="Qué observaba">What I watched</span></div><div class="evidence-copy"><h3><span data-copy-en="Production, attendance, delivery, sales and guest follow-through" data-copy-es="Producción, asistencia, entregas, ventas y seguimiento al huésped">Production, attendance, delivery, sales and guest follow-through</span></h3><p><span data-copy-en="A photographer producing fewer sessions, unfinished deliveries or guests missing appointments could look separate. Together, they explained why a target was becoming harder to reach." data-copy-es="Un fotógrafo produciendo menos sesiones, entregas pendientes o huéspedes faltando a sus citas podían parecer problemas separados. Juntos explicaban por qué la meta empezaba a costar más.">A photographer producing fewer sessions, unfinished deliveries or guests missing appointments could look separate. Together, they explained why a target was becoming harder to reach.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key"><span data-copy-en="How I worked" data-copy-es="Cómo trabajaba">How I worked</span></div><div class="evidence-copy"><h3><span data-copy-en="Start with what falls outside the norm" data-copy-es="Empezar por lo que se salió de la norma">Start with what falls outside the norm</span></h3><p><span data-copy-en="I reviewed priorities, pending issues, events, updated targets and anything likely to disrupt the day. The goal was to resolve the unusual first, then set the commercial focus for the team." data-copy-es="Revisaba prioridades, pendientes, eventos, metas actualizadas y cualquier cosa que pudiera complicar el día. Primero resolvía lo fuera de norma y después delimitaba el enfoque comercial del equipo.">I reviewed priorities, pending issues, events, updated targets and anything likely to disrupt the day. The goal was to resolve the unusual first, then set the commercial focus for the team.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key"><span data-copy-en="Scale" data-copy-es="Escala">Scale</span></div><div class="evidence-copy"><h3><span data-copy-en="USD 40K–60K in monthly revenue targets achieved" data-copy-es="USD 40K–60K en metas mensuales alcanzadas">USD 40K–60K in monthly revenue targets achieved</span></h3><p><span data-copy-en="Managed resort photography operations handling roughly 200–250 guest transactions each month across three international assignments." data-copy-es="Gestioné operaciones de fotografía en resorts con aproximadamente 200–250 transacciones mensuales en tres asignaciones internacionales.">Managed resort photography operations handling roughly 200–250 guest transactions each month across three international assignments.</span></p></div></div>
-</section>
-</div>
-<div class="case-strip">
-<div class="case"><small><span data-copy-en="Pattern" data-copy-es="Patrón">Pattern</span></small><div><h4><span data-copy-en="Low production" data-copy-es="Producción baja">Low production</span></h4><p><span data-copy-en="Fewer guest approaches created fewer sessions, leaving the sales problem visible only after the opportunity had already been lost." data-copy-es="Menos acercamientos a huéspedes producían menos sesiones. El problema de ventas se volvía visible cuando la oportunidad ya se había perdido.">Fewer guest approaches created fewer sessions, leaving the sales problem visible only after the opportunity had already been lost.</span></p></div></div>
-<div class="case"><small><span data-copy-en="Response" data-copy-es="Respuesta">Response</span></small><div><h4><span data-copy-en="Adjust the mechanism" data-copy-es="Ajustar el mecanismo">Adjust the mechanism</span></h4><p><span data-copy-en="Sales approaches, coupons, staffing focus and daily priorities changed according to the variable causing the gap." data-copy-es="El approach de venta, los cupones, el enfoque del equipo y las prioridades diarias cambiaban según la variable que provocaba el atraso.">Sales approaches, coupons, staffing focus and daily priorities changed according to the variable causing the gap.</span></p></div></div>
-<div class="case"><small><span data-copy-en="Result" data-copy-es="Resultado">Result</span></small><div><h4><span data-copy-en="Problems became diagnosable" data-copy-es="El problema se podía diagnosticar">Problems became diagnosable</span></h4><p><span data-copy-en="Instead of stopping at “we are behind,” the operation could ask whether the cause was capture, ticket value, volume or follow-through." data-copy-es="En lugar de detenernos en “vamos atrasados”, podíamos preguntar si la causa era captación, ticket, volumen o seguimiento.">Instead of stopping at “we are behind,” the operation could ask whether the cause was capture, ticket value, volume or follow-through.</span></p></div></div>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="aligned">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Leadership" data-copy-es="Liderazgo">Leadership</span></div>
-<div class="chapter-summary"><span data-copy-en="Making the system visible." data-copy-es="Hacer visible la operación.">Making the system visible.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="capability">
-<section class="cap-intro">
-<span class="paper-label">Leadership · Cross-functional work</span>
-<h2><span data-copy-en="At first, I thought managing people meant telling them what to do." data-copy-es="Al principio pensé que dirigir personas significaba decirles qué hacer.">At first, I thought managing people meant telling them what to do.</span></h2>
-<p><span data-copy-en="The harder part was creating enough clarity for people to do the work without waiting for someone else to make it happen." data-copy-es="Lo difícil era crear suficiente claridad para que pudieran hacer su trabajo sin esperar a que alguien más hiciera que ocurriera.">The harder part was creating enough clarity for people to do the work without waiting for someone else to make it happen.</span></p>
-</section>
-<section class="evidence">
-<div class="evidence-row"><div class="evidence-key">The team</div><div class="evidence-copy"><h3><span data-copy-en="Photographers were the center of the operation" data-copy-es="Los fotógrafos eran el centro de la operación">Photographers were the center of the operation</span></h3><p><span data-copy-en="About half of my attention went to whether they were producing, selling, reporting and following the standard. When they were not, the useful question was what they lacked." data-copy-es="Cerca de la mitad de mi atención estaba en si producían, vendían, reportaban y seguían el estándar. Cuando no sucedía, la pregunta útil era qué les faltaba.">About half of my attention went to whether they were producing, selling, reporting and following the standard. When they were not, the useful question was what they lacked.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">The system</div><div class="evidence-copy"><h3><span data-copy-en="Guests experienced one result built by many people" data-copy-es="El huésped recibía un solo resultado construido por muchas personas">Guests experienced one result built by many people</span></h3><p><span data-copy-en="Weddings, concierges, hotel departments, corporate teams and photographers all affected the same delivery, often on different timelines." data-copy-es="Bodas, concierges, departamentos del hotel, corporativo y fotógrafos afectaban la misma entrega, muchas veces con tiempos distintos.">Weddings, concierges, hotel departments, corporate teams and photographers all affected the same delivery, often on different timelines.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">What changed</div><div class="evidence-copy"><h3><span data-copy-en="Jamaica made authority insufficient" data-copy-es="Jamaica hizo que la autoridad dejara de ser suficiente">Jamaica made authority insufficient</span></h3><p><span data-copy-en="Cultural differences made it clear that people needed a reason to follow, a clear role in the operation and a manager willing to acknowledge mistakes." data-copy-es="Las diferencias culturales hicieron evidente que las personas necesitaban una razón para seguirte, claridad sobre su papel y una manager dispuesta a reconocer sus errores.">Cultural differences made it clear that people needed a reason to follow, a clear role in the operation and a manager willing to acknowledge mistakes.</span></p></div></div>
-</section>
-</div>
-<div class="case-strip">
-<div class="case"><small>Recruitment</small><div><h4>Built the team when needed</h4><p>Started recruitment campaigns, interviewed candidates, trained new hires and handled onboarding.</p></div></div>
-<div class="case"><small>Coordination</small><div><h4>Kept moving parts visible</h4><p>Handled wedding changes, sick leave, hotel conflicts, delivery backlogs and service escalations while the day continued.</p></div></div>
-<div class="case"><small>Commercial recovery</small><div><h4>Resolved the issue without losing the sale</h4><p>Guest complaints sometimes ended in four-figure purchases once the concern, service limit and desired outcome were clear.</p></div></div>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="repeatable">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Systems" data-copy-es="Sistemas">Systems</span></div>
-<div class="chapter-summary"><span data-copy-en="Not starting from zero." data-copy-es="Para no empezar de cero.">Not starting from zero.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="capability">
-<section class="cap-intro">
-<span class="paper-label">Process design · Enablement</span>
-<h2><span data-copy-en="Before the spreadsheet, monthly planning lived in pencil on a memo pad." data-copy-es="Antes del spreadsheet, la planeación mensual vivía a lápiz en un memo pad.">Before the spreadsheet, monthly planning lived in pencil on a memo pad.</span></h2>
-<p><span data-copy-en="Each month meant rebuilding formulas, remembering assumptions and starting again. I wanted the next month to begin with what the previous one had already taught me." data-copy-es="Cada mes significaba reconstruir fórmulas, recordar supuestos y volver a empezar. Quería que el siguiente mes comenzara desde lo que el anterior ya me había enseñado.">Each month meant rebuilding formulas, remembering assumptions and starting again. I wanted the next month to begin with what the previous one had already taught me.</span></p>
-</section>
-<section class="evidence">
-<div class="evidence-row"><div class="evidence-key">Planning system</div><div class="evidence-copy"><h3><span data-copy-en="One view connected the variables behind revenue" data-copy-es="Una sola vista conectaba las variables detrás de la venta">One view connected the variables behind revenue</span></h3><p><span data-copy-en="Occupancy, contacts, sessions, capture rate, average ticket and sales could be translated into monthly, weekly and daily targets, then adjusted as the month changed." data-copy-es="Ocupación, contactos, sesiones, captación, ticket promedio y ventas se traducían en metas mensuales, semanales y diarias que podían ajustarse conforme avanzaba el mes.">Occupancy, contacts, sessions, capture rate, average ticket and sales could be translated into monthly, weekly and daily targets, then adjusted as the month changed.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">Recurring work</div><div class="evidence-copy"><h3><span data-copy-en="Knowledge moved out of memory" data-copy-es="El conocimiento dejó de depender de la memoria">Knowledge moved out of memory</span></h3><p><span data-copy-en="Daily photographer checklists, wedding interview templates, camera settings and editing presets reduced the need to remember or rebuild the same solution." data-copy-es="Checklists diarios, entrevistas de boda, ajustes de cámara y presets redujeron la necesidad de recordar o reconstruir la misma solución.">Daily photographer checklists, wedding interview templates, camera settings and editing presets reduced the need to remember or rebuild the same solution.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">What it changed</div><div class="evidence-copy"><h3><span data-copy-en="“We are behind” became a question with an answer" data-copy-es="“Vamos atrasados” se convirtió en una pregunta con respuesta">“We are behind” became a question with an answer</span></h3><p><span data-copy-en="The operation could identify whether the gap came from sales volume, ticket value, capture, production or another variable and adjust the plan before the month ended." data-copy-es="La operación podía identificar si el atraso venía del volumen de ventas, el ticket, la captación, la producción u otra variable y ajustar antes de terminar el mes.">The operation could identify whether the gap came from sales volume, ticket value, capture, production or another variable and adjust the plan before the month ended.</span></p></div></div>
-</section>
-</div>
-<div class="case-strip"><div class="case"><small><span data-copy-en="Monthly planning" data-copy-es="Planeación mensual">Monthly planning</span></small><div><h4><span data-copy-en="Located the variable behind the gap before setting the next commercial priority." data-copy-es="Encontrar la variable detrás del atraso antes de definir la siguiente prioridad comercial.">Located the variable behind the gap before setting the next commercial priority.</span></h4><p>Occupancy · Production · Capture · Average ticket · Revenue</p></div></div><div class="case"><small><span data-copy-en="Weekly adjustment" data-copy-es="Ajuste semanal">Weekly adjustment</span></small><div><h4><span data-copy-en="Translated the monthly target into decisions that could still change the result." data-copy-es="Traducir la meta mensual en decisiones que todavía podían cambiar el resultado.">Translated the monthly target into decisions that could still change the result.</span></h4><p>Progress · Gap · Priority · Action · Follow-up</p></div></div><div class="case"><small><span data-copy-en="Daily execution" data-copy-es="Ejecución diaria">Daily execution</span></small><div><h4><span data-copy-en="Made priorities, responsibilities and exceptions visible before the day became harder." data-copy-es="Hacer visibles prioridades, responsabilidades y excepciones antes de que el día se complicara.">Made priorities, responsibilities and exceptions visible before the day became harder.</span></h4><p>Staffing · Events · Sessions · Issues · Next day</p></div></div></div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="perception">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Representation" data-copy-es="Representación">Representation</span></div>
-<div class="chapter-summary"><span data-copy-en="When the image misses the place." data-copy-es="Cuando la imagen no alcanza al lugar.">When the image misses the place.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="capability">
-<section class="cap-intro">
-<span class="paper-label"><span data-copy-en="Hospitality · Brand · Photography" data-copy-es="Hospitalidad · Marca · Fotografía">Hospitality · Brand · Photography</span></span>
-<h2><span data-copy-en="The resorts were memorable. Their online presence often was not." data-copy-es="Los resorts eran memorables. Su presencia digital muchas veces no.">The resorts were memorable. Their online presence often was not.</span></h2>
-<p><span data-copy-en="I kept arriving at beautiful properties, then opening their websites and social channels and finding a version that missed what made the place worth remembering." data-copy-es="Seguía llegando a propiedades bellísimas y después abría sus páginas y redes para encontrar una versión que no captaba lo que hacía al lugar memorable.">I kept arriving at beautiful properties, then opening their websites and social channels and finding a version that missed what made the place worth remembering.</span></p>
-</section>
-<section class="evidence">
-<div class="evidence-row"><div class="evidence-key">The pattern</div><div class="evidence-copy"><h3><span data-copy-en="Different properties became difficult to distinguish online" data-copy-es="Propiedades distintas se volvían difíciles de distinguir en internet">Different properties became difficult to distinguish online</span></h3><p><span data-copy-en="The problem appeared across countries and brands. The photographs could be correct while still failing to communicate the experience." data-copy-es="El problema aparecía entre países y marcas. Las fotos podían ser correctas y aun así no comunicar la experiencia.">The problem appeared across countries and brands. The photographs could be correct while still failing to communicate the experience.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">The guest</div><div class="evidence-copy"><h3><span data-copy-en="Representation changed what people were willing to see" data-copy-es="La representación cambió lo que las personas estaban dispuestas a ver">Representation changed what people were willing to see</span></h3><p><span data-copy-en="Guests who said they hated being photographed often bought hundreds or thousands of dollars in images after the session helped them recognize themselves differently." data-copy-es="Huéspedes que decían odiar tomarse fotos terminaban comprando cientos o miles de dólares después de reconocerse de una forma distinta.">Guests who said they hated being photographed often bought hundreds or thousands of dollars in images after the session helped them recognize themselves differently.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">The work now</div><div class="evidence-copy"><h3><span data-copy-en="That observation became EXIF Studio" data-copy-es="Esa observación se convirtió en EXIF Studio">That observation became EXIF Studio</span></h3><p><span data-copy-en="EXIF studies the distance between what a place is and what a guest can perceive before booking." data-copy-es="EXIF estudia la distancia entre lo que un lugar es y lo que un huésped puede percibir antes de reservar.">EXIF studies the distance between what a place is and what a guest can perceive before booking.</span></p></div></div>
-</section>
-</div>
-<div class="case-strip">
-<div class="case"><small>Practice</small><div><h4><span data-copy-en="A photographer provokes something" data-copy-es="Un fotógrafo provoca algo">A photographer provokes something</span></h4><p><span data-copy-en="Observe. Identify. Compose. Capture. The camera records the final step." data-copy-es="Observa. Identifica. Compone. Captura. La cámara registra el último paso.">Observe. Identify. Compose. Capture. The camera records the final step.</span></p></div></div>
-<div class="case"><small>Publication</small><div><h4>Observation 01</h4><p>Places are compared through the fragments available before arrival.</p></div></div>
-<div class="case"><small>Independent work</small><div><h4>EXIF Studio</h4><p>Research, writing and visual direction for place-led hospitality.</p></div></div>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="argument">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Research" data-copy-es="Investigación">Research</span></div>
-<div class="chapter-summary"><span data-copy-en="Finding what does not fit." data-copy-es="Encontrar lo que no cuadra.">Finding what does not fit.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="capability">
-<section class="cap-intro">
-<span class="paper-label"><span data-copy-en="Research · Strategy · Writing" data-copy-es="Investigación · Estrategia · Escritura">Research · Strategy · Writing</span></span>
-<h2><span data-copy-en="Something usually stops making sense before I know why." data-copy-es="Algo suele dejar de tener sentido antes de que yo sepa por qué.">Something usually stops making sense before I know why.</span></h2>
-<p><span data-copy-en="A button does not work. A paragraph says something adjacent to what it should say. A photograph feels uncomfortable. The first useful response is usually: what, exactly, is wrong here?" data-copy-es="Un botón no funciona. Un párrafo dice algo cercano, pero no lo que debería. Una foto se siente incómoda. La primera respuesta útil suele ser: ¿qué exactamente no está funcionando aquí?">A button does not work. A paragraph says something adjacent to what it should say. A photograph feels uncomfortable. The first useful response is usually: what, exactly, is wrong here?</span></p>
-</section>
-<section class="evidence">
-<div class="evidence-row"><div class="evidence-key">Starting point</div><div class="evidence-copy"><h3><span data-copy-en="Begin with the outcome" data-copy-es="Empezar por el resultado">Begin with the outcome</span></h3><p><span data-copy-en="I define what the work needs to make possible, then test what prevents the current version from getting there." data-copy-es="Defino qué debe hacer posible el trabajo y después pruebo qué impide que la versión actual llegue ahí.">I define what the work needs to make possible, then test what prevents the current version from getting there.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">Standard</div><div class="evidence-copy"><h3><span data-copy-en="“Sufficient” is not useful when the meaning is still unclear" data-copy-es="“Suficiente” no sirve cuando el significado sigue sin estar claro">“Sufficient” is not useful when the meaning is still unclear</span></h3><p><span data-copy-en="I keep working when the message, interface, photograph or system leaves room for the wrong interpretation." data-copy-es="Sigo trabajando cuando el mensaje, la interfaz, la fotografía o el sistema todavía permiten una interpretación equivocada.">I keep working when the message, interface, photograph or system leaves room for the wrong interpretation.</span></p></div></div>
-<div class="evidence-row"><div class="evidence-key">Independent evidence</div><div class="evidence-copy"><h3>The same method appears across different formats</h3><p>EXIF research, Observation 01, operational playbooks, application systems and writing frameworks all began with an outcome that the first version could not yet produce.</p></div></div>
-</section>
-</div>
-<div class="case-strip">
-<div class="case"><small>Research</small><div><h4>Find what is actually happening</h4><p>Separate the observable problem from the first explanation attached to it.</p></div></div>
-<div class="case"><small>Writing</small><div><h4>Make the intended meaning easier to reach</h4><p>Remove the language that sounds complete while leaving the point unclear.</p></div></div>
-<div class="case"><small>Direction</small><div><h4>Move the work toward a defined outcome</h4><p>Clarity comes from knowing what the reader, guest or team needs to understand next.</p></div></div>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-<details class="chapter" id="appendix">
-<summary class="chapter-head">
-<div class="chapter-title"><span data-copy-en="Contact" data-copy-es="Contacto">Contact</span></div>
-<div class="chapter-summary"><span data-copy-en="Timeline, selected work and direct contact." data-copy-es="Trayectoria, trabajo seleccionado y contacto directo.">Timeline, selected work and direct contact.</span></div>
-<div class="toggle">+</div>
-</summary>
-<div class="page">
-<div class="page-inner">
-<div class="appendix">
-<section>
-<span class="paper-label"><span data-copy-en="Chronological record" data-copy-es="Trayectoria cronológica">Chronological record</span></span>
-<h2><span data-copy-en="Career timeline" data-copy-es="Trayectoria profesional">Career timeline</span></h2>
-<div class="timeline">
-<div class="timeline-row"><div class="timeline-date">2025–2026</div><div class="timeline-copy"><strong>Lead Operations &amp; Sales Manager</strong><span>PhotoPro · Royalton Saint Lucia</span></div></div>
-<div class="timeline-row"><div class="timeline-date">2024–2025</div><div class="timeline-copy"><strong>Operations &amp; Sales Manager</strong><span>PhotoPro · Jamaica and Grenada</span></div></div>
-<div class="timeline-row"><div class="timeline-date">2023–2024</div><div class="timeline-copy"><strong>Resort Photographer &amp; Team Lead</strong><span>PhotoPro · Mexico and Saint Lucia</span></div></div>
-<div class="timeline-row"><div class="timeline-date">2025–Present</div><div class="timeline-copy"><strong>Founder</strong><span>EXIF Studio</span></div></div>
-<div class="timeline-row"><div class="timeline-date">2021–2022</div><div class="timeline-copy"><strong>Film, Television &amp; Media Studies</strong><span>CENTRO · Mexico City</span></div></div>
-</div>
-</section>
-<section>
-<span class="paper-label"><span data-copy-en="References and contact" data-copy-es="Trabajo y contacto">References and contact</span></span>
-<h2><span data-copy-en="Continue reading" data-copy-es="Seguir explorando">Continue</span></h2>
-<div class="reference-grid">
-<a class="reference" href="#"><small><span data-copy-en="Profile" data-copy-es="Perfil">Profile</span></small><strong>LinkedIn</strong><span>Open</span></a>
-<a class="reference" href="mailto:pmtzk@icloud.com"><small><span data-copy-en="Direct" data-copy-es="Directo">Direct</span></small><strong>pmtzk@icloud.com</strong><span>Open</span></a>
-<a class="reference" href="#"><small><span data-copy-en="Selected work" data-copy-es="Trabajo seleccionado">Selected work</span></small><strong>EXIF Studio</strong><span>Open</span></a>
-</div>
-</section>
-</div>
-</div>
-<div aria-hidden="true" class="chapter-end-trigger"></div></div>
-</details>
-</section>
-</main>
-</div>
-<script>
-const chapters = [...document.querySelectorAll('details.chapter')];
-const progressFill = document.querySelector('.auto-progress span');
-const languageButtons = [...document.querySelectorAll('[data-lang-choice]')];
+<body>
+  <a class="skip-link" href="#contents">Skip to contents</a>
 
-let activeChapter = chapters.find(chapter => chapter.open) || chapters[0];
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="page-wipe" aria-hidden="true">
+    <div class="page-wipe__panel page-wipe__panel--left"></div>
+    <div class="page-wipe__panel page-wipe__panel--right"></div>
+  </div>
 
-function setLanguage(language) {
-  document.documentElement.lang = language;
+  <header class="masthead" data-tone="dark">
+    <a class="masthead__name" href="#cover" aria-label="Back to cover">Katia E. Pérez</a>
+    <div class="masthead__edition">Professional record · 2026</div>
+    <div class="masthead__actions">
+<button class="index-toggle" type="button" aria-expanded="false" aria-controls="index-panel">
+        <span>Index</span>
+        <span class="index-toggle__mark" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
 
-  document.querySelectorAll('[data-copy-en]').forEach(node => {
-    node.textContent = language === 'es'
-      ? node.dataset.copyEs
-      : node.dataset.copyEn;
-  });
+  <aside class="folio-nav" aria-label="Chapter progress">
+    <span class="folio-nav__current">00</span>
+    <span class="folio-nav__rule"></span>
+    <span class="folio-nav__total">06</span>
+  </aside>
 
-  languageButtons.forEach(button => {
-    button.setAttribute(
-      'aria-pressed',
-      String(button.dataset.langChoice === language)
-    );
-  });
+  <div class="index-panel" id="index-panel" aria-hidden="true">
+    <div class="index-panel__meta">
+      <span>A professional record in six chapters</span>
+      <span>Mexico City · 2026</span>
+    </div>
+    <nav class="index-panel__nav" aria-label="Full chapter index">
+      <a href="#operations" data-chapter-link><span>01</span><strong>Operations</strong><em>Seeing the first change</em></a>
+      <a href="#leadership" data-chapter-link><span>02</span><strong>Leadership</strong><em>Making the whole visible</em></a>
+      <a href="#systems" data-chapter-link><span>03</span><strong>Systems</strong><em>Keeping what was learned</em></a>
+      <a href="#representation" data-chapter-link><span>04</span><strong>Representation</strong><em>Closing the distance</em></a>
+      <a href="#research" data-chapter-link><span>05</span><strong>Research</strong><em>Finding what does not fit</em></a>
+      <a href="#record" data-chapter-link><span>06</span><strong>Record</strong><em>The evidence behind the method</em></a>
+    </nav>
+    <div class="index-panel__footer">
+      <a href="mailto:pmtzk@icloud.com">pmtzk@icloud.com</a>
+      <a href="https://exif.studio" target="_blank" rel="noreferrer">EXIF Studio</a>
+    </div>
+  </div>
 
-  localStorage.setItem('pmtzk-language', language);
-}
+  <main>
+    <section class="cover tone-dark" id="cover" data-chapter="00" data-masthead-tone="dark">
+      <div class="cover__edition" aria-hidden="true">2026</div>
+      <div class="cover__title" data-parallax>
+        <span>Katia</span>
+        <span>Pérez.</span>
+      </div>
+      <div class="cover__grid">
+        <p class="cover__field"><span>Observe.</span><span>Analyze.</span><span>Execute.</span></p>
+        <p class="cover__intro">My work developed inside resort operations, where commercial performance, guest experience and execution had to function as one system.</p>
+        <p class="cover__thesis">I notice what changed, make the system visible, and decide what needs attention next.</p>
+        <a class="cover__enter" href="#contents" data-chapter-link>
+          <span>Enter the record</span>
+          <span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span>
+        </a>
+      </div>
+    </section>
 
-languageButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    setLanguage(button.dataset.langChoice);
-  });
-});
+    <section class="contents tone-cream" id="contents" data-chapter="00" data-masthead-tone="cream">
+      <header class="section-header reveal">
+        <span class="kicker">Contents</span>
+        <h1>Six chapters. One way of working.</h1>
+        <p>Each chapter isolates one recurring instinct: observe, connect, structure, interpret, investigate, deliver.</p>
+      </header>
 
-setLanguage(localStorage.getItem('pmtzk-language') || 'en');
+      <nav class="contents__list" aria-label="Chapters">
+        <a href="#operations" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">01</span>
+          <span class="contents__title">Operations</span>
+          <span class="contents__note">Seeing the first change</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+        <a href="#leadership" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">02</span>
+          <span class="contents__title">Leadership</span>
+          <span class="contents__note">Making the whole visible</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+        <a href="#systems" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">03</span>
+          <span class="contents__title">Systems</span>
+          <span class="contents__note">Keeping what was learned</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+        <a href="#representation" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">04</span>
+          <span class="contents__title">Representation</span>
+          <span class="contents__note">Closing the distance</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+        <a href="#research" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">05</span>
+          <span class="contents__title">Research</span>
+          <span class="contents__note">Finding what does not fit</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+        <a href="#record" data-chapter-link class="contents__row reveal">
+          <span class="contents__number">06</span>
+          <span class="contents__title">Record</span>
+          <span class="contents__note">The evidence behind the method</span>
+          <span class="contents__arrow motion-cue motion-cue--corner" aria-hidden="true"><i></i></span>
+        </a>
+      </nav>
+    </section>
 
-function closeChapter(chapter) {
-  chapter.removeAttribute('open');
-}
+    <article class="chapter tone-dark" id="operations" data-chapter="01" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">01</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Operations · Commercial performance</span>
+          <h2>I look for the first thing that moved.</h2>
+          <p>Revenue is usually the last visible consequence. The useful signal appears earlier, somewhere inside the operation.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#operations-room" aria-label="Continue through Operations"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-function moveToChapterStart(chapter) {
-  /*
-    Closing the previous chapter changes the document height.
-    Wait for that reflow, then place the newly opened chapter
-    at the beginning of the viewport.
-  */
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const mobileOffset = window.innerWidth <= 1000 ? 56 : 8;
-      const destination =
-        chapter.getBoundingClientRect().top +
-        window.scrollY -
-        mobileOffset;
+      <section class="room room--diagnostic" id="operations-room">
+        <header class="room__label reveal">
+          <span>Room 01 · Diagnostic instinct</span>
+          <p>Move through the chain. The commercial result changes last.</p>
+        </header>
+        <div class="diagnostic reveal">
+          <div class="diagnostic__statement" aria-live="polite">
+            <span class="diagnostic__ordinal">01</span>
+            <p data-diagnostic-output>Attention falls before contact volume does.</p>
+          </div>
+          <div class="diagnostic__chain" role="list">
+            <button type="button" class="diagnostic__item is-active" data-index="01" data-copy="Attention falls before contact volume does."><span>01</span><strong>Attention</strong></button>
+            <button type="button" class="diagnostic__item" data-index="02" data-copy="Fewer approaches reduce the number of sessions created."><span>02</span><strong>Contact</strong></button>
+            <button type="button" class="diagnostic__item" data-index="03" data-copy="Session volume changes the number of commercial opportunities."><span>03</span><strong>Production</strong></button>
+            <button type="button" class="diagnostic__item" data-index="04" data-copy="Follow-through determines how many opportunities remain alive."><span>04</span><strong>Follow-through</strong></button>
+            <button type="button" class="diagnostic__item" data-index="05" data-copy="Revenue records the accumulated effect of everything before it."><span>05</span><strong>Revenue</strong></button>
+          </div>
+        </div>
+        <div class="room__footnote reveal">
+          <p>This is how a monthly target became a daily decision: identify the variable, choose the intervention, watch what changes next.</p>
+          <strong>40–60K USD</strong>
+          <span>monthly target range across operating periods</span>
+        </div>
+      </section>
+    </article>
 
-      window.scrollTo({
-        top: Math.max(0, destination),
-        behavior: 'smooth'
-      });
-    });
-  });
-}
+    <article class="chapter tone-cream" id="leadership" data-chapter="02" data-masthead-tone="cream">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">02</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Leadership · Cross-functional work</span>
+          <h2>People move when they can see their place in the whole.</h2>
+          <p>The work was to create enough clarity for photographers, hotel teams and guests to move through the same day without losing the shared result.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#leadership-room" aria-label="Continue through Leadership"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-function openChapter(chapter, shouldAlign = false) {
-  if (!chapter) return;
+      <section class="room room--constellation" id="leadership-room">
+        <header class="room__label reveal">
+          <span>Room 02 · Shared outcome</span>
+          <p>Select a participant to see what the system needed to make possible.</p>
+        </header>
 
-  chapters.forEach(other => {
-    if (other !== chapter) closeChapter(other);
-  });
+        <div class="constellation reveal" data-constellation>
+          <svg class="constellation__lines" viewBox="0 0 1000 610" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="500" y1="305" x2="185" y2="130" data-line="team"></line>
+            <line x1="500" y1="305" x2="820" y2="125" data-line="hotel"></line>
+            <line x1="500" y1="305" x2="835" y2="485" data-line="guest"></line>
+            <line x1="500" y1="305" x2="170" y2="490" data-line="delivery"></line>
+          </svg>
+          <button type="button" class="constellation__node constellation__node--team" data-node="team" data-copy="The team needed priorities, standards, feedback and room to act."><span>Team</span></button>
+          <button type="button" class="constellation__node constellation__node--hotel" data-node="hotel" data-copy="Hotel teams needed reliable coordination across events, service and timing."><span>Hotel</span></button>
+          <button type="button" class="constellation__node constellation__node--guest" data-node="guest" data-copy="Guests needed one coherent experience, even when many people shaped it."><span>Guest</span></button>
+          <button type="button" class="constellation__node constellation__node--delivery" data-node="delivery" data-copy="The delivery needed ownership, follow-through and decisions made in time."><span>Delivery</span></button>
+          <div class="constellation__center">
+            <span>Shared result</span>
+            <p data-constellation-output>Clarity lets the system move without waiting for one person to carry it.</p>
+          </div>
+        </div>
+        <div class="room__footnote room__footnote--split reveal">
+          <p>Across four countries, authority was never enough on its own. Trust came from understanding the environment, explaining the reason, and staying accountable for the result.</p>
+          <div><strong>16</strong><span>professionals trained</span></div>
+          <div><strong>4</strong><span>countries</span></div>
+        </div>
+      </section>
+    </article>
 
-  chapter.setAttribute('open', '');
-  activeChapter = chapter;
-  history.replaceState(null, '', `#${chapter.id}`);
+    <article class="chapter tone-dark" id="systems" data-chapter="03" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">03</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Systems · Process design</span>
+          <h2>The next month should begin with what the last one already taught us.</h2>
+          <p>Recurring work becomes lighter when decisions, standards and assumptions move out of memory and into a system.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#systems-room" aria-label="Continue through Systems"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-  if (shouldAlign) {
-    moveToChapterStart(chapter);
-  }
-}
+      <section class="room room--system" id="systems-room">
+        <header class="room__label reveal">
+          <span>Room 03 · From memory to method</span>
+          <p>Change the state of the room.</p>
+        </header>
 
-chapters.forEach(chapter => {
-  const summary = chapter.querySelector('summary');
+        <div class="system-carousel reveal" data-system-carousel aria-roledescription="carousel" aria-label="From memory to method">
+          <div class="system-carousel__header">
+            <div class="system-carousel__tabs" role="tablist" aria-label="System scenes">
+              <button type="button" class="is-active" role="tab" aria-selected="true" data-system-slide="0">In memory</button>
+              <button type="button" role="tab" aria-selected="false" data-system-slide="1">In a system</button>
+            </div>
+            <div class="system-carousel__navigation">
+              <button type="button" class="carousel-control carousel-control--previous" data-system-previous aria-label="Previous scene"><span aria-hidden="true"><i></i></span></button>
+              <span class="system-carousel__count" aria-live="polite"><b data-system-current>01</b><i></i><span>02</span></span>
+              <button type="button" class="carousel-control carousel-control--next" data-system-next aria-label="Next scene"><span aria-hidden="true"><i></i></span></button>
+            </div>
+          </div>
+          <div class="system-carousel__viewport" data-system-viewport>
+            <div class="system-carousel__track" data-system-track>
+              <section class="system-slide system-slide--memory" role="tabpanel" aria-label="In memory">
+                <div class="system-slide__stage system-slide__stage--memory">
+                  <div class="system-card card-a"><span>01</span><strong>Occupancy</strong><small>monthly assumption</small></div>
+                  <div class="system-card card-b"><span>02</span><strong>Contacts</strong><small>daily target</small></div>
+                  <div class="system-card card-c"><span>03</span><strong>Sessions</strong><small>production</small></div>
+                  <div class="system-card card-d"><span>04</span><strong>Capture</strong><small>conversion</small></div>
+                  <div class="system-card card-e"><span>05</span><strong>Average ticket</strong><small>commercial quality</small></div>
+                  <div class="system-card card-f"><span>06</span><strong>Revenue</strong><small>result</small></div>
+                </div>
+                <p class="system-slide__caption">The operation depends on remembering the logic again every month.</p>
+              </section>
+              <section class="system-slide system-slide--method" role="tabpanel" aria-label="In a system" aria-hidden="true">
+                <div class="system-slide__stage system-slide__stage--method">
+                  <div class="system-card"><span>01</span><strong>Occupancy</strong><small>monthly assumption</small></div>
+                  <div class="system-card"><span>02</span><strong>Contacts</strong><small>daily target</small></div>
+                  <div class="system-card"><span>03</span><strong>Sessions</strong><small>production</small></div>
+                  <div class="system-card"><span>04</span><strong>Capture</strong><small>conversion</small></div>
+                  <div class="system-card"><span>05</span><strong>Average ticket</strong><small>commercial quality</small></div>
+                  <div class="system-card"><span>06</span><strong>Revenue</strong><small>result</small></div>
+                </div>
+                <p class="system-slide__caption">The relationships remain visible, so attention can move to the variable that changed.</p>
+              </section>
+            </div>
+          </div>
+          <div class="system-carousel__progress" aria-hidden="true"><span data-system-progress></span></div>
+        </div>
 
-  summary.addEventListener('click', event => {
-    event.preventDefault();
+        <div class="room__footnote reveal">
+          <p>Planning sheets, checklists, interview templates and presets preserved useful decisions so the team could spend attention on the exception.</p>
+          <strong>Less rebuilding.</strong>
+          <span>More attention available for the work that changed.</span>
+        </div>
+      </section>
+    </article>
 
-    if (chapter.open) {
-      closeChapter(chapter);
+    <article class="chapter tone-cream" id="representation" data-chapter="04" data-masthead-tone="cream">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">04</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Representation · Visual judgment</span>
+          <h2>A place can be remarkable and still appear ordinary before arrival.</h2>
+          <p>Working inside resorts made the distance between lived experience and online perception impossible to ignore.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#representation-room" aria-label="Continue through Representation"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-      if (activeChapter === chapter) {
-        activeChapter = null;
-      }
+      <section class="room room--representation" id="representation-room">
+        <header class="room__label reveal">
+          <span>Room 04 · Perception before arrival</span>
+          <p>Two versions of the same place, held in view at once.</p>
+        </header>
 
-      history.replaceState(
-        null,
-        '',
-        location.pathname + location.search
-      );
+        <div class="perception perception--static reveal">
+          <div class="perception__layer perception__layer--place">
+            <span class="perception__micro">What exists</span>
+            <p>Quiet mornings. Staff who remember a name. A particular quality of light. The pace of the property. The feeling that remains after departure.</p>
+          </div>
+          <div class="perception__layer perception__layer--representation">
+            <span class="perception__micro">What can be perceived</span>
+            <p>A room type. A pool. A rating. Amenities. A price. Fragments that make distinct places easy to compare and difficult to remember.</p>
+          </div>
+        </div>
 
-      return;
-    }
+        <div class="room__footnote reveal">
+          <p>That observation became EXIF Studio: research, writing and visual direction focused on the distance between what a place is and what a guest can perceive before booking.</p>
+          <a class="text-link text-link--external" href="https://exif.studio" target="_blank" rel="noreferrer"><span>Visit EXIF Studio</span><span class="external-cue" aria-hidden="true"><i></i></span></a>
+        </div>
+      </section>
+    </article>
 
-    /*
-      Open by click:
-      1. close the previous chapter
-      2. open this chapter
-      3. move to this chapter's beginning after the layout changes
-    */
-    openChapter(chapter, true);
-  });
-});
+    <article class="chapter tone-dark" id="research" data-chapter="05" data-masthead-tone="dark">
+      <section class="chapter-threshold">
+        <span class="chapter-threshold__number" aria-hidden="true">05</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Research · Strategy · Writing</span>
+          <h2>Something stops making sense before I know why.</h2>
+          <p>The first step is to resist the convenient explanation and locate the exact point where meaning, behavior or outcome breaks.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#research-room" aria-label="Continue through Research"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-function updateProgress() {
-  if (!progressFill) return;
+      <section class="room room--inspection" id="research-room">
+        <header class="room__label reveal">
+          <span>Room 05 · Inspection</span>
+          <p>One sentence is almost right. Inspect the word that changes its meaning.</p>
+        </header>
 
-  const maximum =
-    document.documentElement.scrollHeight - window.innerHeight;
+        <div class="inspection reveal" data-inspection>
+          <p class="inspection__sentence">
+            <span>The interface is complete when every element is</span>
+            <button type="button" class="inspection__word" aria-expanded="false" data-inspection-word>
+              <span>present</span>
+            </button><span>.</span>
+          </p>
+          <div class="inspection__drawer" data-inspection-drawer>
+            <span class="inspection__wrong">Present</span>
+            <span class="inspection__becomes" aria-hidden="true"><i></i></span>
+            <span class="inspection__right">Understood</span>
+            <p>Completion is an inventory. Clarity is an outcome. The work continues until the intended meaning is the easiest one to reach.</p>
+          </div>
+        </div>
 
-  const percentage =
-    maximum > 0
-      ? (window.scrollY / maximum) * 100
-      : 0;
+        <div class="research-method reveal">
+          <div><span>01</span><strong>Observe</strong><p>Separate what happened from the explanation already attached to it.</p></div>
+          <div><span>02</span><strong>Define</strong><p>Name the outcome the work must make possible.</p></div>
+          <div><span>03</span><strong>Test</strong><p>Find the condition preventing the current version from reaching it.</p></div>
+          <div><span>04</span><strong>Refine</strong><p>Keep working until the intended meaning survives contact with reality.</p></div>
+        </div>
+      </section>
+    </article>
 
-  progressFill.style.width =
-    `${Math.min(100, Math.max(0, percentage))}%`;
-}
+    <article class="chapter tone-cream" id="record" data-chapter="06" data-masthead-tone="cream">
+      <section class="chapter-threshold chapter-threshold--record">
+        <span class="chapter-threshold__number" aria-hidden="true">06</span>
+        <div class="chapter-threshold__copy reveal">
+          <span class="kicker">Professional record · Evidence</span>
+          <h2>The method was built in motion.</h2>
+          <p>Three years across resort operations in Mexico and the Caribbean turned observation, coordination and commercial judgment into a repeatable way of working.</p>
+        </div>
+        <a class="chapter-threshold__down" href="#record-room" aria-label="Continue through Professional Record"><span class="motion-cue motion-cue--down" aria-hidden="true"><i></i></span></a>
+      </section>
 
-window.addEventListener('scroll', updateProgress, { passive: true });
-window.addEventListener('resize', updateProgress);
+      <section class="record-room" id="record-room">
+        <div class="record-room__metrics reveal">
+          <div><strong>40–60K</strong><span>USD monthly targets</span></div>
+          <div><strong>10–15</strong><span>weddings coordinated monthly</span></div>
+          <div><strong>6</strong><span>resorts</span></div>
+          <div><strong>4</strong><span>countries</span></div>
+        </div>
 
-const hashTarget = location.hash
-  ? document.querySelector(location.hash)
-  : null;
+        <div class="timeline reveal">
+          <div class="timeline__heading">
+            <span class="kicker">PhotoPro · 2023–2026</span>
+            <p>Promoted five times to take over, structure and develop commercial operations across Caribbean resorts.</p>
+          </div>
+          <ol>
+            <li><time>2025–2026</time><div><strong>Lead Operations & Sales Manager</strong><span>Royalton Saint Lucia · Saint Lucia</span></div></li>
+            <li><time>2024–2025</time><div><strong>Operations & Sales Manager</strong><span>RIU Palace Aquarelle · Royalton Negril · Royalton Grenada</span></div></li>
+            <li><time>2023–2024</time><div><strong>Resort Photographer & Team Lead</strong><span>Catalonia Playa Maroma · Royalton Saint Lucia</span></div></li>
+            <li><time>2025–Present</time><div><strong>Founder</strong><span>EXIF Studio</span></div></li>
+          </ol>
+        </div>
+      </section>
+    </article>
 
-if (hashTarget && hashTarget.matches('details.chapter')) {
-  openChapter(hashTarget, false);
-} else if (activeChapter) {
-  openChapter(activeChapter, false);
-}
+    <footer class="closing tone-dark" id="contact" data-chapter="06" data-masthead-tone="dark">
+      
+      <div class="closing__copy reveal">
+        <span class="kicker">End of record · Beginning of conversation</span>
+        <h2>The next chapter is open.</h2>
+        <p>Mexico City. Open to remote, hybrid and international opportunities across hospitality, partnerships, commercial operations and creative production.</p>
+      </div>
+      <div class="closing__links reveal">
+        <a href="mailto:pmtzk@icloud.com"><span>Email</span><strong>pmtzk@icloud.com</strong></a>
+        <a href="https://exif.studio" target="_blank" rel="noreferrer"><span>Independent work</span><strong>EXIF Studio</strong></a>
+        <a href="#cover" data-chapter-link><span>Return</span><strong>Back to cover</strong></a>
+      </div>
+      <div class="closing__wordmark" aria-hidden="true">Katia Pérez.</div>
+    </footer>
+  </main>
 
-updateProgress();
-</script>
+  <script src="app.js"></script>
 </body>
 </html>
